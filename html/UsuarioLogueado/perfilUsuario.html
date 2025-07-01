@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframes - Plataforma de Aprendizaje y Proyectos</title>
+    <link rel="stylesheet" href="../../css/stylos.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="wireframe" id="perfil">
+            <h2>🧑‍💼 4. Perfil de Usuario</h2>
+            
+            <!-- Header -->
+            <div class="header">
+                <div style="font-weight: bold;">[LOGO]</div>
+                <div class="nav">
+                    <div class="nav-item">Inicio</div>
+                    <div class="nav-item">Cursos</div>
+                    <div class="nav-item">Proyectos</div>
+                    <div class="nav-item">Ranking</div>
+                    <div class="nav-item" style="background: #333; color: white;">Mi Perfil</div>
+                </div>
+            </div>
+
+            <!-- Header del perfil -->
+            <div class="profile-header">
+                <div class="avatar">👨‍💻</div>
+                <div>
+                    <h2>Juan Pérez</h2>
+                    <p><strong>Email:</strong> juan.perez@email.com</p>
+                    <p><strong>País:</strong> Argentina</p>
+                    <p><strong>Ranking:</strong> #24 en Desarrollo Web</p>
+                    <button class="btn">Editar perfil</button>
+                </div>
+            </div>
+
+            <!-- Bio -->
+            <div class="section">
+                <h3>Acerca de mí</h3>
+                <p>Estudiante de Ingeniería en Sistemas con pasión por el desarrollo web y la tecnología educativa. Me interesa especialmente el frontend y la experiencia de usuario. Busco ganar experiencia práctica en proyectos reales.</p>
+                <p><strong>Intereses:</strong> React, JavaScript, UX/UI, Educación Digital, Startups</p>
+            </div>
+
+            <!-- Cursos realizados -->
+            <div class="section">
+                <h3>Cursos completados</h3>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <div style="background: #e8f4f8; padding: 10px 15px; border-radius: 5px; display: flex; align-items: center; gap: 8px;">
+                        <span style="background: #28a745; color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 12px;">✓</span>
+                        React Básico
+                    </div>
+                    <div style="background: #e8f4f8; padding: 10px 15px; border-radius: 5px; display: flex; align-items: center; gap: 8px;">
+                        <span style="background: #28a745; color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 12px;">✓</span>
+                        JavaScript Avanzado
+                    </div>
+                    <div style="background: #e8f4f8; padding: 10px 15px; border-radius: 5px; display: flex; align-items: center; gap: 8px;">
+                        <span style="background: #28a745; color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 12px;">✓</span>
+                        Figma para Principiantes
+                    </div>
+                    <div style="background: #fff3cd; padding: 10px 15px; border-radius: 5px; display: flex; align-items: center; gap: 8px;">
+                        <span style="background: #ffc107; color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 12px;">↻</span>
+                        Node.js Intermedio (En curso)
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proyectos participados -->
+            <div class="section">
+                <h3>Proyectos participados</h3>
+                <div class="grid">
+                    <div class="card">
+                        <div class="card-header">App Educativa - ONG EduTech</div>
+                        <p><strong>Rol:</strong> Frontend Developer</p>
+                        <p><strong>Estado:</strong> Completado ✅</p>
+                        <p>Desarrollé la interfaz de usuario para una plataforma educativa infantil usando React...</p>
+                        <button class="btn" style="width: 100%; margin-top: 10px;">Ver detalles</button>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">E-commerce Verde - Tienda Verde</div>
+                        <p><strong>Rol:</strong> Full Stack Developer</p>
+                        <p><strong>Estado:</strong> En curso 🔄</p>
+                        <p>Implementando sistema de carrito y pasarela de pagos para e-commerce sostenible...</p>
+                        <button class="btn" style="width: 100%; margin-top: 10px;">Ver detalles</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Portfolio -->
+            <div class="section">
+                <h3>Portfolio</h3>
+                <p>Tu portfolio incluye todos los proyectos completados con detalles técnicos, tecnologías utilizadas y resultados obtenidos.</p>
+                <div style="text-align: center; margin: 20px 0;">
+                    <button class="btn btn-primary">Descargar Portfolio PDF</button>
+                    <button class="btn">Ver Portfolio Online</button>
+                </div>
+            </div>
+
+            <!-- Estadísticas -->
+            <h3>Mis estadísticas</h3>
+
+            <div class="section" style="background: #f8f9fa;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; text-align: center;">
+                    <div>
+                        <h2 style="color: #862a2a;">3</h2>
+                        <p>Cursos completados</p>
+                    </div>
+                    <div>
+                        <h2 style="color: #862a2a;">2</h2>
+                        <p>Proyectos participados</p>
+                    </div>
+                    <div>
+                        <h2 style="color: #862a2a;">#24</h2>
+                        <p>Posición en ranking</p>
+                    </div>
+                    <div>
+                        <h2 style="color: #862a2a;">95%</h2>
+                        <p>Tasa de finalización</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <p>Redes Sociales | Contacto | Acerca de | Términos y Condiciones</p>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframes - Plataforma de Aprendizaje y Proyectos</title>
+    <link rel="stylesheet" href="../../css/stylos.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="wireframe" id="postulacion">
+            <h2>📄 6. Formulario de Postulación (simulado)</h2>
+            
+            <!-- Header -->
+            <div class="header">
+                <div style="font-weight: bold;">[LOGO]</div>
+                <div class="nav">
+                    <div class="nav-item">Inicio</div>
+                    <div class="nav-item">Cursos</div>
+                    <div class="nav-item">Proyectos</div>
+                    <div class="nav-item">Ranking</div>
+                    <div class="nav-item">Mi Perfil</div>
+                </div>
+            </div>
+
+            <!-- Información del proyecto -->
+            <div class="section" style="background: #e8f4f8;">
+                <h3>Postulándote para:</h3>
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div style="width: 60px; height: 60px; border: 1px solid #ccc; display: flex; align-items: center; justify-content: center;">[LOGO]</div>
+                    <div>
+                        <h4>Plataforma de Aprendizaje Infantil</h4>
+                        <p><strong>ONG EduTech</strong> | Rol: Frontend Developer</p>
+                        <p>Tecnología - Educación</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formulario -->
+            <div class="section">
+                <h3>Datos de postulación</h3>
+                <form style="max-width: 600px;">
+                    <div class="form-field">
+                        <label>Nombre completo *</label>
+                        <input type="text" placeholder="Ingresá tu nombre completo" value="Juan Pérez" readonly>
+                    </div>
+
+                    <div class="form-field">
+                        <label>Email *</label>
+                        <input type="email" placeholder="tu@email.com" value="juan.perez@email.com" readonly>
+                    </div>
+
+                    <div class="form-field">
+                        <label>Rol al que te postulas *</label>
+                        <select>
+                            <option>Frontend Developer</option>
+                            <option>Backend Developer</option>
+                            <option>Game Designer</option>
+                        </select>
+                    </div>
+
+                    <div class="form-field">
+                        <label>¿Por qué querés participar en este proyecto? *</label>
+                        <textarea rows="6" placeholder="Contanos sobre tu motivación, experiencia relevante y qué podés aportar al proyecto..."></textarea>
+                    </div>
+
+                    <div class="form-field">
+                        <label>Experiencia relevante</label>
+                        <textarea rows="4" placeholder="Describí tu experiencia previa relacionada con este tipo de proyectos..."></textarea>
+                    </div>
+
+                    <div class="form-field">
+                        <label>Disponibilidad horaria semanal *</label>
+                        <select>
+                            <option>5-10 horas</option>
+                            <option>10-15 horas</option>
+                            <option>15-20 horas</option>
+                            <option>Más de 20 horas</option>
+                        </select>
+                    </div>
+
+                    <div class="form-field">
+                        <label>
+                            <input type="checkbox" style="width: auto; margin-right: 10px;">
+                            Acepto participar en equipo y cumplir con los plazos establecidos *
+                        </label>
+                    </div>
+
+                    <div class="form-field">
+                        <label>
+                            <input type="checkbox" style="width: auto; margin-right: 10px;">
+                            Acepto que mi participación sea evaluada al finalizar el proyecto
+                        </label>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 30px;">
+                        <button type="submit" class="btn btn-primary" style="padding: 12px 30px;">Enviar postulación</button>
+                        <button type="button" class="btn" style="margin-left: 15px;">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Mensaje de éxito (simulado) pasar a modal --> 
+            <div style="border: 2px dashed #28a745; padding: 20px; margin: 20px 0; background: #d4edda; color: #155724; border-radius: 8px;">
+                <h4>SIMULACIÓN: Mensaje de éxito</h4>
+                <div style="text-align: center; padding: 20px;">
+                    <div style="font-size: 48px; margin-bottom: 15px;">✅</div>
+                    <h3>¡Postulación enviada con éxito!</h3>
+                    <p>Tu postulación ha sido enviada a <strong>ONG EduTech</strong>. Te contactaremos pronto con novedades sobre el proceso de selección.</p>
+                    <p><strong>Próximos pasos:</strong></p>
+                    <ul style="text-align: left; max-width: 400px; margin: 0 auto;">
+                        <li>Revisaremos tu postulación en las próximas 48 horas</li>
+                        <li>Te notificaremos por email sobre el resultado</li>
+                        <li>Si sos seleccionado/a, te invitaremos a una reunión inicial</li>
+                    </ul>
+                    <div style="margin-top: 20px;">
+                        <button class="btn btn-primary">Ver mis postulaciones</button>
+                        <button class="btn">Explorar más proyectos</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <!-- Footer -->
+            <div class="footer">
+                <p>Redes Sociales | Contacto | Acerca de | Términos y Condiciones</p>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

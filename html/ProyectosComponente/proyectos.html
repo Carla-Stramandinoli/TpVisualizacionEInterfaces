@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframes - Plataforma de Aprendizaje y Proyectos</title>
+    <link rel="stylesheet" href="../../css/stylos.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="wireframe" id="proyectos">
+            <h2>👥 3. Vista de Proyectos</h2>
+            
+            <!-- Header -->
+            <div class="header">
+                <div style="font-weight: bold;">[LOGO]</div>
+                <div class="nav">
+                    <div class="nav-item">Inicio</div>
+                    <div class="nav-item">Cursos</div>
+                    <div class="nav-item" style="background: #333; color: white;">Proyectos</div>
+                    <div class="nav-item">Ranking</div>
+                    <div class="nav-item">Mi Perfil</div>
+                </div>
+            </div>
+
+            <!-- Título y filtros -->
+            <div style="margin: 20px 0;">
+                <h3>Explorar Proyectos</h3>
+                <p>Aplicá tus conocimientos en proyectos reales y construí tu portfolio</p>
+            </div>
+
+            <div class="filters">
+                <div class="filter-group">
+                    <label><strong>Categoría:</strong></label>
+                    <select>
+                        <option>Todas las categorías</option>
+                        <option>ONG</option>
+                        <option>PyME</option>
+                        <option>Startup</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label><strong>Área temática:</strong></label>
+                    <select>
+                        <option>Todas las áreas</option>
+                        <option>Tecnología</option>
+                        <option>Diseño</option>
+                        <option>Educación</option>
+                        <option>Salud</option>
+                        <option>Medio Ambiente</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label><strong>Estado:</strong></label>
+                    <select>
+                        <option>Todos los estados</option>
+                        <option>Abierto</option>
+                        <option>En curso</option>
+                        <option>Finalizado</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Listado de proyectos -->
+            <div class="section">
+                <div class="grid">
+                    <div class="card">
+                        <div class="card-header">[LOGO] ONG EduTech</div>
+                        <h4>Plataforma de Aprendizaje Infantil</h4>
+                        <p>Desarrollar una app web educativa para niños de 6-12 años con juegos interactivos...</p>
+                        <div style="margin: 10px 0;">
+                            <strong>Skills requeridas:</strong> React, Node.js, MongoDB, UX/UI
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="background: #e8f4f8; padding: 3px 8px; border-radius: 3px; font-size: 12px;">3/5 participantes</span>
+                            <span style="background: #d4edda; padding: 3px 8px; border-radius: 3px; font-size: 12px;">ABIERTO</span>
+                        </div>
+                        <button class="btn" style="margin-top: 10px; width: 100%;">Ver proyecto</button>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">[LOGO] Tienda Verde</div>
+                        <h4>E-commerce Sostenible</h4>
+                        <p>Crear una tienda online para productos ecológicos con sistema de puntos...</p>
+                        <div style="margin: 10px 0;">
+                            <strong>Skills requeridas:</strong> Shopify, Diseño UX, Marketing Digital
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="background: #e8f4f8; padding: 3px 8px; border-radius: 3px; font-size: 12px;">2/4 participantes</span>
+                            <span style="background: #d4edda; padding: 3px 8px; border-radius: 3px; font-size: 12px;">ABIERTO</span>
+                        </div>
+                        <button class="btn" style="margin-top: 10px; width: 100%;">Ver proyecto</button>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">[LOGO] Startup HealthTech</div>
+                        <h4>App de Seguimiento Médico</h4>
+                        <p>Aplicación móvil para que pacientes registren síntomas y medicamentos...</p>
+                        <div style="margin: 10px 0;">
+                            <strong>Skills requeridas:</strong> React Native, Python, Cloud Computing
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="background: #fff3cd; padding: 3px 8px; border-radius: 3px; font-size: 12px;">4/4 participantes</span>
+                            <span style="background: #ffeaa7; padding: 3px 8px; border-radius: 3px; font-size: 12px;">EN CURSO</span>
+                        </div>
+                        <button class="btn" style="margin-top: 10px; width: 100%; opacity: 0.6;" disabled>Ver proyecto</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detalle del proyecto -->
+            <div style="border: 2px dashed #666; padding: 20px; margin: 20px 0; background: #f9f9f9;">
+                <h4>VISTA AMPLIADA: Detalle del proyecto (se abre al hacer clic en "Ver proyecto")</h4>
+                <div style="border: 1px solid #ccc; padding: 20px; background: white; margin: 10px 0;">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                        <div style="width: 60px; height: 60px; border: 1px solid #ccc; display: flex; align-items: center; justify-content: center;">[LOGO]</div>
+                        <div>
+                            <h3>Plataforma de Aprendizaje Infantil</h3>
+                            <p><strong>ONG EduTech</strong> | Tecnología - Educación</p>
+                        </div>
+                    </div>
+                    
+                    <div style="margin: 20px 0;">
+                        <h4>Sobre la organización:</h4>
+                        <p>ONG EduTech es una organización sin fines de lucro dedicada a mejorar la educación mediante tecnología. Trabajan con escuelas rurales de toda Argentina.</p>
+                    </div>
+
+                    <div style="margin: 20px 0;">
+                        <h4>Objetivo del proyecto:</h4>
+                        <p>Desarrollar una plataforma web educativa interactiva para niños de 6-12 años que permita el aprendizaje de matemáticas y ciencias a través de juegos y actividades divertidas.</p>
+                    </div>
+
+                    <div style="margin: 20px 0;">
+                        <h4>Roles disponibles:</h4>
+                        <ul>
+                            <li><strong>Frontend Developer</strong> - React.js (1 disponible)</li>
+                            <li><strong>Backend Developer</strong> - Node.js, MongoDB (1 disponible)</li>
+                            <li><strong>UX/UI Designer</strong> - Figma, diseño infantil (0 disponibles)</li>
+                            <li><strong>Game Designer</strong> - Gamificación, psicología infantil (1 disponible)</li>
+                        </ul>
+                    </div>
+
+                    <div style="margin: 20px 0;">
+                        <h4>Participantes actuales:</h4>
+                        <div style="display: flex; gap: 15px;">
+                            <div style="text-align: center;">
+                                <div class="avatar" style="width: 50px; height: 50px;">👨‍💻</div>
+                                <p style="font-size: 12px;">Ana García<br>UX/UI Designer</p>
+                            </div>
+                            <div style="text-align: center;">
+                                <div class="avatar" style="width: 50px; height: 50px;">👩‍💻</div>
+                                <p style="font-size: 12px;">Carlos López<br>Backend Dev</p>
+                            </div>
+                            <div style="text-align: center;">
+                                <div class="avatar" style="width: 50px; height: 50px;">👨‍🎨</div>
+                                <p style="font-size: 12px;">María Rodríguez<br>Game Designer</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 30px;">
+                        <button class="btn btn-primary">Postularme</button>
+                        <button class="btn">Volver a proyectos</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <p>Redes Sociales | Contacto | Acerca de | Términos y Condiciones</p>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

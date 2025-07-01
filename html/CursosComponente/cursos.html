@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframes - Plataforma de Aprendizaje y Proyectos</title>
+    <link rel="stylesheet" href="../../css/stylos.css">
+</head>
+
+<body>
+    <div class="container">
+            <div class="wireframe" id="cursos">
+                <h2>📚 2. Vista de Cursos</h2>
+                
+                <!-- Header simplificado -->
+                <div class="header">
+                    <div style="font-weight: bold;">[LOGO]</div>
+                    <div class="nav">
+                        <div class="nav-item">Inicio</div>
+                        <div class="nav-item" style="background: #333; color: white;">Cursos</div>
+                        <div class="nav-item">Proyectos</div>
+                        <div class="nav-item">Ranking</div>
+                        <div class="nav-item">Mi Perfil</div>
+                    </div>
+                </div>
+    
+                <!-- Título y filtros -->
+                <div style="margin: 20px 0;">
+                    <h3>Explorar Cursos</h3>
+                    <p>Fortalecé tus habilidades con nuestros cursos especializados</p>
+                </div>
+    
+                <div class="filters">
+                    <div class="filter-group">
+                        <label><strong>Categoría:</strong></label>
+                        <select>
+                            <option>Todas las categorías</option>
+                            <option>Tecnología</option>
+                            <option>Diseño</option>
+                            <option>Innovación</option>
+                            <option>Gestión</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label><strong>Nivel:</strong></label>
+                        <select>
+                            <option>Todos los niveles</option>
+                            <option>Básico</option>
+                            <option>Intermedio</option>
+                            <option>Avanzado</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label><strong>Duración:</strong></label>
+                        <select>
+                            <option>Cualquier duración</option>
+                            <option>1-4 semanas</option>
+                            <option>5-8 semanas</option>
+                            <option>9+ semanas</option>
+                        </select>
+                    </div>
+                </div>
+    
+                <!-- Listado de cursos -->
+                <div class="section">
+                    <div class="grid">
+                        <div class="card">
+                            <div class="card-header">[IMAGEN] JavaScript Avanzado</div>
+                            <p><strong>Categoría:</strong> Tecnología</p>
+                            <p><strong>Nivel:</strong> Avanzado | <strong>Duración:</strong> 6 semanas</p>
+                            <p>Domina conceptos avanzados de JavaScript: closures, prototipos, async/await...</p>
+                            <div style="margin-top: 10px;">
+                                <span style="background: #ddd; padding: 2px 8px; border-radius: 3px; font-size: 12px;">Avanzado</span>
+                                <span style="background: #ddd; padding: 2px 8px; border-radius: 3px; font-size: 12px;">6 sem</span>
+                            </div>
+                            <button class="btn" style="margin-top: 10px; width: 100%;">Ver más</button>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card-header">[IMAGEN] Figma para Principiantes</div>
+                            <p><strong>Categoría:</strong> Diseño</p>
+                            <p><strong>Nivel:</strong> Básico | <strong>Duración:</strong> 3 semanas</p>
+                            <p>Aprende a crear prototipos y diseños profesionales desde cero...</p>
+                            <div style="margin-top: 10px;">
+                                <span style="background: #ddd; padding: 2px 8px; border-radius: 3px; font-size: 12px;">Básico</span>
+                                <span style="background: #ddd; padding: 2px 8px; border-radius: 3px; font-size: 12px;">3 sem</span>
+                            </div>
+                            <button class="btn" style="margin-top: 10px; width: 100%;">Ver más</button>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card-header">[IMAGEN] Metodologías Ágiles</div>
+                            <p><strong>Categoría:</strong> Gestión</p>
+                            <p><strong>Nivel:</strong> Intermedio | <strong>Duración:</strong> 4 semanas</p>
+                            <p>Scrum, Kanban y otras metodologías para gestión eficiente...</p>
+                            <div style="margin-top: 10px;">
+                                <span style="background: #ddd; padding: 2px 8px; border-radius: 3px; font-size: 12px;">Intermedio</span>
+                                <span style="background: #ddd; padding: 2px 8px; border-radius: 3px; font-size: 12px;">4 sem</span>
+                            </div>
+                            <button class="btn" style="margin-top: 10px; width: 100%;">Ver más</button>
+                        </div>
+    
+                        <div class="card">
+                            <div class="card-header">[IMAGEN] Design Thinking</div>
+                            <p><strong>Categoría:</strong> Innovación</p>
+                            <p><strong>Nivel:</strong> Intermedio | <strong>Duración:</strong> 5 semanas</p>
+                            <p>Metodología de innovación centrada en el usuario...</p>
+                            <div style="margin-top: 10px;">
+                                <span style="background: #ddd; padding: 2px 8px; border-radius: 3px; font-size: 12px;">Intermedio</span>
+                                <span style="background: #ddd; padding: 2px 8px; border-radius: 3px; font-size: 12px;">5 sem</span>
+                            </div>
+                            <button class="btn" style="margin-top: 10px; width: 100%;">Ver más</button>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Modal de detalle de curso (pasar a modal real) -->
+                <div style="border: 2px dashed #666; padding: 20px; margin: 20px 0; background: #f9f9f9;">
+                    <h4>MODAL: Detalle del curso (se abre al hacer clic en "Ver más")</h4>
+                    <div style="border: 1px solid #ccc; padding: 15px; background: white; margin: 10px 0;">
+                        <h3>JavaScript Avanzado</h3>
+                        <p><strong>Descripción completa:</strong> Este curso está diseñado para desarrolladores que ya dominan los conceptos básicos de JavaScript y quieren llevar sus habilidades al siguiente nivel...</p>
+                        
+                        <h4>Objetivos del curso:</h4>
+                        <ul>
+                            <li>Dominar closures y scope</li>
+                            <li>Entender prototipos y herencia</li>
+                            <li>Manejar programación asíncrona</li>
+                            <li>Optimizar rendimiento</li>
+                        </ul>
+    
+                        <h4>Contenidos (Temario):</h4>
+                        <ul>
+                            <li>Semana 1: Closures y Scope avanzado</li>
+                            <li>Semana 2: Prototipos y herencia</li>
+                            <li>Semana 3: Promises y async/await</li>
+                            <li>Semana 4: Event Loop y optimización</li>
+                            <li>Semana 5: Patrones de diseño</li>
+                            <li>Semana 6: Proyecto final</li>
+                        </ul>
+    
+                        <p><strong>Certificación:</strong> Al completar el curso, recibirás un certificado digital verificable.</p>
+                        
+                        <div style="text-align: center; margin-top: 20px;">
+                            <button class="btn btn-primary">Inscribirme</button>
+                            <button class="btn">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <p>Redes Sociales | Contacto | Acerca de | Términos y Condiciones</p>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
