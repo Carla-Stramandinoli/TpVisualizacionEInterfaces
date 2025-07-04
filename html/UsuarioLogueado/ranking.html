@@ -4,234 +4,264 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wireframes - Plataforma de Aprendizaje y Proyectos</title>
-    <link rel="stylesheet" href="../../css/stylos.css">
+    <title>Ranking - TalentLab</title>
+    <link rel="stylesheet" href="../../css/bootstrap-custom.css">
 </head>
 
 <body>
-    <div class="container">
-            <div class="wireframe" id="ranking">
-                <h2>📈 5. Ranking de Talento</h2>
-                
-                <!-- Header -->
-                <div class="header">
-                    <div style="font-weight: bold;">[LOGO]</div>
-                    <div class="nav">
-                        <div class="nav-item">Inicio</div>
-                        <div class="nav-item">Cursos</div>
-                        <div class="nav-item">Proyectos</div>
-                        <div class="nav-item" style="background: #333; color: white;">Ranking</div>
-                        <div class="nav-item">Mi Perfil</div>
-                    </div>
+
+
+    <!-- Header -->
+    <header class="custom-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h1 class="h3 mb-0">[LOGO] TalentLab</h1>
                 </div>
-    
-                <!-- Título y filtros -->
-                <div style="margin: 20px 0;">
+                <div class="col-md-6">
+                    <nav class="navbar navbar-expand-lg navbar-dark">
+                        <div class="navbar-nav ms-auto">
+                            <a class="nav-link" href="homeLogueado.html"><i class="bi bi-house-door"></i> Inicio</a>
+                            <a class="nav-link" href="../CursosComponente/cursosLogueado.html"><i class="bi bi-book"></i> Cursos</a>
+                            <a class="nav-link" href="../ProyectosComponente/proyectosLogueado.html"><i class="bi bi-rocket"></i> Proyectos</a>
+                            <a class="nav-link active" href="ranking.html"><i class="bi bi-trophy"></i> Ranking</a>
+                            <a class="nav-link btn-profile" href="perfilUsuario.html"><i class="bi bi-person-circle"></i> Mi Perfil</a>
+                            <a class="nav-link btn-logout" href="../UsuarioNoLogueado/homeNoLogueado.html"><i class="bi bi-box-arrow-left"></i> Cerrar Sesión</a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Título y filtros -->
+    <section class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
                     <h3>Ranking de Talento</h3>
                     <p>Descubrí los usuarios más destacados de nuestra comunidad</p>
                 </div>
-    
-                <div class="filters">
-                    <div class="filter-group">
-                        <label><strong>Filtrar por área:</strong></label>
-                        <select>
-                            <option>Todas las áreas</option>
-                            <option>Desarrollo Web</option>
-                            <option>Diseño UX/UI</option>
-                            <option>Data Science</option>
-                            <option>Marketing Digital</option>
-                            <option>Gestión de Proyectos</option>
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <label><strong>Período:</strong></label>
-                        <select>
-                            <option>Todo el tiempo</option>
-                            <option>Último mes</option>
-                            <option>Últimos 3 meses</option>
-                            <option>Este año</option>
-                        </select>
-                    </div>
-                </div>
-    
-                <!-- Top 3 destacados -->
-                <div class="section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
-                    <h3 style="text-align: center; color: white;">Top 3 Usuarios</h3>
-                    <div style="display: flex; justify-content: space-around; margin: 30px 0;">
-                        <div style="text-align: center;">
-                            <div style="width: 80px; height: 80px; border-radius: 50%; background: #FFD700; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; font-size: 24px;">🥇</div>
-                            <div class="avatar" style="margin: 10px auto;">👩‍💻</div>
-                            <h4>Ana García</h4>
-                            <p>2,450 puntos</p>
-                            <p style="font-size: 12px;">Desarrollo Web</p>
-                        </div>
-                        <div style="text-align: center;">
-                            <div style="width: 80px; height: 80px; border-radius: 50%; background: #C0C0C0; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; font-size: 24px;">🥈</div>
-                            <div class="avatar" style="margin: 10px auto;">👨‍🎨</div>
-                            <h4>Carlos López</h4>
-                            <p>2,380 puntos</p>
-                            <p style="font-size: 12px;">Diseño UX/UI</p>
-                        </div>
-                        <div style="text-align: center;">
-                            <div style="width: 80px; height: 80px; border-radius: 50%; background: #CD7F32; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; font-size: 24px;">🥉</div>
-                            <div class="avatar" style="margin: 10px auto;">👩‍🔬</div>
-                            <h4>María Rodríguez</h4>
-                            <p>2,150 puntos</p>
-                            <p style="font-size: 12px;">Data Science</p>
-                        </div>
-                    </div>
-                </div>
-    
-                <!-- Tabla de ranking -->
-                <div class="section">
-                    <h3>Ranking Completo</h3>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Posición</th>
-                                <th>Usuario</th>
-                                <th>Cursos Completados</th>
-                                <th>Proyectos Participados</th>
-                                <th>Puntaje Total</th>
-                                <th>Insignias</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr style="background: #fff3cd;">
-                                <td><strong>1</strong></td>
-                                <td>
-                                    <div style="display: flex; align-items: center; gap: 10px;">
-                                        <div class="avatar" style="width: 40px; height: 40px;">👩‍💻</div>
-                                        <div>
-                                            <strong>Ana García</strong><br>
-                                            <small>Desarrollo Web</small>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>8</td>
-                                <td>12</td>
-                                <td><strong>2,450</strong></td>
-                                <td>🥇 🏆 ⭐</td>
-                            </tr>
-                            <tr style="background: #f8f9fa;">
-                                <td><strong>2</strong></td>
-                                <td>
-                                    <div style="display: flex; align-items: center; gap: 10px;">
-                                        <div class="avatar" style="width: 40px; height: 40px;">👨‍🎨</div>
-                                        <div>
-                                            <strong>Carlos López</strong><br>
-                                            <small>Diseño UX/UI</small>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>7</td>
-                                <td>10</td>
-                                <td><strong>2,380</strong></td>
-                                <td>🥈 🎨 ⭐</td>
-                            </tr>
-                            <tr style="background: #fff;">
-                                <td><strong>3</strong></td>
-                                <td>
-                                    <div style="display: flex; align-items: center; gap: 10px;">
-                                        <div class="avatar" style="width: 40px; height: 40px;">👩‍🔬</div>
-                                        <div>
-                                            <strong>María Rodríguez</strong><br>
-                                            <small>Data Science</small>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>6</td>
-                                <td>8</td>
-                                <td><strong>2,150</strong></td>
-                                <td>🥉 📊 ⭐</td>
-                            </tr>
-                            <tr style="background: #f8f9fa;">
-                                <td>4</td>
-                                <td>
-                                    <div style="display: flex; align-items: center; gap: 10px;">
-                                        <div class="avatar" style="width: 40px; height: 40px;">👨‍💼</div>
-                                        <div>
-                                            <strong>Luis Martínez</strong><br>
-                                            <small>Marketing Digital</small>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>5</td>
-                                <td>9</td>
-                                <td><strong>1,980</strong></td>
-                                <td>📈 ⭐</td>
-                            </tr>
-                            <tr style="background: #fff;">
-                                <td>5</td>
-                                <td>
-                                    <div style="display: flex; align-items: center; gap: 10px;">
-                                        <div class="avatar" style="width: 40px; height: 40px;">👩‍💼</div>
-                                        <div>
-                                            <strong>Sofía González</strong><br>
-                                            <small>Gestión de Proyectos</small>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>4</td>
-                                <td>7</td>
-                                <td><strong>1,750</strong></td>
-                                <td>📋 ⭐</td>
-                            </tr>
-                            <tr style="background: #e8f4f8;">
-                                <td>...</td>
-                                <td colspan="5" style="text-align: center;"><em>Tu posición actual</em></td>
-                            </tr>
-                            <tr style="background: #e8f4f8;">
-                                <td><strong>24</strong></td>
-                                <td>
-                                    <div style="display: flex; align-items: center; gap: 10px;">
-                                        <div class="avatar" style="width: 40px; height: 40px;">👨‍💻</div>
-                                        <div>
-                                            <strong>Juan Pérez (Tú)</strong><br>
-                                            <small>Desarrollo Web</small>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>3</td>
-                                <td>2</td>
-                                <td><strong>850</strong></td>
-                                <td>🌟</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-    
-                <!-- Explicación del sistema de puntos -->
-                <div class="section" style="background: #f8f9fa;">
-                    <h3>¿Cómo se calcula el puntaje?</h3>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
-                        <div style="text-align: center;">
-                            <h4>📚 Cursos completados</h4>
-                            <p>100-300 puntos por curso<br><small>(según nivel)</small></p>
-                        </div>
-                        <div style="text-align: center;">
-                            <h4>🚀 Proyectos finalizados</h4>
-                            <p>200-500 puntos por proyecto<br><small>(según complejidad)</small></p>
-                        </div>
-                        <div style="text-align: center;">
-                            <h4>⭐ Evaluaciones</h4>
-                            <p>50-150 puntos<br><small>(según calificación recibida)</small></p>
-                        </div>
-                        <div style="text-align: center;">
-                            <h4>🏆 Bonificaciones</h4>
-                            <p>100+ puntos<br><small>(liderazgo, innovación)</small></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Footer -->
-            <div class="footer">
-                <p>Redes Sociales | Contacto | Acerca de | Términos y Condiciones</p>
             </div>
         </div>
+    </section>
 
-    </div>
+    <!-- Filtros -->
+    <section class="py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card custom-card">
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <label class="form-label"><strong>Filtrar por área:</strong></label>
+                                    <select class="form-select">
+                                        <option>Todas las áreas</option>
+                                        <option>Desarrollo Web</option>
+                                        <option>Diseño UX/UI</option>
+                                        <option>Data Science</option>
+                                        <option>Marketing Digital</option>
+                                        <option>Gestión de Proyectos</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label"><strong>Período:</strong></label>
+                                    <select class="form-select">
+                                        <option>Todo el tiempo</option>
+                                        <option>Último mes</option>
+                                        <option>Últimos 3 meses</option>
+                                        <option>Este año</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top 3 destacados -->
+    <section class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card custom-card">
+                        <div class="card-body">
+                            <h3 class="text-center mb-4">Top 3 Usuarios</h3>
+                            <div class="row text-center">
+                                <div class="col-md-4">
+                                    <div class="rounded-circle bg-warning d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px; font-size: 24px;">🥇</div>
+                                    <div class="rounded-circle bg-custom-secondary text-white d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 60px; height: 60px; font-size: 1.5rem;">👩‍💻</div>
+                                    <h4>Ana García</h4>
+                                    <p>2,450 puntos</p>
+                                    <p class="text-muted small">Desarrollo Web</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="rounded-circle bg-secondary d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px; font-size: 24px;">🥈</div>
+                                    <div class="rounded-circle bg-custom-secondary text-white d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 60px; height: 60px; font-size: 1.5rem;">👨‍🎨</div>
+                                    <h4>Carlos López</h4>
+                                    <p>2,380 puntos</p>
+                                    <p class="text-muted small">Diseño UX/UI</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="rounded-circle" style="background: #CD7F32; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 24px;">🥉</div>
+                                    <div class="rounded-circle bg-custom-secondary text-white d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 60px; height: 60px; font-size: 1.5rem;">👩‍🔬</div>
+                                    <h4>María Rodríguez</h4>
+                                    <p>2,150 puntos</p>
+                                    <p class="text-muted small">Data Science</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tabla de ranking -->
+    <section class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card custom-card">
+                        <div class="card-body">
+                            <h3>Ranking Completo</h3>
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead class="table-dark">
+                                        <tr>
+                                            <th>Posición</th>
+                                            <th>Usuario</th>
+                                            <th>Cursos Completados</th>
+                                            <th>Proyectos Participados</th>
+                                            <th>Puntaje Total</th>
+                                            <th>Insignias</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="table-warning">
+                                            <td><strong>1</strong></td>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <div class="rounded-circle bg-custom-secondary text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">👩‍💻</div>
+                                                    <div>
+                                                        <strong>Ana García</strong><br>
+                                                        <small class="text-muted">Desarrollo Web</small>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>8</td>
+                                            <td>12</td>
+                                            <td><strong>2,450</strong></td>
+                                            <td>🥇 🏆 ⭐</td>
+                                        </tr>
+                                        <tr class="table-light">
+                                            <td><strong>2</strong></td>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <div class="rounded-circle bg-custom-secondary text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">👨‍🎨</div>
+                                                    <div>
+                                                        <strong>Carlos López</strong><br>
+                                                        <small class="text-muted">Diseño UX/UI</small>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>7</td>
+                                            <td>10</td>
+                                            <td><strong>2,380</strong></td>
+                                            <td>🥈 🎨 ⭐</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>3</strong></td>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <div class="rounded-circle bg-custom-secondary text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">👩‍🔬</div>
+                                                    <div>
+                                                        <strong>María Rodríguez</strong><br>
+                                                        <small class="text-muted">Data Science</small>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>6</td>
+                                            <td>8</td>
+                                            <td><strong>2,150</strong></td>
+                                            <td>🥉 📊 ⭐</td>
+                                        </tr>
+                                        <tr class="table-light">
+                                            <td>4</td>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <div class="rounded-circle bg-custom-secondary text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">👨‍💼</div>
+                                                    <div>
+                                                        <strong>Luis Martínez</strong><br>
+                                                        <small class="text-muted">Marketing Digital</small>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>5</td>
+                                            <td>9</td>
+                                            <td><strong>1,980</strong></td>
+                                            <td>📈 ⭐</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <div class="rounded-circle bg-custom-secondary text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">👩‍💼</div>
+                                                    <div>
+                                                        <strong>Sofía González</strong><br>
+                                                        <small class="text-muted">Gestión de Proyectos</small>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>4</td>
+                                            <td>7</td>
+                                            <td><strong>1,750</strong></td>
+                                            <td>📋 ⭐</td>
+                                        </tr>
+                                        <tr class="table-info">
+                                            <td>...</td>
+                                            <td colspan="5" class="text-center"><em>Tu posición actual</em></td>
+                                        </tr>
+                                        <tr class="table-info">
+                                            <td><strong>24</strong></td>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <div class="rounded-circle bg-custom-secondary text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">👨‍💻</div>
+                                                    <div>
+                                                        <strong>Juan Pérez (Tú)</strong><br>
+                                                        <small class="text-muted">Desarrollo Web</small>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>3</td>
+                                            <td>2</td>
+                                            <td><strong>850</strong></td>
+                                            <td>🌟</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="text-center">
+                <p class="mb-0">Redes Sociales | Contacto | Acerca de | Términos y Condiciones</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

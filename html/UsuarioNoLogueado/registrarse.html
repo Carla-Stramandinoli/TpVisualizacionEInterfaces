@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrarse - TalentLab</title>
+    <link rel="stylesheet" href="../../css/bootstrap-custom.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="custom-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 text-center">
+                    <h1 class="h3 mb-0">[LOGO] TalentLab</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Formulario de Registro -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6">
+                    <div class="card custom-card">
+                        <div class="card-header text-center">
+                            <h3 class="mb-0">Crear Cuenta</h3>
+                            <!-- Indicador de progreso -->
+                            <div class="progress mt-3" style="height: 8px;">
+                                <div class="progress-bar" id="progressBar" role="progressbar" style="width: 33%;" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div class="mt-2">
+                                <small class="text-muted">Paso <span id="currentStep">1</span> de <span id="totalSteps">3</span></small>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <!-- Paso 1: Datos Personales -->
+                            <div id="step1" class="step-content">
+                                <h4 class="mb-4">Datos Personales</h4>
+                                <form id="personalDataForm">
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <label for="firstName" class="form-label">Nombre *</label>
+                                            <input type="text" class="form-control" id="firstName" placeholder="Tu nombre" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="lastName" class="form-label">Apellido *</label>
+                                            <input type="text" class="form-control" id="lastName" placeholder="Tu apellido" required>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="email" class="form-label">Email *</label>
+                                            <input type="email" class="form-control" id="email" placeholder="tu@email.com" required>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="password" class="form-label">Contraseña *</label>
+                                            <input type="password" class="form-control" id="password" placeholder="Mínimo 8 caracteres" required>
+                                            <div class="form-text">Debe contener al menos 8 caracteres, una mayúscula y un número</div>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="confirmPassword" class="form-label">Confirmar Contraseña *</label>
+                                            <input type="password" class="form-control" id="confirmPassword" placeholder="Repite tu contraseña" required>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="country" class="form-label">País *</label>
+                                            <select class="form-select" id="country" required>
+                                                <option value="">Selecciona tu país</option>
+                                                <option value="AR">Argentina</option>
+                                                <option value="CL">Chile</option>
+                                                <option value="CO">Colombia</option>
+                                                <option value="MX">México</option>
+                                                <option value="PE">Perú</option>
+                                                <option value="UY">Uruguay</option>
+                                                <option value="VE">Venezuela</option>
+                                                <option value="ES">España</option>
+                                                <option value="OT">Otro</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="terms" required>
+                                                <label class="form-check-label" for="terms">
+                                                    Acepto los <a href="#" class="text-decoration-none">Términos y Condiciones</a> y la <a href="#" class="text-decoration-none">Política de Privacidad</a> *
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="newsletter">
+                                                <label class="form-check-label" for="newsletter">
+                                                    Quiero recibir notificaciones sobre nuevos proyectos y cursos
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 text-center">
+                                            <button type="button" class="btn btn-primary" onclick="nextStep()">Continuar</button>
+                                        </div>
+                                        <div class="col-12 text-center mt-3">
+                                            <p class="mb-0">¿Ya tenés cuenta? <a href="iniciarSesion.html" class="text-decoration-none">Iniciar Sesión</a></p>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <!-- Paso 2: Personalización -->
+                            <div id="step2" class="step-content" style="display: none;">
+                                <h4 class="mb-4">Personalización (Opcional)</h4>
+                                <p class="text-muted mb-4">Completá estos datos para personalizar tu experiencia o saltá este paso para continuar.</p>
+                                
+                                <form id="personalizationForm">
+                                    <div class="row g-3">
+                                        <div class="col-12">
+                                            <label class="form-label">Áreas de interés</label>
+                                            <div class="row g-2">
+                                                <div class="col-md-6">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="area-web" value="desarrollo-web">
+                                                        <label class="form-check-label" for="area-web">
+                                                            <i class="bi bi-code-slash"></i> Desarrollo Web
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="area-mobile" value="desarrollo-mobile">
+                                                        <label class="form-check-label" for="area-mobile">
+                                                            <i class="bi bi-phone"></i> Desarrollo Móvil
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="area-ux" value="diseno-ux">
+                                                        <label class="form-check-label" for="area-ux">
+                                                            <i class="bi bi-palette"></i> Diseño UX/UI
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="area-data" value="data-science">
+                                                        <label class="form-check-label" for="area-data">
+                                                            <i class="bi bi-graph-up"></i> Data Science
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="area-marketing" value="marketing-digital">
+                                                        <label class="form-check-label" for="area-marketing">
+                                                            <i class="bi bi-megaphone"></i> Marketing Digital
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="area-gestion" value="gestion-proyectos">
+                                                        <label class="form-check-label" for="area-gestion">
+                                                            <i class="bi bi-kanban"></i> Gestión de Proyectos
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="area-ai" value="inteligencia-artificial">
+                                                        <label class="form-check-label" for="area-ai">
+                                                            <i class="bi bi-cpu"></i> Inteligencia Artificial
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="area-cyber" value="cybersecurity">
+                                                        <label class="form-check-label" for="area-cyber">
+                                                            <i class="bi bi-shield-check"></i> Cybersecurity
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="area-devops" value="devops">
+                                                        <label class="form-check-label" for="area-devops">
+                                                            <i class="bi bi-gear"></i> DevOps
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="area-blockchain" value="blockchain">
+                                                        <label class="form-check-label" for="area-blockchain">
+                                                            <i class="bi bi-link-45deg"></i> Blockchain
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-12">
+                                            <label for="experience" class="form-label">Nivel de experiencia</label>
+                                            <select class="form-select" id="experience">
+                                                <option value="">Selecciona tu nivel</option>
+                                                <option value="principiante">Principiante (0-1 años)</option>
+                                                <option value="intermedio">Intermedio (1-3 años)</option>
+                                                <option value="avanzado">Avanzado (3+ años)</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="col-12">
+                                            <label class="form-label">¿Ya estás trabajando en alguna de estas áreas?</label>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="working" id="working-yes" value="si">
+                                                <label class="form-check-label" for="working-yes">
+                                                    Sí, trabajo actualmente en una o más de estas áreas
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="working" id="working-no" value="no">
+                                                <label class="form-check-label" for="working-no">
+                                                    No, pero me interesa aprender y trabajar en estas áreas
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="working" id="working-studying" value="estudiando">
+                                                <label class="form-check-label" for="working-studying">
+                                                    Estoy estudiando o capacitándome en estas áreas
+                                                </label>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-12 text-center">
+                                            <button type="button" class="btn btn-secondary me-2" onclick="skipPersonalization()">Saltar</button>
+                                            <button type="button" class="btn btn-primary" onclick="nextStep()">Continuar</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <!-- Paso 3: Finalización -->
+                            <div id="step3" class="step-content" style="display: none;">
+                                <div class="text-center">
+                                    <div class="mb-4">
+                                        <i class="bi bi-check-circle text-success" style="font-size: 4rem;"></i>
+                                    </div>
+                                    <h4 class="mb-3">¡Cuenta creada exitosamente!</h4>
+                                    <p class="text-muted mb-4">Tu cuenta ha sido registrada. Podés personalizar tu perfil más tarde desde la configuración.</p>
+                                    
+                                    <div class="row g-3">
+                                        <div class="col-12">
+                                            <button type="button" class="btn btn-primary w-100" onclick="completeRegistration()">
+                                                <i class="bi bi-box-arrow-in-right"></i> Ir al Inicio
+                                            </button>
+                                        </div>
+                                        <div class="col-12">
+                                            <p class="mb-0">¿Ya tenés cuenta? <a href="iniciarSesion.html" class="text-decoration-none">Iniciar Sesión</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="text-center">
+                <p class="mb-0">Redes Sociales | Contacto | Acerca de | Términos y Condiciones</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- JavaScript para el registro en pasos -->
+    <script>
+        let currentStep = 1;
+        const totalSteps = 3;
+
+        function updateProgress() {
+            const progress = (currentStep / totalSteps) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+            document.getElementById('currentStep').textContent = currentStep;
+        }
+
+        function showStep(step) {
+            // Ocultar todos los pasos
+            for (let i = 1; i <= totalSteps; i++) {
+                document.getElementById('step' + i).style.display = 'none';
+            }
+            // Mostrar el paso actual
+            document.getElementById('step' + step).style.display = 'block';
+            updateProgress();
+        }
+
+        function validateStep1() {
+            const form = document.getElementById('personalDataForm');
+            const requiredFields = ['firstName', 'lastName', 'email', 'password', 'confirmPassword', 'country'];
+            const terms = document.getElementById('terms');
+            
+            // Validar campos requeridos
+            for (let field of requiredFields) {
+                const input = document.getElementById(field);
+                if (!input.value.trim()) {
+                    alert('Por favor completá todos los campos obligatorios.');
+                    input.focus();
+                    return false;
+                }
+            }
+            
+            // Validar términos
+            if (!terms.checked) {
+                alert('Debés aceptar los términos y condiciones.');
+                terms.focus();
+                return false;
+            }
+            
+            // Validar contraseñas
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (password !== confirmPassword) {
+                alert('Las contraseñas no coinciden.');
+                return false;
+            }
+            
+            if (password.length < 8) {
+                alert('La contraseña debe tener al menos 8 caracteres.');
+                return false;
+            }
+            
+            return true;
+        }
+
+        function nextStep() {
+            if (currentStep === 1) {
+                if (!validateStep1()) {
+                    return;
+                }
+            }
+            
+            if (currentStep < totalSteps) {
+                currentStep++;
+                showStep(currentStep);
+            }
+        }
+
+        function skipPersonalization() {
+            // Saltar directamente al paso 3
+            currentStep = 3;
+            showStep(currentStep);
+        }
+
+        function completeRegistration() {
+            // Redirigir al home logueado
+            window.location.href = '../UsuarioLogueado/homeLogueago.html';
+        }
+
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', function() {
+            showStep(1);
+        });
+    </script>
+</body>
+</html> 
