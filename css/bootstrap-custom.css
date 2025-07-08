@@ -124,6 +124,8 @@ p, span, div, a, button, input, textarea, select {
     color: var(--secondary-color);
 }
 
+
+
 /* Hero section */
 .hero-section {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
@@ -196,15 +198,14 @@ p, span, div, a, button, input, textarea, select {
 .collaboration-section {
     background: var(--background-color);
     border-left: 4px solid var(--secondary-color);
-    padding: 2rem;
-    margin: 2rem 0;
+    padding-top: 2rem;
+
 }
 
 .employment-section {
     background: var(--background-color);
     border-left: 4px solid var(--accent-color);
-    padding: 2rem;
-    margin: 2rem 0;
+    padding-top: 1rem;
 }
 
 .highlight-section {
