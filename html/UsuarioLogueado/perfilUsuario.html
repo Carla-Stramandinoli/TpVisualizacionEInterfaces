@@ -6,17 +6,246 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Perfil - TalentLab</title>
     <link rel="stylesheet" href="../../css/bootstrap-custom.css">
+    <style>
+        .profile-header {
+            background: #0B2D59;
+            color: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-avatar {
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            font-size: 2.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .profile-avatar:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .editable-field {
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 0.25rem 0.5rem;
+            margin: -0.25rem -0.5rem;
+        }
+
+        .editable-field:hover {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .edit-icon {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            color: #6c757d;
+            font-size: 0.875rem;
+            margin-left: 0.5rem;
+        }
+
+        .editable-field:hover .edit-icon {
+            opacity: 1;
+        }
+
+        .section-card {
+            border: none;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 2rem;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .section-card .card-body {
+            padding: 2rem;
+        }
+
+        .section-title {
+            color: #0B2D59;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-title i {
+            font-size: 1.25rem;
+            color: #6c757d;
+        }
+
+        .course-badge {
+            background: #28a745;
+            border: none;
+            padding: 0.75rem 1.25rem;
+            font-weight: 500;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .course-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .course-badge-progress {
+            background: #ffc107;
+            color: #212529;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .course-badge-progress:hover {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-card {
+            border: none;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-card .card-header {
+            background: #0B2D59;
+            color: white;
+            border: none;
+            padding: 1rem 1.5rem;
+            font-weight: 600;
+        }
+
+        .project-card .card-body {
+            padding: 1.5rem;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+
+        .status-completed {
+            background: rgba(40, 167, 69, 0.1);
+            color: #28a745;
+        }
+
+        .status-in-progress {
+            background: rgba(255, 193, 7, 0.1);
+            color: #ffc107;
+        }
+
+        .stats-card {
+            text-align: center;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            transition: all 0.3s ease;
+        }
+
+        .stats-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .stats-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #0B2D59;
+            margin-bottom: 0.5rem;
+        }
+
+        .stats-label {
+            color: #6c757d;
+            font-weight: 500;
+        }
+
+        .btn-custom {
+            padding: 0.75rem 1.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-primary-custom {
+            background: #0B2D59;
+            color: white;
+        }
+
+        .btn-secondary-custom {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-accent-custom {
+            background: #17a2b8;
+            color: white;
+        }
+
+        .portfolio-section {
+            background: #f8f9fa;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .ranking-badge {
+            background: #95b17e;
+            color: white;
+            padding: 0.5rem 1rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        @media (max-width: 768px) {
+            .profile-header {
+                text-align: center;
+            }
+            
+            .profile-avatar {
+                margin-bottom: 1rem;
+            }
+            
+            .section-card .card-body {
+                padding: 1.5rem;
+            }
+            
+            .stats-card {
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
-
-
     <!-- Header -->
     <header class="custom-header">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <h1 class="h3 mb-0">[LOGO] TalentLab</h1>
+                    <h1 class="h3 mb-0"><i class="bi bi-lightbulb"></i> TalentLab</h1>
                 </div>
                 <div class="col-md-6">
                     <nav class="navbar navbar-expand-lg navbar-dark">
@@ -37,18 +266,48 @@
     <!-- Header del perfil -->
     <section class="py-5">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-3 text-center">
-                    <div class="rounded-circle bg-custom-secondary text-white d-flex align-items-center justify-content-center mx-auto" style="width: 80px; height: 80px; font-size: 2rem;">
-                        👨‍💻
+            <div class="profile-header">
+                <div class="row align-items-center">
+                    <div class="col-md-3 text-center">
+                        <div class="profile-avatar rounded-circle d-flex align-items-center justify-content-center mx-auto">
+                            👨‍💻
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-9">
-                    <h2>Juan Pérez</h2>
-                    <p class="mb-1"><strong>Email:</strong> juan.perez@email.com</p>
-                    <p class="mb-1"><strong>País:</strong> Argentina</p>
-                    <p class="mb-3"><strong>Ranking:</strong> #24 en Desarrollo Web</p>
-                    <button class="btn btn-secondary">Editar perfil</button>
+                    <div class="col-md-9">
+                        <h2 class="mb-3">
+                            <span class="editable-field" data-field="name">
+                                Juan Pérez
+                                <i class="bi bi-pencil edit-icon"></i>
+                            </span>
+                        </h2>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="mb-2">
+                                    <strong>Email:</strong> 
+                                    <span class="editable-field" data-field="email">
+                                        juan.perez@email.com
+                                        <i class="bi bi-pencil edit-icon"></i>
+                                    </span>
+                                </p>
+                                <p class="mb-2">
+                                    <strong>País:</strong> 
+                                    <span class="editable-field" data-field="country">
+                                        Argentina
+                                        <i class="bi bi-pencil edit-icon"></i>
+                                    </span>
+                                </p>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="mb-3">
+                                    <strong>Ranking:</strong> 
+                                    <span class="ranking-badge">#24 en Desarrollo Web</span>
+                                </p>
+                            </div>
+                        </div>
+                        <button class="btn btn-custom btn-secondary-custom">
+                            <i class="bi bi-pencil me-2"></i>Editar perfil
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -59,11 +318,17 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="card custom-card">
+                    <div class="card section-card">
                         <div class="card-body">
-                            <h3>Acerca de mí</h3>
-                            <p>Estudiante de Ingeniería en Sistemas con pasión por el desarrollo web y la tecnología educativa. Me interesa especialmente el frontend y la experiencia de usuario. Busco ganar experiencia práctica en proyectos reales.</p>
-                            <p><strong>Intereses:</strong> React, JavaScript, UX/UI, Educación Digital, Startups</p>
+                            <h3 class="section-title">
+                                <i class="bi bi-person-lines-fill"></i>
+                                Acerca de mí
+                            </h3>
+                            <div class="editable-field" data-field="bio">
+                                <p>Estudiante de Ingeniería en Sistemas con pasión por el desarrollo web y la tecnología educativa. Me interesa especialmente el frontend y la experiencia de usuario. Busco ganar experiencia práctica en proyectos reales.</p>
+                                <p><strong>Intereses:</strong> React, JavaScript, UX/UI, Educación Digital, Startups</p>
+                                <i class="bi bi-pencil edit-icon"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -76,24 +341,35 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="card custom-card">
+                    <div class="card section-card">
                         <div class="card-body">
-                            <h3>Cursos completados</h3>
+                            <h3 class="section-title">
+                                <i class="bi bi-book"></i>
+                                Cursos completados
+                            </h3>
                             <div class="d-flex flex-wrap gap-3">
-                                <div class="badge bg-success p-3 d-flex align-items-center gap-2">
-                                    <span class="rounded-circle bg-white text-success d-flex align-items-center justify-content-center" style="width: 20px; height: 20px; font-size: 12px;">✓</span>
+                                <div class="badge course-badge d-flex align-items-center gap-2">
+                                    <span class="bg-white d-flex align-items-center justify-content-center" style="width: 20px; height: 20px; font-size: 12px; color: #28a745;">
+                                        <i class="bi bi-check-circle"></i>
+                                    </span>
                                     React Básico
                                 </div>
-                                <div class="badge bg-success p-3 d-flex align-items-center gap-2">
-                                    <span class="rounded-circle bg-white text-success d-flex align-items-center justify-content-center" style="width: 20px; height: 20px; font-size: 12px;">✓</span>
+                                <div class="badge course-badge d-flex align-items-center gap-2">
+                                    <span class="bg-white d-flex align-items-center justify-content-center" style="width: 20px; height: 20px; font-size: 12px; color: #28a745;">
+                                        <i class="bi bi-check-circle"></i>
+                                    </span>
                                     JavaScript Avanzado
                                 </div>
-                                <div class="badge bg-success p-3 d-flex align-items-center gap-2">
-                                    <span class="rounded-circle bg-white text-success d-flex align-items-center justify-content-center" style="width: 20px; height: 20px; font-size: 12px;">✓</span>
+                                <div class="badge course-badge d-flex align-items-center gap-2">
+                                    <span class="bg-white d-flex align-items-center justify-content-center" style="width: 20px; height: 20px; font-size: 12px; color: #28a745;">
+                                        <i class="bi bi-check-circle"></i>
+                                    </span>
                                     Figma para Principiantes
                                 </div>
-                                <div class="badge bg-warning text-dark p-3 d-flex align-items-center gap-2">
-                                    <span class="rounded-circle bg-white text-warning d-flex align-items-center justify-content-center" style="width: 20px; height: 20px; font-size: 12px;">↻</span>
+                                <div class="badge course-badge course-badge-progress d-flex align-items-center gap-2">
+                                    <span class="bg-white d-flex align-items-center justify-content-center" style="width: 20px; height: 20px; font-size: 12px; color: #ffc107;">
+                                        <i class="bi bi-arrow-repeat"></i>
+                                    </span>
                                     Node.js Intermedio (En curso)
                                 </div>
                             </div>
@@ -109,29 +385,52 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="card custom-card">
+                    <div class="card section-card">
                         <div class="card-body">
-                            <h3>Proyectos participados</h3>
+                            <h3 class="section-title">
+                                <i class="bi bi-rocket"></i>
+                                Proyectos participados
+                            </h3>
                             <div class="row g-4">
                                 <div class="col-lg-6">
-                                    <div class="card h-100">
-                                        <div class="card-header">App Educativa - ONG EduTech</div>
+                                    <div class="card project-card h-100">
+                                        <div class="card-header">
+                                            <i class="bi bi-mortarboard me-2"></i>
+                                            App Educativa - ONG EduTech
+                                        </div>
                                         <div class="card-body">
-                                            <p><strong>Rol:</strong> Frontend Developer</p>
-                                            <p><strong>Estado:</strong> Completado ✅</p>
-                                            <p>Desarrollé la interfaz de usuario para una plataforma educativa infantil usando React...</p>
-                                            <button class="btn btn-secondary w-100">Ver detalles</button>
+                                            <div class="mb-3">
+                                                <p class="mb-2"><strong>Rol:</strong> Frontend Developer</p>
+                                                <span class="status-badge status-completed">
+                                                    <i class="bi bi-check-circle"></i>
+                                                    Completado
+                                                </span>
+                                            </div>
+                                            <p class="mb-3">Desarrollé la interfaz de usuario para una plataforma educativa infantil usando React...</p>
+                                            <button class="btn btn-custom btn-secondary-custom w-100">
+                                                <i class="bi bi-eye me-2"></i>Ver detalles
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
-                                    <div class="card h-100">
-                                        <div class="card-header">E-commerce Verde - Tienda Verde</div>
+                                    <div class="card project-card h-100">
+                                        <div class="card-header">
+                                            <i class="bi bi-cart me-2"></i>
+                                            E-commerce Verde - Tienda Verde
+                                        </div>
                                         <div class="card-body">
-                                            <p><strong>Rol:</strong> Full Stack Developer</p>
-                                            <p><strong>Estado:</strong> En curso 🔄</p>
-                                            <p>Implementando sistema de carrito y pasarela de pagos para e-commerce sostenible...</p>
-                                            <button class="btn btn-secondary w-100">Ver detalles</button>
+                                            <div class="mb-3">
+                                                <p class="mb-2"><strong>Rol:</strong> Full Stack Developer</p>
+                                                <span class="status-badge status-in-progress">
+                                                    <i class="bi bi-arrow-repeat"></i>
+                                                    En curso
+                                                </span>
+                                            </div>
+                                            <p class="mb-3">Implementando sistema de carrito y pasarela de pagos para e-commerce sostenible...</p>
+                                            <button class="btn btn-custom btn-secondary-custom w-100">
+                                                <i class="bi bi-eye me-2"></i>Ver detalles
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -148,13 +447,25 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="card custom-card">
+                    <div class="card section-card">
                         <div class="card-body">
-                            <h3>Portfolio</h3>
-                            <p>Tu portfolio incluye todos los proyectos completados con detalles técnicos, tecnologías utilizadas y resultados obtenidos.</p>
-                            <div class="text-center">
-                                <button class="btn btn-primary me-3">Descargar Portfolio PDF</button>
-                                <button class="btn btn-secondary">Ver Portfolio Online</button>
+                            <h3 class="section-title">
+                                <i class="bi bi-briefcase"></i>
+                                Portfolio
+                            </h3>
+                            <div class="portfolio-section">
+                                <div class="mb-4">
+                                    <i class="bi bi-file-earmark-pdf display-4 mb-3" style="color: #0B2D59;"></i>
+                                    <p class="mb-4">Tu portfolio incluye todos los proyectos completados con detalles técnicos, tecnologías utilizadas y resultados obtenidos.</p>
+                                </div>
+                                <div class="d-flex gap-3 justify-content-center flex-wrap">
+                                    <button class="btn btn-custom btn-primary-custom">
+                                        <i class="bi bi-download me-2"></i>Descargar Portfolio PDF
+                                    </button>
+                                    <button class="btn btn-custom btn-accent-custom">
+                                        <i class="bi bi-eye me-2"></i>Ver Portfolio Online
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -168,25 +479,36 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="card custom-card">
+                    <div class="card section-card">
                         <div class="card-body">
-                            <h3>Mis estadísticas</h3>
-                            <div class="row text-center">
+                            <h3 class="section-title">
+                                <i class="bi bi-graph-up"></i>
+                                Mis estadísticas
+                            </h3>
+                            <div class="row g-4">
                                 <div class="col-md-3">
-                                    <h2 class="text-custom-primary">3</h2>
-                                    <p>Cursos completados</p>
+                                    <div class="stats-card">
+                                        <div class="stats-number">3</div>
+                                        <div class="stats-label">Cursos completados</div>
+                                    </div>
                                 </div>
                                 <div class="col-md-3">
-                                    <h2 class="text-custom-primary">2</h2>
-                                    <p>Proyectos participados</p>
+                                    <div class="stats-card">
+                                        <div class="stats-number">2</div>
+                                        <div class="stats-label">Proyectos participados</div>
+                                    </div>
                                 </div>
                                 <div class="col-md-3">
-                                    <h2 class="text-custom-primary">#24</h2>
-                                    <p>Posición en ranking</p>
+                                    <div class="stats-card">
+                                        <div class="stats-number">#24</div>
+                                        <div class="stats-label">Posición en ranking</div>
+                                    </div>
                                 </div>
                                 <div class="col-md-3">
-                                    <h2 class="text-custom-primary">95%</h2>
-                                    <p>Tasa de finalización</p>
+                                    <div class="stats-card">
+                                        <div class="stats-number">95%</div>
+                                        <div class="stats-label">Tasa de finalización</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -207,6 +529,16 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Agregar funcionalidad a campos editables
+        document.querySelectorAll('.editable-field').forEach(field => {
+            field.addEventListener('click', function() {
+                const fieldName = this.dataset.field;
+                alert(`Editando campo: ${fieldName}`);
+                // Aquí podrías abrir un modal o hacer el campo inline-editable
+            });
+        });
+    </script>
 </body>
 
 </html>

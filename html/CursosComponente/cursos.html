@@ -6,26 +6,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cursos - TalentLab</title>
     <link rel="stylesheet" href="../../css/bootstrap-custom.css">
+    <style>
+        #proyectosCarousel {
+            position: relative;
+        }
+
+        .carousel-control-custom {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #0B2D59;
+            opacity: 0.5;
+            font-size: 2.2rem;
+            z-index: 2;
+            transition: opacity 0.2s;
+            padding: 0;
+            margin: 0;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-control-custom:hover {
+            opacity: 0.9;
+            color: #0B2D59;
+        }
+
+        .carousel-control-prev-custom {
+            left: -2.5rem;
+        }
+
+        .carousel-control-next-custom {
+            right: -2.5rem;
+        }
+
+        @media (max-width: 991px) {
+            .carousel-control-prev-custom {
+                left: 0;
+            }
+
+            .carousel-control-next-custom {
+                right: 0;
+            }
+        }
+    </style>
 </head>
 
 <body>
-
-
     <!-- Header -->
     <header class="custom-header">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <h1 class="h3 mb-0">[LOGO] TalentLab</h1>
+                    <h1 class="h3 mb-0"><i class="bi bi-lightbulb"></i> TalentLab</h1>
                 </div>
                 <div class="col-md-6">
                     <nav class="navbar navbar-expand-lg navbar-dark">
                         <div class="navbar-nav ms-auto">
-                            <a class="nav-link" href="../UsuarioNoLogueado/homeNoLogueado.html"><i class="bi bi-house-door"></i> Inicio</a>
+                            <a class="nav-link" href="../UsuarioNoLogueado/homeNoLogueado.html"><i
+                                    class="bi bi-house-door"></i> Inicio</a>
                             <a class="nav-link active" href="cursos.html"><i class="bi bi-book"></i> Cursos</a>
-                            <a class="nav-link" href="../ProyectosComponente/proyectos.html"><i class="bi bi-rocket"></i> Proyectos</a>
-                            <a class="nav-link btn-login" href="../UsuarioNoLogueado/iniciarSesion.html"><i class="bi bi-box-arrow-in-right"></i> Iniciar Sesión</a>
-                            <a class="nav-link btn-register" href="../UsuarioNoLogueado/registrarse.html"><i class="bi bi-person-plus"></i> Registrarse</a>
+                            <a class="nav-link" href="../ProyectosComponente/proyectos.html"><i
+                                    class="bi bi-rocket"></i> Proyectos</a>
+                            <a class="nav-link btn-login" href="../UsuarioNoLogueado/iniciarSesion.html"><i
+                                    class="bi bi-box-arrow-in-right"></i> Iniciar Sesión</a>
+                            <a class="nav-link btn-register" href="../UsuarioNoLogueado/registrarse.html"><i
+                                    class="bi bi-person-plus"></i> Registrarse</a>
                         </div>
                     </nav>
                 </div>
@@ -46,7 +95,7 @@
     </section>
 
     <!-- Filtros -->
-    <section class="py-3">
+    <section class="py-1">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -92,135 +141,169 @@
     <!-- Listado de cursos -->
     <section class="py-4">
         <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="row g-4">
-                        <div class="col-lg-6 col-md-6">
-                            <div class="card custom-card h-100">
-                                <div class="card-header">[IMAGEN] JavaScript Avanzado</div>
-                                <div class="card-body">
-                                    <p><strong>Categoría:</strong> Tecnología</p>
-                                    <p><strong>Nivel:</strong> Avanzado | <strong>Duración:</strong> 6 semanas</p>
-                                    <p>Domina conceptos avanzados de JavaScript: closures, prototipos, async/await...</p>
-                                    <div class="mb-3">
-                                        <span class="badge bg-secondary me-2">Avanzado</span>
-                                        <span class="badge bg-secondary">6 sem</span>
-                                    </div>
-                                    <button class="btn btn-secondary w-100">Ver más</button>
-                                    <div class="alert alert-info mt-2 small">
-                                        <i class="bi bi-info-circle"></i> Para inscribirte a este curso, debes <a href="../UsuarioNoLogueado/iniciarSesion.html" class="alert-link">iniciar sesión</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-lg-6 col-md-6">
-                            <div class="card custom-card h-100">
-                                <div class="card-header">[IMAGEN] Figma para Principiantes</div>
-                                <div class="card-body">
-                                    <p><strong>Categoría:</strong> Diseño</p>
-                                    <p><strong>Nivel:</strong> Básico | <strong>Duración:</strong> 3 semanas</p>
-                                    <p>Aprende a crear prototipos y diseños profesionales desde cero...</p>
-                                    <div class="mb-3">
-                                        <span class="badge bg-secondary me-2">Básico</span>
-                                        <span class="badge bg-secondary">3 sem</span>
-                                    </div>
-                                    <button class="btn btn-secondary w-100">Ver más</button>
-                                    <div class="alert alert-info mt-2 small">
-                                        <i class="bi bi-info-circle"></i> Para inscribirte a este curso, debes <a href="../UsuarioNoLogueado/iniciarSesion.html" class="alert-link">iniciar sesión</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-lg-6 col-md-6">
-                            <div class="card custom-card h-100">
-                                <div class="card-header">[IMAGEN] Metodologías Ágiles</div>
-                                <div class="card-body">
-                                    <p><strong>Categoría:</strong> Gestión</p>
-                                    <p><strong>Nivel:</strong> Intermedio | <strong>Duración:</strong> 4 semanas</p>
-                                    <p>Scrum, Kanban y otras metodologías para gestión eficiente...</p>
-                                    <div class="mb-3">
-                                        <span class="badge bg-secondary me-2">Intermedio</span>
-                                        <span class="badge bg-secondary">4 sem</span>
-                                    </div>
-                                    <button class="btn btn-secondary w-100">Ver más</button>
-                                    <div class="alert alert-info mt-2 small">
-                                        <i class="bi bi-info-circle"></i> Para inscribirte a este curso, debes <a href="../UsuarioNoLogueado/iniciarSesion.html" class="alert-link">iniciar sesión</a>
+            <div id="proyectosCarousel" class="carousel slide my-auto" data-bs-ride="false">
+                <button class="carousel-control-custom carousel-control-prev-custom" type="button"
+                    data-bs-target="#proyectosCarousel" data-bs-slide="prev" aria-label="Anterior">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 8L12 16L20 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <button class="carousel-control-custom carousel-control-next-custom" type="button"
+                    data-bs-target="#proyectosCarousel" data-bs-slide="next" aria-label="Siguiente">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 8L20 16L12 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row g-4">
+                            <!-- Curso 1 -->
+                            <div class="col-lg-4 col-md-4">
+                                <div class="card custom-card h-100">
+                                    <div class="card-header"><i class="bi bi-filetype-js"></i> JavaScript Avanzado</div>
+                                    <div class="card-body">
+                                        <p><strong>Categoría:</strong> Tecnología</p>
+                                        <p><strong>Nivel:</strong> Avanzado | <strong>Duración:</strong> 6 semanas</p>
+                                        <p>Domina conceptos avanzados de JavaScript: closures, prototipos, async/await,
+                                            y patrones modernos de desarrollo web.</p>
+                                        <div class="mb-3">
+                                            <span class="badge bg-secondary me-2">Avanzado</span>
+                                            <span class="badge bg-secondary">6 sem</span>
+                                        </div>
+                                        <button class="btn btn-secondary w-100"><a style="text-decoration: none; color: white"
+                                            href="./cursoDetalle.html">Ver más</a>
+                                        </button>
+                                        <div class="alert alert-info mt-2 small">
+                                            <i class="bi bi-info-circle"></i> Para inscribirte a este curso, debes <a
+                                                href="../UsuarioNoLogueado/iniciarSesion.html"
+                                                class="alert-link">iniciar sesión</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="col-lg-6 col-md-6">
-                            <div class="card custom-card h-100">
-                                <div class="card-header">[IMAGEN] Design Thinking</div>
-                                <div class="card-body">
-                                    <p><strong>Categoría:</strong> Innovación</p>
-                                    <p><strong>Nivel:</strong> Intermedio | <strong>Duración:</strong> 5 semanas</p>
-                                    <p>Metodología de innovación centrada en el usuario...</p>
-                                    <div class="mb-3">
-                                        <span class="badge bg-secondary me-2">Intermedio</span>
-                                        <span class="badge bg-secondary">5 sem</span>
+                            <!-- Curso 2 -->
+                            <div class="col-lg-4 col-md-4">
+                                <div class="card custom-card h-100">
+                                    <div class="card-header"><i class="bi bi-filetype-py"></i> Python para Data Science
                                     </div>
-                                    <button class="btn btn-secondary w-100">Ver más</button>
-                                    <div class="alert alert-info mt-2 small">
-                                        <i class="bi bi-info-circle"></i> Para inscribirte a este curso, debes <a href="../UsuarioNoLogueado/iniciarSesion.html" class="alert-link">iniciar sesión</a>
+                                    <div class="card-body">
+                                        <p><strong>Categoría:</strong> Data Science</p>
+                                        <p><strong>Nivel:</strong> Intermedio | <strong>Duración:</strong> 8 semanas</p>
+                                        <p>Aprende a analizar datos, crear modelos de machine learning y visualizar
+                                            resultados usando Python, Pandas y Scikit-learn.</p>
+                                        <div class="mb-3">
+                                            <span class="badge bg-secondary me-2">Intermedio</span>
+                                            <span class="badge bg-secondary">8 sem</span>
+                                        </div>
+                                        <button class="btn btn-secondary w-100">Ver más</button>
+                                        <div class="alert alert-info mt-2 small">
+                                            <i class="bi bi-info-circle"></i> Para inscribirte a este curso, debes <a
+                                                href="../UsuarioNoLogueado/iniciarSesion.html"
+                                                class="alert-link">iniciar sesión</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Curso 3 -->
+                            <div class="col-lg-4 col-md-4">
+                                <div class="card custom-card h-100">
+                                    <div class="card-header"><i class="bi bi-hdd-network"></i> Redes y Seguridad
+                                        Informática</div>
+                                    <div class="card-body">
+                                        <p><strong>Categoría:</strong> Infraestructura</p>
+                                        <p><strong>Nivel:</strong> Básico | <strong>Duración:</strong> 5 semanas</p>
+                                        <p>Conoce los fundamentos de redes, protocolos, ciberseguridad y buenas
+                                            prácticas para proteger sistemas y datos.</p>
+                                        <div class="mb-3">
+                                            <span class="badge bg-secondary me-2">Básico</span>
+                                            <span class="badge bg-secondary">5 sem</span>
+                                        </div>
+                                        <button class="btn btn-secondary w-100">Ver más</button>
+                                        <div class="alert alert-info mt-2 small">
+                                            <i class="bi bi-info-circle"></i> Para inscribirte a este curso, debes <a
+                                                href="../UsuarioNoLogueado/iniciarSesion.html"
+                                                class="alert-link">iniciar sesión</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Modal de detalle de curso -->
-    <section class="py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="card custom-card">
-                        <div class="card-body">
-                            <h4 class="text-center mb-4">MODAL: Detalle del curso (se abre al hacer clic en "Ver más")</h4>
-                            <div class="card">
-                                <div class="card-body">
-                                    <h3>JavaScript Avanzado</h3>
-                                    <p class="mb-4"><strong>Descripción completa:</strong> Este curso está diseñado para desarrolladores que ya dominan los conceptos básicos de JavaScript y quieren llevar sus habilidades al siguiente nivel...</p>
-                                    
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <h4>Objetivos del curso:</h4>
-                                            <ul>
-                                                <li>Dominar closures y scope</li>
-                                                <li>Entender prototipos y herencia</li>
-                                                <li>Manejar programación asíncrona</li>
-                                                <li>Optimizar rendimiento</li>
-                                            </ul>
+                    <div class="carousel-item">
+                        <div class="row g-4">
+                            <!-- Curso 4 -->
+                            <div class="col-lg-4 col-md-4">
+                                <div class="card custom-card h-100">
+                                    <div class="card-header"><i class="bi bi-database"></i> Bases de Datos SQL</div>
+                                    <div class="card-body">
+                                        <p><strong>Categoría:</strong> Bases de Datos</p>
+                                        <p><strong>Nivel:</strong> Intermedio | <strong>Duración:</strong> 7 semanas</p>
+                                        <p>Aprende a diseñar, consultar y optimizar bases de datos relacionales con SQL,
+                                            MySQL y PostgreSQL.</p>
+                                        <div class="mb-3">
+                                            <span class="badge bg-secondary me-2">Intermedio</span>
+                                            <span class="badge bg-secondary">7 sem</span>
                                         </div>
-                                        <div class="col-md-6">
-                                            <h4>Contenidos (Temario):</h4>
-                                            <ul>
-                                                <li>Semana 1: Closures y Scope avanzado</li>
-                                                <li>Semana 2: Prototipos y herencia</li>
-                                                <li>Semana 3: Promises y async/await</li>
-                                                <li>Semana 4: Event Loop y optimización</li>
-                                                <li>Semana 5: Patrones de diseño</li>
-                                                <li>Semana 6: Proyecto final</li>
-                                            </ul>
+                                        <button class="btn btn-secondary w-100">Ver más</button>
+                                        <div class="alert alert-info mt-2 small">
+                                            <i class="bi bi-info-circle"></i> Para inscribirte a este curso, debes <a
+                                                href="../UsuarioNoLogueado/iniciarSesion.html"
+                                                class="alert-link">iniciar
+                                                sesión</a>
                                         </div>
                                     </div>
-
-                                    <p class="mb-4"><strong>Certificación:</strong> Al completar el curso, recibirás un certificado digital verificable.</p>
-                                    
-                                                                         <div class="text-center">
-                                         <button class="btn btn-primary me-3">Inscribirme</button>
-                                         <button class="btn btn-secondary">Cerrar</button>
-                                     </div>
-                                     <div class="alert alert-info mt-3">
-                                         <i class="bi bi-info-circle"></i> <strong>Nota:</strong> Solo usuarios logueados pueden inscribirse a cursos. Si no tienes cuenta, <a href="../UsuarioNoLogueado/iniciarSesion.html" class="alert-link">inicia sesión aquí</a>.
-                                     </div>
+                                </div>
+                            </div>
+                            <!-- Curso 5 -->
+                            <div class="col-lg-4 col-md-4">
+                                <div class="card custom-card h-100">
+                                    <div class="card-header"><i class="bi bi-filetype-java"></i> POO con Java</div>
+                                    <div class="card-body">
+                                        <p><strong>Categoría:</strong> Programación</p>
+                                        <p><strong>Nivel:</strong> Intermedio | <strong>Duración:</strong> 6 semanas</p>
+                                        <p>Desarrolla aplicaciones robustas aplicando los principios de la POO,
+                                            herencia,
+                                            polimorfismo y patrones de diseño en Java.</p>
+                                        <div class="mb-3">
+                                            <span class="badge bg-secondary me-2">Intermedio</span>
+                                            <span class="badge bg-secondary">6 sem</span>
+                                        </div>
+                                        <button class="btn btn-secondary w-100">Ver más</button>
+                                        <div class="alert alert-info mt-2 small">
+                                            <i class="bi bi-info-circle"></i> Para inscribirte a este curso, debes <a
+                                                href="../UsuarioNoLogueado/iniciarSesion.html"
+                                                class="alert-link">iniciar
+                                                sesión</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Curso 6 -->
+                            <div class="col-lg-4 col-md-4">
+                                <div class="card custom-card h-100">
+                                    <div class="card-header"><i class="bi bi-git"></i> Control de Versiones con Git y
+                                        GitHub
+                                    </div>
+                                    <div class="card-body">
+                                        <p><strong>Categoría:</strong> Herramientas</p>
+                                        <p><strong>Nivel:</strong> Básico | <strong>Duración:</strong> 4 semanas</p>
+                                        <p>Aprende a gestionar proyectos, ramas y colaboraciones usando Git y GitHub en
+                                            entornos
+                                            profesionales.</p>
+                                        <div class="mb-3">
+                                            <span class="badge bg-secondary me-2">Básico</span>
+                                            <span class="badge bg-secondary">4 sem</span>
+                                        </div>
+                                        <button class="btn btn-secondary w-100">Ver más</button>
+                                        <div class="alert alert-info mt-2 small">
+                                            <i class="bi bi-info-circle"></i> Para inscribirte a este curso, debes <a
+                                                href="../UsuarioNoLogueado/iniciarSesion.html"
+                                                class="alert-link">iniciar
+                                                sesión</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
