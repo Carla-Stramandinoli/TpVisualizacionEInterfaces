@@ -7,6 +7,28 @@
     <title>TalentLab - Conectando talento con oportunidades reales</title>
     <link rel="stylesheet" href="../../css/bootstrap-custom.css">
     <link rel="stylesheet" href="../../css/stylos.css">
+    <style>
+        .custom-card-estudiante, .custom-card-proyectos {
+            border-radius: 1rem;
+            box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.18);
+            padding: 2rem 1.5rem;
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            color: #fff;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        /* cambiar colores para que se vea mas lindo */
+        .custom-card-estudiante {
+            background: #7fcbd6;
+
+        } .custom-card-proyectos {
+            background: #b8c8ea;
+        }
+
+
+    </style>
 </head>
 
 <body>
@@ -22,12 +44,30 @@
                 <div class="col-md-6">
                     <nav class="navbar navbar-expand-lg navbar-dark">
                         <div class="navbar-nav ms-auto">
-                            <a class="nav-link active d-flex align-items-center gap-2 text-nowrap" href="../UsuarioNoLogueado/homeNoLogueado.html"><i class="bi bi-house-door"></i><p class="m-0">Inicio</p></a>
-                            <a class="nav-link d-flex align-items-center gap-2 text-nowrap" href="../CursosComponente/cursos.html"><i class="bi bi-book"></i><p class="m-0">Cursos</p></a>
-                            <a class="nav-link d-flex align-items-center gap-2 text-nowrap" href="../ProyectosComponente/proyectos.html"><i class="bi bi-rocket"></i><p class="m-0">Proyectos</p></a>
-                            <a class="nav-link d-flex align-items-center gap-2 text-nowrap" href="../UsuarioNoLogueado/ranking.html"><i class="bi bi-trophy"></i><p class="m-0">Ranking</p></a>
-                            <a class="nav-link btn-login text-nowrap d-flex align-items-center gap-2" href="../UsuarioNoLogueado/iniciarSesion.html"><i class="bi bi-box-arrow-in-right"></i><p class="m-0">Iniciar Sesión</p></a>
-                            <a class="nav-link btn-register text-nowrap d-flex align-items-center gap-2" href="../UsuarioNoLogueado/registrarse.html"><i class="bi bi-person-plus"></i><p class="m-0">Registrarse</p></a>
+                            <a class="nav-link active d-flex align-items-center gap-2 text-nowrap"
+                                href="../UsuarioNoLogueado/homeNoLogueado.html"><i class="bi bi-house-door"></i>
+                                <p class="m-0">Inicio</p>
+                            </a>
+                            <a class="nav-link d-flex align-items-center gap-2 text-nowrap"
+                                href="../CursosComponente/cursos.html"><i class="bi bi-book"></i>
+                                <p class="m-0">Cursos</p>
+                            </a>
+                            <a class="nav-link d-flex align-items-center gap-2 text-nowrap"
+                                href="../ProyectosComponente/proyectos.html"><i class="bi bi-rocket"></i>
+                                <p class="m-0">Proyectos</p>
+                            </a>
+                            <a class="nav-link d-flex align-items-center gap-2 text-nowrap"
+                                href="../UsuarioNoLogueado/ranking.html"><i class="bi bi-trophy"></i>
+                                <p class="m-0">Ranking</p>
+                            </a>
+                            <a class="nav-link btn-login text-nowrap d-flex align-items-center gap-2"
+                                href="../UsuarioNoLogueado/iniciarSesion.html"><i class="bi bi-box-arrow-in-right"></i>
+                                <p class="m-0">Iniciar Sesión</p>
+                            </a>
+                            <a class="nav-link btn-register text-nowrap d-flex align-items-center gap-2"
+                                href="../UsuarioNoLogueado/registrarse.html"><i class="bi bi-person-plus"></i>
+                                <p class="m-0">Registrarse</p>
+                            </a>
                         </div>
                     </nav>
                 </div>
@@ -111,7 +151,7 @@
                         intermediarios</h3>
                     <div class="row g-4 mb-4 justify-content-center">
                         <div class="col-md-4">
-                            <div class="custom-card-estudiante text-center">
+                            <div class="custom-card-estudiante text-center border">
                                 <div class="mb-2">
                                     <i class="bi bi-bar-chart display-4 mb-2"></i>
                                 </div>
@@ -126,7 +166,7 @@
                                 <div class="mb-2">
                                     <i class="bi bi-bullseye display-4 mb-2"></i>
                                 </div>
-                            <div class="fw-bold fs-4 mb-2">Conexión directa</div>
+                                <div class="fw-bold fs-4 mb-2">Conexión directa</div>
                                 <div class="text-secondary" style="font-size: 0.95em;">
                                     Conectá con empresas y proyectos directamente.
                                 </div>
