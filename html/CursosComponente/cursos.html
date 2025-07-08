@@ -4,159 +4,243 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wireframes - Plataforma de Aprendizaje y Proyectos</title>
-    <link rel="stylesheet" href="../../css/stylos.css">
+    <title>Cursos - TalentLab</title>
+    <link rel="stylesheet" href="../../css/bootstrap-custom.css">
 </head>
 
 <body>
-    <div class="container">
-            <div class="wireframe" id="cursos">
-                <h2>📚 2. Vista de Cursos</h2>
-                
-                <!-- Header simplificado -->
-                <div class="header">
-                    <div style="font-weight: bold;">[LOGO]</div>
-                    <div class="nav">
-                        <div class="nav-item">Inicio</div>
-                        <div class="nav-item" style="background: #333; color: white;">Cursos</div>
-                        <div class="nav-item">Proyectos</div>
-                        <div class="nav-item">Ranking</div>
-                        <div class="nav-item">Mi Perfil</div>
-                    </div>
+
+
+    <!-- Header -->
+    <header class="custom-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h1 class="h3 mb-0">[LOGO] TalentLab</h1>
                 </div>
-    
-                <!-- Título y filtros -->
-                <div style="margin: 20px 0;">
+                <div class="col-md-6">
+                    <nav class="navbar navbar-expand-lg navbar-dark">
+                        <div class="navbar-nav ms-auto">
+                            <a class="nav-link" href="../UsuarioNoLogueado/homeNoLogueado.html"><i class="bi bi-house-door"></i> Inicio</a>
+                            <a class="nav-link active" href="cursos.html"><i class="bi bi-book"></i> Cursos</a>
+                            <a class="nav-link" href="../ProyectosComponente/proyectos.html"><i class="bi bi-rocket"></i> Proyectos</a>
+                            <a class="nav-link btn-login" href="../UsuarioNoLogueado/iniciarSesion.html"><i class="bi bi-box-arrow-in-right"></i> Iniciar Sesión</a>
+                            <a class="nav-link btn-register" href="../UsuarioNoLogueado/registrarse.html"><i class="bi bi-person-plus"></i> Registrarse</a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Título y filtros -->
+    <section class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
                     <h3>Explorar Cursos</h3>
                     <p>Fortalecé tus habilidades con nuestros cursos especializados</p>
                 </div>
-    
-                <div class="filters">
-                    <div class="filter-group">
-                        <label><strong>Categoría:</strong></label>
-                        <select>
-                            <option>Todas las categorías</option>
-                            <option>Tecnología</option>
-                            <option>Diseño</option>
-                            <option>Innovación</option>
-                            <option>Gestión</option>
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <label><strong>Nivel:</strong></label>
-                        <select>
-                            <option>Todos los niveles</option>
-                            <option>Básico</option>
-                            <option>Intermedio</option>
-                            <option>Avanzado</option>
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <label><strong>Duración:</strong></label>
-                        <select>
-                            <option>Cualquier duración</option>
-                            <option>1-4 semanas</option>
-                            <option>5-8 semanas</option>
-                            <option>9+ semanas</option>
-                        </select>
-                    </div>
-                </div>
-    
-                <!-- Listado de cursos -->
-                <div class="section">
-                    <div class="grid">
-                        <div class="card">
-                            <div class="card-header">[IMAGEN] Curso</div>
-                            <p><strong>Categoría:</strong> </p>
-                            <p><strong>Nivel:</strong>  | <strong>Duración:</strong> tiempo</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos officia consectetur inventore.</p>
-                            <div style="margin-top: 10px;">
-                                <span style="background: #ddd; padding: 2px 8px; border-radius: 3px; font-size: 12px;">Avanzado</span>
-                                <span style="background: #ddd; padding: 2px 8px; border-radius: 3px; font-size: 12px;">Duracion</span>
-                            </div>
-                            <button class="btn" style="margin-top: 10px; width: 100%;">Ver más</button>
-                        </div>
-                        
-                        <div class="card">
-                            <div class="card-header">[IMAGEN] Curso</div>
-                            <p><strong>Categoría:</strong> </p>
-                            <p><strong>Nivel:</strong>  | <strong>Duración:</strong> tiempo</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos officia consectetur inventore.</p>
-                            <div style="margin-top: 10px;">
-                                <span style="background: #ddd; padding: 2px 8px; border-radius: 3px; font-size: 12px;">Avanzado</span>
-                                <span style="background: #ddd; padding: 2px 8px; border-radius: 3px; font-size: 12px;">Duracion</span>
-                            </div>
-                            <button class="btn" style="margin-top: 10px; width: 100%;">Ver más</button>
-                        </div>
-                        
-                        <div class="card">
-                            <div class="card-header">[IMAGEN] Curso</div>
-                            <p><strong>Categoría:</strong> </p>
-                            <p><strong>Nivel:</strong>  | <strong>Duración:</strong> tiempo</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos officia consectetur inventore.</p>
-                            <div style="margin-top: 10px;">
-                                <span style="background: #ddd; padding: 2px 8px; border-radius: 3px; font-size: 12px;">Avanzado</span>
-                                <span style="background: #ddd; padding: 2px 8px; border-radius: 3px; font-size: 12px;">Duracion</span>
-                            </div>
-                            <button class="btn" style="margin-top: 10px; width: 100%;">Ver más</button>
-                        </div>
-    
-                        <div class="card">
-                            <div class="card-header">[IMAGEN] Curso</div>
-                            <p><strong>Categoría:</strong> </p>
-                            <p><strong>Nivel:</strong>  | <strong>Duración:</strong> tiempo</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos officia consectetur inventore.</p>
-                            <div style="margin-top: 10px;">
-                                <span style="background: #ddd; padding: 2px 8px; border-radius: 3px; font-size: 12px;">Avanzado</span>
-                                <span style="background: #ddd; padding: 2px 8px; border-radius: 3px; font-size: 12px;">Duracion</span>
-                            </div>
-                            <button class="btn" style="margin-top: 10px; width: 100%;">Ver más</button>
-                        </div>
-                    </div>
-                </div>
-    
-                <!-- Modal de detalle de curso (pasar a modal real) -->
-                <div style="border: 2px dashed #666; padding: 20px; margin: 20px 0; background: #f9f9f9;">
-                    <h4>MODAL: Detalle del curso (se abre al hacer clic en "Ver más")</h4>
-                    <div style="border: 1px solid #ccc; padding: 15px; background: white; margin: 10px 0;">
-                        <h3>Curso</h3>
-                        <p><strong>Descripción completa:</strong>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque enim consequatur, architecto pariatur facere nesciunt quis aspernatur temporibus fugiat maiores.</p>
-                        
-                        <h4>Objetivos del curso:</h4>
-                        <ul>
-                            <li>Info</li>
-                            <li>Info</li>
-                            <li>Info</li>
-                            <li>Info</li>
-                        </ul>
-    
-                        <h4>Contenidos (Temario):</h4>
-                        <ul>
-                            <li>Semana 1: Info</li>
-                            <li>Semana 2: Info</li>
-                            <li>Semana 3: Info</li>
-                            <li>Semana 4: Info</li>
-                            <li>Semana 5: Info</li>
-                            <li>Semana 6: Info</li>
-                        </ul>
-    
-                        <p><strong>Certificación:</strong> Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        
-                        <div style="text-align: center; margin-top: 20px;">
-                            <button class="btn btn-primary">Inscribirme</button>
-                            <button class="btn">Cerrar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Footer -->
-            <div class="footer">
-                <p>Redes Sociales | Contacto | Acerca de | Términos y Condiciones</p>
             </div>
         </div>
+    </section>
 
-    </div>
+    <!-- Filtros -->
+    <section class="py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card custom-card">
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <label class="form-label"><strong>Categoría:</strong></label>
+                                    <select class="form-select">
+                                        <option>Todas las categorías</option>
+                                        <option>Tecnología</option>
+                                        <option>Diseño</option>
+                                        <option>Innovación</option>
+                                        <option>Gestión</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label"><strong>Nivel:</strong></label>
+                                    <select class="form-select">
+                                        <option>Todos los niveles</option>
+                                        <option>Básico</option>
+                                        <option>Intermedio</option>
+                                        <option>Avanzado</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label"><strong>Duración:</strong></label>
+                                    <select class="form-select">
+                                        <option>Cualquier duración</option>
+                                        <option>1-4 semanas</option>
+                                        <option>5-8 semanas</option>
+                                        <option>9+ semanas</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Listado de cursos -->
+    <section class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row g-4">
+                        <div class="col-lg-6 col-md-6">
+                            <div class="card custom-card h-100">
+                                <div class="card-header">[IMAGEN] JavaScript Avanzado</div>
+                                <div class="card-body">
+                                    <p><strong>Categoría:</strong> Tecnología</p>
+                                    <p><strong>Nivel:</strong> Avanzado | <strong>Duración:</strong> 6 semanas</p>
+                                    <p>Domina conceptos avanzados de JavaScript: closures, prototipos, async/await...</p>
+                                    <div class="mb-3">
+                                        <span class="badge bg-secondary me-2">Avanzado</span>
+                                        <span class="badge bg-secondary">6 sem</span>
+                                    </div>
+                                    <button class="btn btn-secondary w-100">Ver más</button>
+                                    <div class="alert alert-info mt-2 small">
+                                        <i class="bi bi-info-circle"></i> Para inscribirte a este curso, debes <a href="../UsuarioNoLogueado/iniciarSesion.html" class="alert-link">iniciar sesión</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-6 col-md-6">
+                            <div class="card custom-card h-100">
+                                <div class="card-header">[IMAGEN] Figma para Principiantes</div>
+                                <div class="card-body">
+                                    <p><strong>Categoría:</strong> Diseño</p>
+                                    <p><strong>Nivel:</strong> Básico | <strong>Duración:</strong> 3 semanas</p>
+                                    <p>Aprende a crear prototipos y diseños profesionales desde cero...</p>
+                                    <div class="mb-3">
+                                        <span class="badge bg-secondary me-2">Básico</span>
+                                        <span class="badge bg-secondary">3 sem</span>
+                                    </div>
+                                    <button class="btn btn-secondary w-100">Ver más</button>
+                                    <div class="alert alert-info mt-2 small">
+                                        <i class="bi bi-info-circle"></i> Para inscribirte a este curso, debes <a href="../UsuarioNoLogueado/iniciarSesion.html" class="alert-link">iniciar sesión</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-6 col-md-6">
+                            <div class="card custom-card h-100">
+                                <div class="card-header">[IMAGEN] Metodologías Ágiles</div>
+                                <div class="card-body">
+                                    <p><strong>Categoría:</strong> Gestión</p>
+                                    <p><strong>Nivel:</strong> Intermedio | <strong>Duración:</strong> 4 semanas</p>
+                                    <p>Scrum, Kanban y otras metodologías para gestión eficiente...</p>
+                                    <div class="mb-3">
+                                        <span class="badge bg-secondary me-2">Intermedio</span>
+                                        <span class="badge bg-secondary">4 sem</span>
+                                    </div>
+                                    <button class="btn btn-secondary w-100">Ver más</button>
+                                    <div class="alert alert-info mt-2 small">
+                                        <i class="bi bi-info-circle"></i> Para inscribirte a este curso, debes <a href="../UsuarioNoLogueado/iniciarSesion.html" class="alert-link">iniciar sesión</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6">
+                            <div class="card custom-card h-100">
+                                <div class="card-header">[IMAGEN] Design Thinking</div>
+                                <div class="card-body">
+                                    <p><strong>Categoría:</strong> Innovación</p>
+                                    <p><strong>Nivel:</strong> Intermedio | <strong>Duración:</strong> 5 semanas</p>
+                                    <p>Metodología de innovación centrada en el usuario...</p>
+                                    <div class="mb-3">
+                                        <span class="badge bg-secondary me-2">Intermedio</span>
+                                        <span class="badge bg-secondary">5 sem</span>
+                                    </div>
+                                    <button class="btn btn-secondary w-100">Ver más</button>
+                                    <div class="alert alert-info mt-2 small">
+                                        <i class="bi bi-info-circle"></i> Para inscribirte a este curso, debes <a href="../UsuarioNoLogueado/iniciarSesion.html" class="alert-link">iniciar sesión</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de detalle de curso -->
+    <section class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card custom-card">
+                        <div class="card-body">
+                            <h4 class="text-center mb-4">MODAL: Detalle del curso (se abre al hacer clic en "Ver más")</h4>
+                            <div class="card">
+                                <div class="card-body">
+                                    <h3>JavaScript Avanzado</h3>
+                                    <p class="mb-4"><strong>Descripción completa:</strong> Este curso está diseñado para desarrolladores que ya dominan los conceptos básicos de JavaScript y quieren llevar sus habilidades al siguiente nivel...</p>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h4>Objetivos del curso:</h4>
+                                            <ul>
+                                                <li>Dominar closures y scope</li>
+                                                <li>Entender prototipos y herencia</li>
+                                                <li>Manejar programación asíncrona</li>
+                                                <li>Optimizar rendimiento</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h4>Contenidos (Temario):</h4>
+                                            <ul>
+                                                <li>Semana 1: Closures y Scope avanzado</li>
+                                                <li>Semana 2: Prototipos y herencia</li>
+                                                <li>Semana 3: Promises y async/await</li>
+                                                <li>Semana 4: Event Loop y optimización</li>
+                                                <li>Semana 5: Patrones de diseño</li>
+                                                <li>Semana 6: Proyecto final</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <p class="mb-4"><strong>Certificación:</strong> Al completar el curso, recibirás un certificado digital verificable.</p>
+                                    
+                                                                         <div class="text-center">
+                                         <button class="btn btn-primary me-3">Inscribirme</button>
+                                         <button class="btn btn-secondary">Cerrar</button>
+                                     </div>
+                                     <div class="alert alert-info mt-3">
+                                         <i class="bi bi-info-circle"></i> <strong>Nota:</strong> Solo usuarios logueados pueden inscribirse a cursos. Si no tienes cuenta, <a href="../UsuarioNoLogueado/iniciarSesion.html" class="alert-link">inicia sesión aquí</a>.
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="text-center">
+                <p class="mb-0">Redes Sociales | Contacto | Acerca de | Términos y Condiciones</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

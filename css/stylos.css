@@ -7,8 +7,8 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    color: #333;
-    background: #f5f5f5;
+    color: #1E293B;
+    background: #F5F7FA;
 }
 
 .container {
@@ -19,14 +19,14 @@ body {
 
 .wireframe {
     background: white;
-    border: 2px solid #ddd;
+    border: 2px solid #3671BF;
     margin: 30px 0;
     padding: 20px;
     border-radius: 8px;
 }
 
 .wireframe h2 {
-    background: #333;
+    background: #0B2D59;
     color: white;
     padding: 10px;
     margin: -20px -20px 20px -20px;
@@ -34,10 +34,10 @@ body {
 }
 
 .section {
-    border: 1px solid #ccc;
+    border: 1px solid #3671BF;
     margin: 15px 0;
     padding: 15px;
-    background: #fafafa;
+    background: white;
     border-radius: 4px;
 }
 
@@ -46,8 +46,9 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    border: 1px solid #999;
-    background: #e9e9e9;
+    border: 1px solid #3671BF;
+    background: #0B2D59;
+    color: white;
 }
 
 .nav {
@@ -57,20 +58,31 @@ body {
 
 .nav-item {
     padding: 5px 10px;
-    border: 1px solid #aaa;
-    background: white;
+    border: 1px solid #48E59B;
+    background: #3671BF;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.nav-item:hover {
+    background: #48E59B;
+    color: #0B2D59;
 }
 
 .hero {
     text-align: center;
     padding: 40px 20px;
-    border: 2px dashed #666;
+    border: 2px dashed #3671BF;
     margin: 20px 0;
+    background: white;
 }
 
 .hero h3 {
     font-size: 24px;
     margin: 10px 0;
+    color: #0B2D59;
 }
 
 .buttons {
@@ -82,14 +94,27 @@ body {
 
 .btn {
     padding: 10px 20px;
-    border: 1px solid #333;
-    background: #ddd;
+    border: 1px solid #0B2D59;
+    background: #3671BF;
+    color: white;
     cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: #48E59B;
+    color: #0B2D59;
 }
 
 .btn-primary {
-    background: #333;
+    background: #0B2D59;
     color: white;
+}
+
+.btn-primary:hover {
+    background: #48E59B;
+    color: #0B2D59;
 }
 
 .grid {
@@ -100,26 +125,30 @@ body {
 }
 
 .card {
-    border: 1px solid #bbb;
+    border: 1px solid #3671BF;
     padding: 15px;
     background: white;
     min-height: 120px;
+    border-radius: 6px;
 }
 
 .card-header {
-    background: #eee;
+    background: #0B2D59;
+    color: white;
     padding: 5px;
     margin: -15px -15px 10px -15px;
     font-weight: bold;
+    border-radius: 6px 6px 0 0;
 }
 
 .filters {
     display: flex;
     gap: 15px;
     padding: 15px;
-    background: #f0f0f0;
-    border: 1px solid #ccc;
+    background: #F5F7FA;
+    border: 1px solid #3671BF;
     margin: 15px 0;
+    border-radius: 6px;
 }
 
 .filter-group {
@@ -136,6 +165,7 @@ body {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
+    color: #0B2D59;
 }
 
 .form-field input,
@@ -143,8 +173,18 @@ body {
 .form-field textarea {
     width: 100%;
     padding: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid #3671BF;
     border-radius: 4px;
+    background: white;
+    color: #1E293B;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+    outline: none;
+    border-color: #48E59B;
+    box-shadow: 0 0 5px rgba(72, 229, 155, 0.3);
 }
 
 .profile-header {
@@ -157,12 +197,13 @@ body {
 .avatar {
     width: 80px;
     height: 80px;
-    border: 2px solid #333;
+    border: 2px solid #0B2D59;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #eee;
+    background: #3671BF;
+    color: white;
 }
 
 .table {
@@ -173,14 +214,19 @@ body {
 
 .table th,
 .table td {
-    border: 1px solid #ccc;
+    border: 1px solid #3671BF;
     padding: 10px;
     text-align: left;
 }
 
 .table th {
-    background: #f0f0f0;
+    background: #0B2D59;
+    color: white;
     font-weight: bold;
+}
+
+.table tr:nth-child(even) {
+    background: #F5F7FA;
 }
 
 .steps {
@@ -192,16 +238,17 @@ body {
 .step {
     text-align: center;
     padding: 20px;
-    border: 1px dashed #666;
+    border: 1px dashed #3671BF;
     flex: 1;
     margin: 0 10px;
+    background: white;
 }
 
 .step-number {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background: #333;
+    background: #0B2D59;
     color: white;
     display: flex;
     align-items: center;
@@ -215,7 +262,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(11, 45, 89, 0.5);
     display: none;
     align-items: center;
     justify-content: center;
@@ -230,10 +277,11 @@ body {
     width: 90%;
     max-height: 80vh;
     overflow-y: auto;
+    border: 2px solid #3671BF;
 }
 
 .footer {
-    background: #333;
+    background: #0B2D59;
     color: white;
     padding: 20px;
     margin-top: 30px;
@@ -245,49 +293,56 @@ body {
     top: 20px;
     right: 20px;
     background: white;
-    border: 1px solid #ccc;
+    border: 1px solid #3671BF;
     padding: 15px;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 100;
+    box-shadow: 0 4px 6px rgba(11, 45, 89, 0.1);
+    z-index: 1000;
 }
 
 .navigation h4 {
+    color: #0B2D59;
     margin-bottom: 10px;
+    font-size: 14px;
 }
 
 .navigation a {
     display: block;
+    padding: 8px 12px;
     margin: 5px 0;
-    color: #333;
+    background: #3671BF;
+    color: white;
     text-decoration: none;
-    padding: 5px 10px;
     border-radius: 4px;
+    font-size: 12px;
+    transition: all 0.3s ease;
 }
 
 .navigation a:hover {
-    background: #f0f0f0;
+    background: #48E59B;
+    color: #0B2D59;
 }
 
 @media (max-width: 768px) {
     .navigation {
         position: static;
-        margin-bottom: 20px;
+        margin: 20px 0;
+        text-align: center;
     }
-
+    
     .steps {
         flex-direction: column;
     }
-
+    
     .step {
         margin: 10px 0;
     }
-
+    
     .buttons {
         flex-direction: column;
         align-items: center;
     }
-
+    
     .filters {
         flex-direction: column;
     }
