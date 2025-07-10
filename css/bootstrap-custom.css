@@ -9,7 +9,7 @@
 :root {
     --primary-color: #0B2D59;
     --secondary-color: #3671BF;
-    --accent-color: #48E59B;
+    --accent-color: #1bcf7b;
     --background-color: #F5F7FA;
     --text-color: #1E293B;
 }
@@ -17,7 +17,7 @@
 /* Variables CSS para Bootstrap */
 :root {
     --bs-primary: #0B2D59;
-    --bs-secondary: #3671BF;
+    --bs-secondary: #3671bf;
     --bs-success: #48E59B;
     --bs-info: #3671BF;
     --bs-warning: #FFC107;
@@ -226,7 +226,7 @@ p, span, div, a, button, input, textarea, select {
 }
 
 .stat-item {
-    background: rgba(255,255,255,0.1);
+    background: #feffff27;
     padding: 2rem;
     border-radius: 8px;
 }
@@ -292,6 +292,8 @@ p, span, div, a, button, input, textarea, select {
     .stats-grid {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
+
+
 }
 
 /* Utilidades adicionales */
