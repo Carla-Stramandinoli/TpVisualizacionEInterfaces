@@ -51,6 +51,31 @@
                 right: 0;
             }
         }
+        /* --- Hero Section con imagen de fondo y opacidad igual a home no logueado --- */
+        .hero-section {
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: #021337; /* color de fondo base */
+            overflow: hidden;
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('../../imagenes/fondohero.jpg') center center/cover no-repeat;
+            opacity: 0.12;
+            z-index: 1;
+        }
+        .hero-section > * {
+            position: relative;
+            z-index: 2;
+        }
+        .hero-section h2, .hero-section p, .hero-section .btn {
+            color: #fff;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+        }
     </style>
 </head>
 <body>
@@ -102,12 +127,14 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero-section py-5 text-center">
-        <h2 class="display-5 mb-3">Aprendé haciendo: proyectos reales, impacto real</h2>
-        <p class="lead mb-4">Conectá tu conocimiento con experiencias prácticas</p>
-        <div class="d-flex justify-content-center gap-3 flex-wrap mb-4">
-            <a href="../ProyectosComponente/proyectosLogueado.html" class="btn btn-accent btn-lg">Explorar proyectos</a>
-            <a href="../CursosComponente/cursosLogueado.html" class="btn btn-outline-light btn-lg">Ver cursos</a>
+    <section class="hero-section">
+        <div class="hero-content-wrapper" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; width: 100%;">
+            <h2 class="display-5 mb-3 text-center">Aprendé haciendo: proyectos reales, impacto real</h2>
+            <p class="lead mb-4 text-center">Conectá tu conocimiento con experiencias prácticas</p>
+            <div class="d-flex flex-row gap-3 align-items-center mb-4">
+                <a href="../ProyectosComponente/proyectosLogueado.html" class="btn btn-accent btn-lg">Explorar proyectos</a>
+                <a href="../CursosComponente/cursosLogueado.html" class="btn btn-outline-light btn-lg">Ver cursos</a>
+            </div>
         </div>
     </section>
 
@@ -353,16 +380,16 @@
     <section class="py-4">
         <div class="container">
             <h3 class="mb-4">Cursos destacados</h3>
-            <div id="proyectosCarousel" class="carousel slide my-auto" data-bs-ride="false">
+            <div id="cursosCarousel" class="carousel slide my-auto" data-bs-ride="false">
                 <button class="carousel-control-custom carousel-control-prev-custom" type="button"
-                    data-bs-target="#proyectosCarousel" data-bs-slide="prev" aria-label="Anterior">
+                    data-bs-target="#cursosCarousel" data-bs-slide="prev" aria-label="Anterior">
                     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M20 8L12 16L20 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                             stroke-linejoin="round" />
                     </svg>
                 </button>
                 <button class="carousel-control-custom carousel-control-next-custom" type="button"
-                    data-bs-target="#proyectosCarousel" data-bs-slide="next" aria-label="Siguiente">
+                    data-bs-target="#cursosCarousel" data-bs-slide="next" aria-label="Siguiente">
                     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 8L20 16L12 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                             stroke-linejoin="round" />
@@ -372,153 +399,205 @@
                     <div class="carousel-item active">
                         <div class="row g-4">
                             <!-- Curso 1 -->
-                            <div class="col-lg-4 col-md-4">
-                    <div class="card custom-card h-100">
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card custom-card h-100 d-flex flex-column">
                                     <div class="card-header"><i class="bi bi-filetype-js"></i> JavaScript Avanzado</div>
-                        <div class="card-body">
+                                    <div class="card-body">
                                         <p><strong>Categoría:</strong> Tecnología</p>
-                                        <p><strong>Nivel:</strong> Avanzado | <strong>Duración:</strong> 6 semanas</p>
-                                        <p>Domina conceptos avanzados de JavaScript: closures, prototipos, async/await,
+                                        <p><strong>Descripción:</strong> Domina conceptos avanzados de JavaScript: closures, prototipos, async/await,
                                             y patrones modernos de desarrollo web.</p>
                                         <div class="mb-3">
                                             <strong>Herramientas:</strong> Visual Studio Code, Node.js y npm, Git y GitHub
                                         </div>
                                         <div class="d-flex justify-content-between align-items-center">
-                                            <span class="badge bg-warning text-dark">Avanzado</span>
-                                            <span class="badge bg-secondary">6 semanas</span>
+                                            <span class="badge bg-danger">Nivel: Avanzado</span>
+                                            <span class="badge bg-secondary">Duración: 6 semanas</span>
                                         </div>
                                         <div class="d-flex justify-content-between align-items-center mt-2">
                                             <span class="badge bg-success">DISPONIBLE</span>
+                                            <div class="d-flex align-items-center">
+                                                <div class="text-warning me-2">
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star"></i>
+                                                </div>
+                                                <span class="text-muted">(4.0)</span>
+                                            </div>
                                         </div>
-                                        <a
-                                                style="text-decoration: none; color: white"
-                                                href="../CursosComponente/cursoDetalle.html">
-                                                <button class="btn btn-secondary w-100 mt-3">Ver curso</button>
-                                            </a>
-                                        
+                                        <a style="text-decoration: none; color: white"
+                                            href="./cursoDetalleLogueado.html">
+                                            <button class="btn btn-secondary w-100 mt-3">Ver curso</button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
-
                             <!-- Curso 2 -->
-                            <div class="col-lg-4 col-md-4">
+                            <div class="col-lg-4 col-md-6">
                                 <div class="card custom-card h-100 d-flex flex-column">
-                                    <div class="card-header"><i class="bi bi-brush"></i> Creativa Studio</div>
-                                    <div class="card-body d-flex flex-column">
-                                        <h4>Diseño Gráfico Digital</h4>
-                                        <p>Aprendé a crear piezas visuales impactantes para redes sociales, branding y publicidad digital.</p>
+                                    <div class="card-header"><i class="bi bi-hdd-network"></i> Redes y Seguridad
+                                        Informática</div>
+                                    <div class="card-body">
+                                        <p><strong>Categoría:</strong> Infraestructura</p>
+                                        <p><strong>Descripción:</strong> Conoce los fundamentos de redes, protocolos, ciberseguridad y buenas
+                                            prácticas para proteger sistemas y datos.</p>
                                         <div class="mb-3">
-                                            <strong>Herramientas:</strong> Photoshop, Illustrator, Canva, Inkscape
+                                            <strong>Herramientas:</strong> Wireshark, Nmap, Metasploit, Kali Linux
                                         </div>
-                                        <div class="mt-auto">
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <span class="badge bg-success">Principiante</span>
-                                                <span class="badge bg-secondary">5 semanas</span>
-                                            </div>
-                                            <div class="d-flex justify-content-between align-items-center mt-2">
-                                                <span class="badge bg-success">DISPONIBLE</span>
-                                            </div>
-                                            <button class="btn btn-secondary w-100 mt-3">Ver curso</button>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="badge bg-success">Nivel: Principiante</span>
+                                            <span class="badge bg-secondary">Duración: 5 semanas</span>
                                         </div>
+                                        <div class="d-flex justify-content-between align-items-center mt-2">
+                                            <span class="badge bg-success">DISPONIBLE</span>
+                                            <div class="d-flex align-items-center">
+                                                <div class="text-warning me-2">
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                </div>
+                                                <span class="text-muted">(5.0)</span>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-secondary w-100 mt-3">Ver curso</button>
                                     </div>
                                 </div>
                             </div>
-
                             <!-- Curso 3 -->
-                            <div class="col-lg-4 col-md-4">
+                            <div class="col-lg-4 col-md-6">
                                 <div class="card custom-card h-100 d-flex flex-column">
-                                    <div class="card-header"><i class="bi bi-bar-chart"></i> DataLab Academy</div>
-                                    <div class="card-body d-flex flex-column">
-                                        <h4>Análisis de Datos Empresariales</h4>
-                                        <p>Descubrí cómo transformar datos en decisiones estratégicas usando herramientas modernas de análisis.</p>
+                                    <div class="card-header"><i class="bi bi-git"></i> Control de Versiones con Git y
+                                        GitHub
+                                    </div>
+                                    <div class="card-body">
+                                        <p><strong>Categoría:</strong> Herramientas</p>
+                                        <p><strong>Descripción:</strong> Aprende a gestionar proyectos, ramas y colaboraciones usando Git y GitHub en
+                                            entornos
+                                            profesionales.</p>
                                         <div class="mb-3">
-                                            <strong>Tecnologías:</strong> Excel, Power BI, Tableau, SQL
+                                            <strong>Herramientas:</strong> Git Bash, GitHub Desktop, SourceTree, VS Code
                                         </div>
-                                        <div class="mt-auto">
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <span class="badge bg-primary">Intermedio</span>
-                                                <span class="badge bg-secondary">8 semanas</span>
-                                            </div>
-                                            <div class="d-flex justify-content-between align-items-center mt-2">
-                                                <span class="badge bg-success">DISPONIBLE</span>
-                                            </div>
-                                            <button class="btn btn-secondary w-100 mt-3">Ver curso</button>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="badge bg-success">Nivel: Principiante</span>
+                                            <span class="badge bg-secondary">Duración: 4 semanas</span>
                                         </div>
-                        </div>
-                    </div>
-                </div>
+                                        <div class="d-flex justify-content-between align-items-center mt-2">
+                                            <span class="badge bg-success">DISPONIBLE</span>
+                                            <div class="d-flex align-items-center">
+                                                <div class="text-warning me-2">
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-half"></i>
+                                                </div>
+                                                <span class="text-muted">(4.5)</span>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-secondary w-100 mt-3">Ver curso</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <div class="row g-4">
                             <!-- Curso 4 -->
-                            <div class="col-lg-4 col-md-4">
+                            <div class="col-lg-4 col-md-6">
                                 <div class="card custom-card h-100 d-flex flex-column">
-                                    <div class="card-header"><i class="bi bi-globe"></i> WebGlobal School</div>
-                                    <div class="card-body d-flex flex-column">
-                                        <h4>Desarrollo Web Full Stack</h4>
-                                        <p>Convertite en desarrollador web creando aplicaciones completas con las tecnologías más demandadas.</p>
+                                    <div class="card-header"><i class="bi bi-phone"></i> Desarrollo de Apps Móviles</div>
+                                    <div class="card-body">
+                                        <p><strong>Categoría:</strong> Desarrollo Móvil</p>
+                                        <p><strong>Descripción:</strong> Crea aplicaciones móviles nativas e híbridas usando React Native, Flutter y las mejores prácticas del mercado.</p>
                                         <div class="mb-3">
-                                            <strong>Servicios:</strong> HTML, CSS, JavaScript, Node.js, MongoDB
+                                            <strong>Herramientas:</strong> React Native, Flutter, Android Studio, Xcode
                                         </div>
-                                        <div class="mt-auto">
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <span class="badge bg-warning text-dark">Avanzado</span>
-                                                <span class="badge bg-secondary">12 semanas</span>
-                                            </div>
-                                            <div class="d-flex justify-content-between align-items-center mt-2">
-                                                <span class="badge bg-success">DISPONIBLE</span>
-                                            </div>
-                                            <button class="btn btn-secondary w-100 mt-3">Ver curso</button>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="badge bg-warning text-dark">Nivel: Intermedio</span>
+                                            <span class="badge bg-secondary">Duración: 10 semanas</span>
                                         </div>
+                                        <div class="d-flex justify-content-between align-items-center mt-2">
+                                            <span class="badge bg-success">DISPONIBLE</span>
+                                            <div class="d-flex align-items-center">
+                                                <div class="text-warning me-2">
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star"></i>
+                                                </div>
+                                                <span class="text-muted">(4.0)</span>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-secondary w-100 mt-3">Ver curso</button>
                                     </div>
                                 </div>
                             </div>
                             <!-- Curso 5 -->
-                            <div class="col-lg-4 col-md-4">
+                            <div class="col-lg-4 col-md-6">
                                 <div class="card custom-card h-100 d-flex flex-column">
-                                    <div class="card-header"><i class="bi bi-cpu"></i> TechAI Center</div>
-                                    <div class="card-body d-flex flex-column">
-                                        <h4>Introducción a la Inteligencia Artificial</h4>
-                                        <p>Explorá los conceptos clave de la IA y el machine learning con ejercicios prácticos y casos reales.</p>
+                                    <div class="card-header"><i class="bi bi-palette"></i> Diseño UX/UI Avanzado</div>
+                                    <div class="card-body">
+                                        <p><strong>Categoría:</strong> Diseño</p>
+                                        <p><strong>Descripción:</strong> Domina el diseño de experiencias de usuario, prototipado, investigación y herramientas como Figma y Adobe XD.</p>
                                         <div class="mb-3">
-                                            <strong>Tecnologías:</strong> Python, Scikit-learn, Jupyter, Google Colab
+                                            <strong>Herramientas:</strong> Figma, Adobe XD, Sketch, InVision, Miro
                                         </div>
-                                        <div class="mt-auto">
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <span class="badge bg-primary">Intermedio</span>
-                                                <span class="badge bg-secondary">10 semanas</span>
-                                            </div>
-                                            <div class="d-flex justify-content-between align-items-center mt-2">
-                                                <span class="badge bg-warning text-dark">PRÓXIMAMENTE</span>
-                                            </div>
-                                            <button class="btn btn-secondary w-100 mt-3" disabled>Ver curso</button>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="badge bg-danger">Nivel: Avanzado</span>
+                                            <span class="badge bg-secondary">Duración: 8 semanas</span>
                                         </div>
+                                        <div class="d-flex justify-content-between align-items-center mt-2">
+                                            <span class="badge bg-success">DISPONIBLE</span>
+                                            <div class="d-flex align-items-center">
+                                                <div class="text-warning me-2">
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                </div>
+                                                <span class="text-muted">(5.0)</span>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-secondary w-100 mt-3">Ver curso</button>
                                     </div>
                                 </div>
                             </div>
                             <!-- Curso 6 -->
-                            <div class="col-lg-4 col-md-4">
+                            <div class="col-lg-4 col-md-6">
                                 <div class="card custom-card h-100 d-flex flex-column">
-                                    <div class="card-header"><i class="bi bi-shield-lock"></i> SecureIT Academy</div>
-                                    <div class="card-body d-flex flex-column">
-                                        <h4>Seguridad Informática y Redes</h4>
-                                        <p>Aprendé a proteger sistemas, redes y datos frente a amenazas y vulnerabilidades actuales.</p>
+                                    <div class="card-header"><i class="bi bi-cloud"></i> Cloud Computing con AWS</div>
+                                    <div class="card-body">
+                                        <p><strong>Categoría:</strong> Cloud</p>
+                                        <p><strong>Descripción:</strong> Aprende a desplegar y gestionar aplicaciones en la nube usando servicios de AWS, Docker y Kubernetes.</p>
                                         <div class="mb-3">
-                                            <strong>Herramientas:</strong> Wireshark, Cisco Packet Tracer, Nmap, Firewalls
+                                            <strong>Herramientas:</strong> AWS Console, Docker, Kubernetes, Terraform
                                         </div>
-                                        <div class="mt-auto">
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <span class="badge bg-warning text-dark">Avanzado</span>
-                                                <span class="badge bg-secondary">9 semanas</span>
-                                            </div>
-                                            <div class="d-flex justify-content-between align-items-center mt-2">
-                                                <span class="badge bg-success">DISPONIBLE</span>
-                                            </div>
-                                            <button class="btn btn-secondary w-100 mt-3">Ver curso</button>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="badge bg-warning text-dark">Nivel: Intermedio</span>
+                                            <span class="badge bg-secondary">Duración: 9 semanas</span>
                                         </div>
-                        </div>
-                    </div>
+                                        <div class="d-flex justify-content-between align-items-center mt-2">
+                                            <span class="badge bg-success">DISPONIBLE</span>
+                                            <div class="d-flex align-items-center">
+                                                <div class="text-warning me-2">
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-half"></i>
+                                                </div>
+                                                <span class="text-muted">(4.5)</span>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-secondary w-100 mt-3">Ver curso</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -5,6 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrarse - TalentLab</title>
     <link rel="stylesheet" href="../../css/bootstrap-custom.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        body {
+            background: var(--background-color, #f4f8fb) !important;
+        }
+        .custom-step-header {
+            background: #0B2D59;
+            color: #fff;
+            padding: 1.2rem 1rem;
+            border-radius: 12px 12px 0 0;
+            text-align: center;
+            margin-bottom: 0;
+        }
+        .custom-card {
+            border-radius: 12px !important;
+            background: #fff !important;
+            box-shadow: 0 2px 16px 0 rgba(11,45,89,0.07);
+            border: none;
+        }
+        .form-label {
+            font-weight: 500;
+        }
+        .skill-tag {
+            background: #e7f3ff;
+            color: #0B2D59;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            margin: 0.25rem 0.2rem;
+            display: inline-block;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid #e7f3ff;
+        }
+        .skill-tag.selected {
+            background: #0B2D59;
+            color: white;
+            border: 1px solid #0B2D59;
+        }
+        .skill-tag:hover {
+            background: #0B2D59;
+            color: white;
+        }
+        .areas-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.2rem;
+        }
+        @media (max-width: 768px) {
+            .areas-grid {
+                flex-direction: column;
+                gap: 0.2rem 0;
+            }
+        }
+        .progress-bar-custom {
+            height: 6px;
+            background: #e9ecef;
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+        .progress-fill {
+            height: 100%;
+            background: #0B2D59;
+            transition: width 0.3s ease;
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -54,48 +121,52 @@
         </div>
     </header>
 
-    <!-- Formulario de Registro -->
+    <!-- Formulario de Registro en pasos -->
     <section class="py-5">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-8 col-lg-6">
-                    <div class="card custom-card">
-                        <div class="card-header text-center">
+                <div class="col-lg-7 col-xl-6">
+                    <div class="card custom-card shadow-lg">
+                        <div class="custom-step-header">
                             <h3 class="mb-0">Crear Cuenta</h3>
-                            <!-- Indicador de progreso -->
-                            <div class="progress mt-3" style="height: 8px;">
-                                <div class="progress-bar" id="progressBar" role="progressbar" style="width: 33%;" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <div class="mt-2" >
-                                <small class="text-muted" style="color: white;"><span style="color: white;">Paso</span> <span id="currentStep" style="color: white;">1</span><span style="color: white;"> de </span><span id="totalSteps" style="color: white;">3</span></small>
-                            </div>
                         </div>
-                        <div class="card-body">
-                            <!-- Paso 1: Datos Personales -->
-                            <div id="step1" class="step-content">
-                                <h4 class="mb-4">Datos Personales</h4>
-                                <form id="personalDataForm">
+                        <div class="card-body p-4">
+                            <!-- Barra de progreso -->
+                            <div class="progress-bar-custom mb-2">
+                                <div class="progress-fill" id="progressFill" style="width: 33%"></div>
+                            </div>
+                            <div class="text-center text-muted mb-4" id="stepIndicatorText" style="font-size: 0.98rem;">
+                                Paso 1 de 3
+                            </div>
+                            <form id="registerForm">
+                                <!-- Paso 1: Datos personales -->
+                                <div class="step-content active" data-step="1">
                                     <div class="row g-3">
                                         <div class="col-md-6">
                                             <label for="firstName" class="form-label">Nombre *</label>
-                                            <input type="text" class="form-control" id="firstName" placeholder="Tu nombre" required>
+                                            <input type="text" class="form-control" id="firstName" placeholder="Tu nombre">
+                                            <div class="invalid-feedback" style="display:none">Este campo es obligatorio</div>
                                         </div>
                                         <div class="col-md-6">
                                             <label for="lastName" class="form-label">Apellido *</label>
-                                            <input type="text" class="form-control" id="lastName" placeholder="Tu apellido" required>
+                                            <input type="text" class="form-control" id="lastName" placeholder="Tu apellido">
+                                            <div class="invalid-feedback" style="display:none">Este campo es obligatorio</div>
                                         </div>
                                         <div class="col-12">
                                             <label for="email" class="form-label">Email *</label>
-                                            <input type="email" class="form-control" id="email" placeholder="tu@email.com" required>
+                                            <input type="email" class="form-control" id="email" placeholder="tu@email.com">
+                                            <div class="invalid-feedback" style="display:none">Este campo es obligatorio</div>
                                         </div>
                                         <div class="col-12">
                                             <label for="password" class="form-label">Contraseña *</label>
-                                            <input type="password" class="form-control" id="password" placeholder="Mínimo 8 caracteres" required>
+                                            <input type="password" class="form-control" id="password" placeholder="Mínimo 8 caracteres">
                                             <div class="form-text">Debe contener al menos 8 caracteres, una mayúscula y un número</div>
+                                            <div class="invalid-feedback" style="display:none">La contraseña debe tener al menos 8 caracteres, una mayúscula y un número</div>
                                         </div>
                                         <div class="col-12">
                                             <label for="confirmPassword" class="form-label">Confirmar Contraseña *</label>
-                                            <input type="password" class="form-control" id="confirmPassword" placeholder="Repite tu contraseña" required>
+                                            <input type="password" class="form-control" id="confirmPassword" placeholder="Repite tu contraseña">
+                                            <div class="invalid-feedback" style="display:none">Las contraseñas no coinciden</div>
                                         </div>
                                         <div class="col-12">
                                             <label for="country" class="form-label">País *</label>
@@ -111,6 +182,7 @@
                                                 <option value="ES">España</option>
                                                 <option value="OT">Otro</option>
                                             </select>
+                                            <div class="invalid-feedback" style="display:none">Este campo es obligatorio</div>
                                         </div>
                                         <div class="col-12">
                                             <div class="form-check">
@@ -118,6 +190,7 @@
                                                 <label class="form-check-label" for="terms">
                                                     Acepto los <a href="#" class="text-decoration-none">Términos y Condiciones</a> y la <a href="#" class="text-decoration-none">Política de Privacidad</a> *
                                                 </label>
+                                                <div class="invalid-feedback" style="display:none">Debes aceptar los términos y condiciones</div>
                                             </div>
                                         </div>
                                         <div class="col-12">
@@ -128,177 +201,106 @@
                                                 </label>
                                             </div>
                                         </div>
-                                        <div class="col-12 text-center">
-                                            <button type="button" class="btn btn-primary" onclick="nextStep()">Continuar</button>
-                                        </div>
-                                        <div class="col-12 text-center mt-3">
-                                            <p class="mb-0">¿Ya tenés cuenta? <a href="iniciarSesion.html" class="text-decoration-none">Iniciar Sesión</a></p>
-                                        </div>
                                     </div>
-                                </form>
-                            </div>
-
-                            <!-- Paso 2: Personalización -->
-                            <div id="step2" class="step-content" style="display: none;">
-                                <h4 class="mb-4">Personalización (Opcional)</h4>
-                                <p class="text-muted mb-4">Completá estos datos para personalizar tu experiencia o saltá este paso para continuar.</p>
-                                
-                                <form id="personalizationForm">
+                                    <div class="text-center mt-3">
+                                        <span>¿Tienes una cuenta? <a href="iniciarSesion.html" class="text-decoration-none">Inicia sesión</a></span>
+                                    </div>
+                                </div>
+                                <!-- Paso 2: Personalización -->
+                                <div class="step-content" data-step="2" style="display:none;">
+                                    <h4 class="mb-2">Personalización</h4>
+                                    <p class="text-muted mb-4" style="font-size:0.98rem;">Completá estos datos para personalizar tu experiencia.</p>
                                     <div class="row g-3">
                                         <div class="col-12">
-                                            <label class="form-label">Áreas de interés</label>
-                                            <div class="row g-2">
-                                                <div class="col-md-6">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="area-web" value="desarrollo-web">
-                                                        <label class="form-check-label" for="area-web">
-                                                            <i class="bi bi-code-slash"></i> Desarrollo Web
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="area-mobile" value="desarrollo-mobile">
-                                                        <label class="form-check-label" for="area-mobile">
-                                                            <i class="bi bi-phone"></i> Desarrollo Móvil
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="area-ux" value="diseno-ux">
-                                                        <label class="form-check-label" for="area-ux">
-                                                            <i class="bi bi-palette"></i> Diseño UX/UI
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="area-data" value="data-science">
-                                                        <label class="form-check-label" for="area-data">
-                                                            <i class="bi bi-graph-up"></i> Data Science
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="area-marketing" value="marketing-digital">
-                                                        <label class="form-check-label" for="area-marketing">
-                                                            <i class="bi bi-megaphone"></i> Marketing Digital
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="area-gestion" value="gestion-proyectos">
-                                                        <label class="form-check-label" for="area-gestion">
-                                                            <i class="bi bi-kanban"></i> Gestión de Proyectos
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="area-ai" value="inteligencia-artificial">
-                                                        <label class="form-check-label" for="area-ai">
-                                                            <i class="bi bi-cpu"></i> Inteligencia Artificial
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="area-cyber" value="cybersecurity">
-                                                        <label class="form-check-label" for="area-cyber">
-                                                            <i class="bi bi-shield-check"></i> Cybersecurity
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="area-devops" value="devops">
-                                                        <label class="form-check-label" for="area-devops">
-                                                            <i class="bi bi-gear"></i> DevOps
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="area-blockchain" value="blockchain">
-                                                        <label class="form-check-label" for="area-blockchain">
-                                                            <i class="bi bi-link-45deg"></i> Blockchain
-                                                        </label>
-                                                    </div>
-                                                </div>
+                                            <label class="form-label">Áreas de interés *</label>
+                                            <div class="areas-grid">
+                                                <span class="skill-tag" data-area="desarrollo-web"><i class="bi bi-code-slash"></i> Desarrollo Web</span>
+                                                <span class="skill-tag" data-area="desarrollo-mobile"><i class="bi bi-phone"></i> Desarrollo Móvil</span>
+                                                <span class="skill-tag" data-area="diseno-ux"><i class="bi bi-palette"></i> Diseño UX/UI</span>
+                                                <span class="skill-tag" data-area="data-science"><i class="bi bi-graph-up"></i> Data Science</span>
+                                                <span class="skill-tag" data-area="marketing-digital"><i class="bi bi-megaphone"></i> Marketing Digital</span>
+                                                <span class="skill-tag" data-area="gestion-proyectos"><i class="bi bi-kanban"></i> Gestión de Proyectos</span>
+                                                <span class="skill-tag" data-area="inteligencia-artificial"><i class="bi bi-cpu"></i> Inteligencia Artificial</span>
+                                                <span class="skill-tag" data-area="cybersecurity"><i class="bi bi-shield-check"></i> Cybersecurity</span>
+                                                <span class="skill-tag" data-area="devops"><i class="bi bi-gear"></i> DevOps</span>
+                                                <span class="skill-tag" data-area="blockchain"><i class="bi bi-link-45deg"></i> Blockchain</span>
                                             </div>
+                                            <div id="areaFeedback" class="invalid-feedback" style="display:none"></div>
                                         </div>
-                                        
                                         <div class="col-12">
-                                            <label for="experience" class="form-label">Nivel de experiencia</label>
-                                            <select class="form-select" id="experience">
+                                            <label for="experience" class="form-label">Nivel de experiencia *</label>
+                                            <select class="form-select" id="experience" required>
                                                 <option value="">Selecciona tu nivel</option>
                                                 <option value="principiante">Principiante (0-1 años)</option>
                                                 <option value="intermedio">Intermedio (1-3 años)</option>
                                                 <option value="avanzado">Avanzado (3+ años)</option>
                                             </select>
+                                            <div class="invalid-feedback" style="display:none">Este campo es obligatorio</div>
                                         </div>
-                                        
                                         <div class="col-12">
-                                            <label class="form-label">¿Ya estás trabajando en alguna de estas áreas?</label>
+                                            <label class="form-label">¿Ya estás trabajando en alguna de estas áreas? *</label>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="working" id="working-yes" value="si">
+                                                <input class="form-check-input" type="radio" name="working" id="working-yes" value="si" required>
                                                 <label class="form-check-label" for="working-yes">
                                                     Sí, trabajo actualmente en una o más de estas áreas
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="working" id="working-no" value="no">
+                                                <input class="form-check-input" type="radio" name="working" id="working-no" value="no" required>
                                                 <label class="form-check-label" for="working-no">
                                                     No, pero me interesa aprender y trabajar en estas áreas
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="working" id="working-studying" value="estudiando">
+                                                <input class="form-check-input" type="radio" name="working" id="working-studying" value="estudiando" required>
                                                 <label class="form-check-label" for="working-studying">
                                                     Estoy estudiando o capacitándome en estas áreas
                                                 </label>
                                             </div>
-                                        </div>
-                                        
-                                        <div class="col-12 text-center">
-                                            <button type="button" class="btn btn-secondary me-2" onclick="skipPersonalization()">Saltar</button>
-                                            <button type="button" class="btn btn-primary" onclick="nextStep()">Continuar</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-
-                            <!-- Paso 3: Finalización -->
-                            <div id="step3" class="step-content" style="display: none;">
-                                <div class="text-center">
-                                    <div class="mb-4">
-                                        <i class="bi bi-check-circle text-success" style="font-size: 4rem;"></i>
-                                    </div>
-                                    <h4 class="mb-3">¡Cuenta creada exitosamente!</h4>
-                                    <p class="text-muted mb-4">Tu cuenta ha sido registrada. Podés personalizar tu perfil más tarde desde la configuración.</p>
-                                    
-                                    <div class="row g-3">
-                                        <div class="col-12">
-                                            <button type="button" class="btn btn-primary w-100" onclick="completeRegistration()">
-                                                <i class="bi bi-box-arrow-in-right"></i> Ir al Inicio
-                                            </button>
-                                        </div>
-                                        <div class="col-12">
-                                            <p class="mb-0">¿Ya tenés cuenta? <a href="iniciarSesion.html" class="text-decoration-none">Iniciar Sesión</a></p>
+                                            <div id="workingFeedback" class="invalid-feedback" style="display:none">Selecciona una opción</div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                                <!-- Paso 3: Confirmación -->
+                                <div class="step-content" data-step="3" style="display:none;">
+                                    <div class="text-center">
+                                        <div class="mb-4">
+                                            <i class="bi bi-check-circle text-success" style="font-size: 4rem;"></i>
+                                        </div>
+                                        <h4 class="mb-3">¡Cuenta creada exitosamente!</h4>
+                                        <p class="text-muted mb-4">Tu cuenta ha sido registrada. Podés personalizar tu perfil más tarde desde la configuración.</p>
+                                        <div class="row g-3">
+                                            <div class="col-12">
+                                                <a href="iniciarSesion.html" class="btn btn-primary w-100">
+                                                    <i class="bi bi-box-arrow-in-right"></i> Ir a iniciar sesión
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Botones de navegación -->
+                                <div class="step-navigation mt-4 row">
+                                    <div class="col-6">
+                                        <button type="button" class="btn btn-secondary" id="prevBtn" onclick="changeStep(-1)" style="display: none;">
+                                            <i class="bi bi-arrow-left me-2"></i>Anterior
+                                        </button>
+                                    </div>
+                                    <div class="col-6 text-end">
+                                        <button type="button" class="btn btn-primary" id="nextBtn" onclick="changeStep(1)">
+                                            Siguiente<i class="bi bi-arrow-right ms-2"></i>
+                                        </button>
+                                        <button type="submit" class="btn btn-accent" id="submitBtn" style="display: none;">
+                                            <i class="bi bi-send me-2"></i>Crear cuenta
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -307,97 +309,129 @@
             </div>
         </div>
     </footer>
-
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- JavaScript para el registro en pasos -->
     <script>
         let currentStep = 1;
         const totalSteps = 3;
-
-        function updateProgress() {
-            const progress = (currentStep / totalSteps) * 100;
-            document.getElementById('progressBar').style.width = progress + '%';
-            document.getElementById('currentStep').textContent = currentStep;
-        }
-
-        function showStep(step) {
-            // Ocultar todos los pasos
-            for (let i = 1; i <= totalSteps; i++) {
-                document.getElementById('step' + i).style.display = 'none';
-            }
-            // Mostrar el paso actual
-            document.getElementById('step' + step).style.display = 'block';
-            updateProgress();
-        }
-
-        function validateStep1() {
-            const form = document.getElementById('personalDataForm');
-            const requiredFields = ['firstName', 'lastName', 'email', 'password', 'confirmPassword', 'country'];
-            const terms = document.getElementById('terms');
-            
-            // Validar campos requeridos
-            for (let field of requiredFields) {
-                const input = document.getElementById(field);
-                if (!input.value.trim()) {
-                    alert('Por favor completá todos los campos obligatorios.');
-                    input.focus();
-                    return false;
-                }
-            }
-            
-            // Validar términos
-            if (!terms.checked) {
-                alert('Debés aceptar los términos y condiciones.');
-                terms.focus();
-                return false;
-            }
-            
-            // Validar contraseñas
-            const password = document.getElementById('password').value;
-            const confirmPassword = document.getElementById('confirmPassword').value;
-            
-            if (password !== confirmPassword) {
-                alert('Las contraseñas no coinciden.');
-                return false;
-            }
-            
-            if (password.length < 8) {
-                alert('La contraseña debe tener al menos 8 caracteres.');
-                return false;
-            }
-            
-            return true;
-        }
-
-        function nextStep() {
-            if (currentStep === 1) {
-                if (!validateStep1()) {
+        function changeStep(direction) {
+            const newStep = currentStep + direction;
+            if (newStep >= 1 && newStep <= totalSteps) {
+                if (direction > 0 && !validateStep(currentStep)) {
                     return;
                 }
+                currentStep = newStep;
+                updateStepDisplay();
+                updateProgressBar();
+                updateButtons();
             }
-            
-            if (currentStep < totalSteps) {
-                currentStep++;
-                showStep(currentStep);
+        }
+        function validateStep(step) {
+            const currentStepElement = document.querySelector(`.step-content[data-step="${step}"]`);
+            if (!currentStepElement) return true;
+            const requiredFields = currentStepElement.querySelectorAll('[required]');
+            let isValid = true;
+            requiredFields.forEach(field => {
+                field.classList.remove('is-invalid');
+                const feedback = field.parentElement.querySelector('.invalid-feedback');
+                if (feedback) feedback.style.display = 'none';
+                if (!field.value || (field.type === 'checkbox' && !field.checked)) {
+                    field.classList.add('is-invalid');
+                    if (feedback) feedback.style.display = 'block';
+                    isValid = false;
+                }
+            });
+            // Validar áreas de interés en paso 2
+            if (step === 2) {
+                const selectedAreas = document.querySelectorAll('.step-content[data-step="2"] .skill-tag.selected');
+                const areaFeedback = document.getElementById('areaFeedback');
+                if (areaFeedback) areaFeedback.style.display = 'none';
+                if (selectedAreas.length === 0) {
+                    if (areaFeedback) {
+                        areaFeedback.textContent = 'Selecciona al menos un área de interés';
+                        areaFeedback.style.display = 'block';
+                    }
+                    isValid = false;
+                }
+                // Validar radio
+                const workingRadios = document.querySelectorAll('.step-content[data-step="2"] input[name="working"]');
+                const workingFeedback = document.getElementById('workingFeedback');
+                if (workingFeedback) workingFeedback.style.display = 'none';
+                let radioChecked = false;
+                workingRadios.forEach(radio => { if (radio.checked) radioChecked = true; });
+                if (!radioChecked) {
+                    if (workingFeedback) workingFeedback.style.display = 'block';
+                    isValid = false;
+                }
             }
+            // Validar contraseñas en paso 1
+            if (step === 1) {
+                const password = document.getElementById('password');
+                const confirmPassword = document.getElementById('confirmPassword');
+                if (password.value !== confirmPassword.value) {
+                    confirmPassword.classList.add('is-invalid');
+                    const feedback = confirmPassword.parentElement.querySelector('.invalid-feedback');
+                    if (feedback) {
+                        feedback.textContent = 'Las contraseñas no coinciden';
+                        feedback.style.display = 'block';
+                    }
+                    isValid = false;
+                }
+            }
+            return isValid;
         }
-
-        function skipPersonalization() {
-            // Saltar directamente al paso 3
-            currentStep = 3;
-            showStep(currentStep);
+        function updateStepDisplay() {
+            document.querySelectorAll('.step-content').forEach(content => {
+                content.classList.remove('active');
+                content.style.display = 'none';
+            });
+            const currentStepContent = document.querySelector(`.step-content[data-step="${currentStep}"]`);
+            if (currentStepContent) {
+                currentStepContent.classList.add('active');
+                currentStepContent.style.display = 'block';
+            }
+            // Actualizar texto de paso
+            const stepText = document.getElementById('stepIndicatorText');
+            if (stepText) {
+                stepText.textContent = `Paso ${currentStep} de ${totalSteps}`;
+            }
+            // Elimino el bloque de pasos visuales
         }
-
-        function completeRegistration() {
-            // Redirigir al home logueado
-            window.location.href = '../UsuarioLogueado/homeLogueago.html';
+        function updateProgressBar() {
+            const progress = (currentStep / totalSteps) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
         }
-
-        // Inicializar
+        function updateButtons() {
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const submitBtn = document.getElementById('submitBtn');
+            prevBtn.style.display = (currentStep === 1 || currentStep === 3) ? 'none' : 'inline-block';
+            nextBtn.style.display = currentStep === 2 ? 'none' : (currentStep === 3 ? 'none' : 'inline-block');
+            submitBtn.style.display = currentStep === 2 ? 'inline-block' : 'none';
+        }
         document.addEventListener('DOMContentLoaded', function() {
-            showStep(1);
+            // Skill tag selection
+            document.querySelectorAll('.skill-tag').forEach(tag => {
+                tag.addEventListener('click', function() {
+                    this.classList.toggle('selected');
+                });
+            });
+            // Form submission
+            document.getElementById('registerForm').addEventListener('submit', function(e) {
+                if (!validateStep(currentStep)) {
+                    e.preventDefault();
+                } else {
+                    // Mostrar mensaje de éxito (paso 3)
+                    currentStep = 3;
+                    updateStepDisplay();
+                    updateProgressBar();
+                    updateButtons();
+                    e.preventDefault(); // Para demo, no enviar realmente
+                }
+            });
+            updateStepDisplay();
+            updateProgressBar();
+            updateButtons();
         });
     </script>
 </body>

@@ -43,7 +43,72 @@
             height: 100%;
         }
 
-
+        /* --- Flechas del carrusel de cursos centradas verticalmente --- */
+        #cursosCarousel {
+            position: relative;
+        }
+        .carousel-control-custom {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #0B2D59;
+            opacity: 0.5;
+            font-size: 2.2rem;
+            z-index: 2;
+            transition: opacity 0.2s;
+            padding: 0;
+            margin: 0;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .carousel-control-custom:hover {
+            opacity: 0.9;
+            color: #0B2D59;
+        }
+        .carousel-control-prev-custom {
+            left: -2.5rem;
+        }
+        .carousel-control-next-custom {
+            right: -2.5rem;
+        }
+        @media (max-width: 991px) {
+            .carousel-control-prev-custom {
+                left: 0;
+            }
+            .carousel-control-next-custom {
+                right: 0;
+            }
+        }
+        /* --- Hero Section con imagen de fondo y opacidad --- */
+        .hero-section {
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: #021337; /* color de fondo base */
+            overflow: hidden;
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('../../imagenes/fondohero.jpg') center center/cover no-repeat;
+            opacity: 0.12;
+            z-index: 1;
+        }
+        .hero-section > .container {
+            position: relative;
+            z-index: 2;
+        }
+        /* Mejorar contraste del texto sobre la imagen */
+        .hero-section h2, .hero-section p, .hero-section .btn {
+            color: #fff;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+        }
     </style>
 </head>
 
@@ -187,7 +252,7 @@
                         <div class="col-md-4 d-flex">
                             <div class="custom-card-estudiante w-100">
                                 <div class="mb-2">
-                                    <i class="bi bi-bullseye display-4 mb-2"></i>
+                                    <i class="bi bi-link-45deg display-4 mb-2"></i>
                                 </div>
                                 <div class="fw-bold fs-4 mb-2">Conexión directa</div>
                                 <div class="text-secondary" style="font-size: 0.95em; color: #c0ccdd !important;">
@@ -249,62 +314,215 @@
         </div>
     </section>
 
-    <!-- Proyectos destacados -->
-    <section class="py-3">
+    <!-- Listado de proyectos en carrusel -->
+    <section class="py-4">
         <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h3 class="mb-4"><i class="bi bi-rocket"></i> Proyectos activos buscando colaboradores</h3>
-                    <div class="row g-4">
-                        <div class="col-lg-4 col-md-6">
-                            <div class="card custom-card h-100">
-                                <div class="card-header"><i class="bi bi-mortarboard"></i> App Educativa - ONG EduTech
+            <h3 class="mb-4"><i class="bi bi-rocket"></i> Proyectos activos buscando colaboradores</h3></h3>
+            <div id="proyectosCarousel" class="carousel slide my-auto" data-bs-ride="false">
+                <button class="carousel-control-custom carousel-control-prev-custom" type="button" data-bs-target="#proyectosCarousel" data-bs-slide="prev" aria-label="Anterior">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 8L12 16L20 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <button class="carousel-control-custom carousel-control-next-custom" type="button" data-bs-target="#proyectosCarousel" data-bs-slide="next" aria-label="Siguiente">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 8L20 16L12 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row g-4">
+                            <!-- Proyecto 1 -->
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card custom-card h-100 d-flex flex-column proyecto-card">
+                                    <div class="card-header"><i class="bi bi-mortarboard"></i> ONG EduTech</div>
+                                    <div class="card-body d-flex flex-column">
+                                        <h4>Plataforma de Aprendizaje Infantil</h4>
+                                        <p>Desarrollar una app web educativa para niños de 6-12 años con juegos interactivos...</p>
+                                        <div class="mb-3">
+                                            <strong>Skills requeridas:</strong> React, Node.js, MongoDB, UX/UI
+                                        </div>
+                                        <div class="mt-auto">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="badge bg-info">3/5 participantes</span>
+                                                <span class="badge bg-success">ABIERTO</span>
+                                            </div>
+                                            <a href="../ProyectosComponente/proyectoDetalle.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="card-body">
-                                    <p><strong>Equipo actual:</strong> 3/5 personas</p>
-                                    <p><strong>Buscamos:</strong> Frontend Dev, UX Designer</p>
-                                    <p>Desarrollar una app educativa para niños. <strong>La ONG ya confirmó que
-                                            contratará al mejor developer del equipo.</strong></p>
-                                    <div class="badge bg-warning text-dark mt-2">
-                                        <i class="bi bi-briefcase"></i> <strong>Oportunidad laboral directa</strong>
+                            </div>
+                            <!-- Proyecto 2 -->
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card custom-card h-100 d-flex flex-column proyecto-card">
+                                    <div class="card-header"><i class="bi bi-geo-alt"></i> Map4All</div>
+                                    <div class="card-body d-flex flex-column">
+                                        <h4>Mapa de Accesibilidad Urbana</h4>
+                                        <p>Crea una app colaborativa para mapear rampas, baños accesibles y servicios inclusivos en la ciudad.</p>
+                                        <div class="mb-3">
+                                            <strong>Skills requeridas:</strong> React Native, Mapbox, Node.js, QA
+                                        </div>
+                                        <div class="mt-auto">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="badge bg-info">3/7 participantes</span>
+                                                <span class="badge bg-success">ABIERTO</span>
+                                            </div>
+                                            <a href="../ProyectosComponente/proyectoDetalle.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Proyecto 3 -->
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card custom-card h-100 d-flex flex-column proyecto-card">
+                                    <div class="card-header"><i class="bi bi-droplet"></i> AguaSegura ONG</div>
+                                    <div class="card-body d-flex flex-column">
+                                        <h4>Monitoreo de Calidad de Agua</h4>
+                                        <p>Desarrollá sensores y una plataforma para reportar y visualizar la calidad del agua en zonas rurales.</p>
+                                        <div class="mb-3">
+                                            <strong>Skills requeridas:</strong> Arduino, Python, IoT, Power BI
+                                        </div>
+                                        <div class="mt-auto">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="badge bg-info">2/6 participantes</span>
+                                                <span class="badge bg-success">ABIERTO</span>
+                                            </div>
+                                            <a href="../ProyectosComponente/proyectoDetalle.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="card custom-card h-100">
-                                <div class="card-header"><i class="bi bi-cart"></i> E-commerce - Startup GreenTech</div>
-                                <div class="card-body">
-                                    <p><strong>Equipo actual:</strong> 2/4 personas</p>
-                                    <p><strong>Buscamos:</strong> Full Stack, Marketing</p>
-                                    <p>Crear tienda online para productos sostenibles. <strong>Startup en crecimiento
-                                            busca incorporar 2 developers.</strong></p>
-                                    <div class="badge bg-success mt-2">
-                                        <i class="bi bi-bullseye"></i> <strong>Contratación confirmada</strong>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row g-4">
+                            <!-- Proyecto 4 -->
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card custom-card h-100 d-flex flex-column proyecto-card">
+                                    <div class="card-header"><i class="bi bi-tree"></i> Fundación EcoVida</div>
+                                    <div class="card-body d-flex flex-column">
+                                        <h4>Huerta Urbana Inteligente</h4>
+                                        <p>Desarrollar sensores IoT para monitorear y optimizar huertas urbanas comunitarias.</p>
+                                        <div class="mb-3">
+                                            <strong>Skills requeridas:</strong> Arduino, Python, IoT, UX/UI
+                                        </div>
+                                        <div class="mt-auto">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="badge bg-info">1/5 participantes</span>
+                                                <span class="badge bg-success">ABIERTO</span>
+                                            </div>
+                                            <a href="../ProyectosComponente/proyectoDetalle.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            <!-- Proyecto 5 -->
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card custom-card h-100 d-flex flex-column proyecto-card">
+                                    <div class="card-header"><i class="bi bi-flower2"></i> PyME AgroTech</div>
+                                    <div class="card-body d-flex flex-column">
+                                        <h4>Gestión de Cultivos</h4>
+                                        <p>Plataforma para registrar y analizar datos de cultivos en tiempo real.</p>
+                                        <div class="mb-3">
+                                            <strong>Skills requeridas:</strong> Java, Spring, SQL, QA
+                                        </div>
+                                        <div class="mt-auto">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="badge bg-info">4/8 participantes</span>
+                                                <span class="badge bg-success">ABIERTO</span>
+                                            </div>
+                                            <a href="../ProyectosComponente/proyectoDetalle.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Proyecto 6 -->
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card custom-card h-100 d-flex flex-column proyecto-card">
+                                    <div class="card-header"><i class="bi bi-heart-pulse"></i> ONG SaludAR</div>
+                                    <div class="card-body d-flex flex-column">
+                                        <h4>Red de Donantes</h4>
+                                        <p>App para conectar donantes de sangre con hospitales y pacientes en tiempo real.</p>
+                                        <div class="mb-3">
+                                            <strong>Skills requeridas:</strong> Flutter, Firebase, UX/UI
+                                        </div>
+                                        <div class="mt-auto">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="badge bg-info">2/6 participantes</span>
+                                                <span class="badge bg-success">ABIERTO</span>
+                                            </div>
+                                            <a href="proyectoDetalle.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
+                                        </div>
                         </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="card custom-card h-100">
-                                <div class="card-header"><i class="bi bi-kanban"></i> Sistema de Gestión - PyME
-                                    LocalTech</div>
-                                <div class="card-body">
-                                    <p><strong>Equipo actual:</strong> 4/6 personas</p>
-                                    <p><strong>Buscamos:</strong> Backend Dev, QA Tester</p>
-                                    <p>Modernizar sistema de inventarios. <strong>PyME busca incorporar desarrollador
-                                            junior tiempo completo.</strong></p>
-                                    <div class="badge bg-secondary mt-2">
-                                        <i class="bi bi-clipboard-data"></i> <strong>Posición junior disponible</strong>
+                    </div>
+                </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row g-4">
+                            <!-- Proyecto 7 -->
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card custom-card h-100 d-flex flex-column proyecto-card">
+                                    <div class="card-header"><i class="bi bi-cash-coin"></i> Startup FinanTech</div>
+                                    <div class="card-body d-flex flex-column">
+                                        <h4>Educación Financiera Joven</h4>
+                                        <p>Desarrollar una app para enseñar finanzas personales a jóvenes con juegos y retos.</p>
+                                        <div class="mb-3">
+                                            <strong>Skills requeridas:</strong> React Native, Node.js, UX/UI
+                                        </div>
+                                        <div class="mt-auto">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="badge bg-info">3/5 participantes</span>
+                                                <span class="badge bg-success">ABIERTO</span>
+                                            </div>
+                                            <a href="../ProyectosComponente/proyectoDetalle.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            <!-- Proyecto 8 -->
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card custom-card h-100 d-flex flex-column proyecto-card">
+                                    <div class="card-header"><i class="bi bi-music-note-beamed"></i> ONG Cultura+</div>
+                                    <div class="card-body d-flex flex-column">
+                                        <h4>Plataforma de Voluntariado</h4>
+                                        <p>Web para conectar voluntarios con eventos culturales y sociales en su ciudad.</p>
+                                        <div class="mb-3">
+                                            <strong>Skills requeridas:</strong> Vue.js, Firebase, Marketing
+                                        </div>
+                                        <div class="mt-auto">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="badge bg-info">5/10 participantes</span>
+                                                <span class="badge bg-success">ABIERTO</span>
+                                            </div>
+                                            <a href="../ProyectosComponente/proyectoDetalle.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Proyecto 9 -->
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card custom-card h-100 d-flex flex-column proyecto-card">
+                                    <div class="card-header"><i class="bi bi-building"></i> PyME GreenBuild</div>
+                                    <div class="card-body d-flex flex-column">
+                                        <h4>Gestión de Residuos</h4>
+                                        <p>Desarrollar un sistema para optimizar la recolección y reciclaje de residuos urbanos.</p>
+                                        <div class="mb-3">
+                                            <strong>Skills requeridas:</strong> Angular, .NET, SQL, QA
+                                        </div>
+                                        <div class="mt-auto">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="badge bg-info">6/12 participantes</span>
+                                                <span class="badge bg-success">ABIERTO</span>
+                                            </div>
+                                            <a href="../ProyectosComponente/proyectoDetalle.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
+                                        </div>
+                        </div>
+                    </div>
+                </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
 
     <!-- Estadísticas -->
     <section class="highlight-section">
@@ -341,54 +559,223 @@
             <div class="row">
                 <div class="col-12">
                     <h3 class="mb-4"><i class="bi bi-book"></i> Capacitaciones para destacar en tu área</h3>
-                    <div class="row g-4">
-                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-                            <div class="card custom-card h-100 w-100 d-flex flex-column justify-content-between">
-                                <div>
-                                    <div class="card-header"><i class="bi bi-code-slash"></i> React + Node.js</div>
-                                    <div class="card-body">
-                                        <p><strong>Nivel:</strong> Intermedio | <strong>Duración:</strong> 6 semanas</p>
-                                        <p>Stack completo para desarrollo web. <strong>Las empresas más demandadas buscan
-                                            este perfil.</strong></p>
+                    <div id="cursosCarousel" class="carousel slide my-auto" data-bs-ride="false">
+                        <button class="carousel-control-custom carousel-control-prev-custom" type="button"
+                            data-bs-target="#cursosCarousel" data-bs-slide="prev" aria-label="Anterior">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 8L12 16L20 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <button class="carousel-control-custom carousel-control-next-custom" type="button"
+                            data-bs-target="#cursosCarousel" data-bs-slide="next" aria-label="Siguiente">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 8L20 16L12 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="row g-4">
+                                    <!-- Curso 1 -->
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="card custom-card h-100 d-flex flex-column">
+                                            <div class="card-header"><i class="bi bi-filetype-js"></i> JavaScript Avanzado</div>
+                                            <div class="card-body">
+                                                <p><strong>Categoría:</strong> Tecnología</p>
+                                                <p><strong>Descripción:</strong> Domina conceptos avanzados de JavaScript: closures, prototipos, async/await,
+                                                    y patrones modernos de desarrollo web.</p>
+                                                <div class="mb-3">
+                                                    <strong>Herramientas:</strong> Visual Studio Code, Node.js y npm, Git y GitHub
+                                                </div>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <span class="badge bg-danger">Nivel: Avanzado</span>
+                                                    <span class="badge bg-secondary">Duración: 6 semanas</span>
+                                                </div>
+                                                <div class="d-flex justify-content-between align-items-center mt-2">
+                                                    <span class="badge bg-success">DISPONIBLE</span>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="text-warning me-2">
+                                                            <i class="bi bi-star-fill"></i>
+                                                            <i class="bi bi-star-fill"></i>
+                                                            <i class="bi bi-star-fill"></i>
+                                                            <i class="bi bi-star-fill"></i>
+                                                            <i class="bi bi-star"></i>
+                                                        </div>
+                                                        <span class="text-muted">(4.0)</span>
+                                                    </div>
+                                                </div>
+                                                <a style="text-decoration: none; color: white"
+                                                    href="./cursoDetalleLogueado.html">
+                                                    <button class="btn btn-secondary w-100 mt-3">Ver curso</button>
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="card-footer bg-transparent border-0 mt-auto">
-                                    <div class="badge bg-info mt-2">
-                                        <i class="bi bi-fire"></i> Alta demanda laboral
+                                    <!-- Curso 2 -->
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="card custom-card h-100 d-flex flex-column">
+                                            <div class="card-header"><i class="bi bi-hdd-network"></i> Redes y Seguridad
+                                                Informática</div>
+                                            <div class="card-body">
+                                                <p><strong>Categoría:</strong> Infraestructura</p>
+                                                <p><strong>Descripción:</strong> Conoce los fundamentos de redes, protocolos, ciberseguridad y buenas
+                                                    prácticas para proteger sistemas y datos.</p>
+                                                <div class="mb-3">
+                                                    <strong>Herramientas:</strong> Wireshark, Nmap, Metasploit, Kali Linux
+                                                </div>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <span class="badge bg-success">Nivel: Principiante</span>
+                                                    <span class="badge bg-secondary">Duración: 5 semanas</span>
+                                                </div>
+                                                <div class="d-flex justify-content-between align-items-center mt-2">
+                                                    <span class="badge bg-success">DISPONIBLE</span>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="text-warning me-2">
+                                                            <i class="bi bi-star-fill"></i>
+                                                            <i class="bi bi-star-fill"></i>
+                                                            <i class="bi bi-star-fill"></i>
+                                                            <i class="bi bi-star-fill"></i>
+                                                            <i class="bi bi-star-fill"></i>
+                                                        </div>
+                                                        <span class="text-muted">(5.0)</span>
+                                                    </div>
+                                                </div>
+                                                <button class="btn btn-secondary w-100 mt-3">Ver curso</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Curso 3 -->
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="card custom-card h-100 d-flex flex-column">
+                                            <div class="card-header"><i class="bi bi-git"></i> Control de Versiones con Git y
+                                                GitHub
+                                            </div>
+                                            <div class="card-body">
+                                                <p><strong>Categoría:</strong> Herramientas</p>
+                                                <p><strong>Descripción:</strong> Aprende a gestionar proyectos, ramas y colaboraciones usando Git y GitHub en
+                                                    entornos
+                                                    profesionales.</p>
+                                                <div class="mb-3">
+                                                    <strong>Herramientas:</strong> Git Bash, GitHub Desktop, SourceTree, VS Code
+                                                </div>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <span class="badge bg-success">Nivel: Principiante</span>
+                                                    <span class="badge bg-secondary">Duración: 4 semanas</span>
+                                                </div>
+                                                <div class="d-flex justify-content-between align-items-center mt-2">
+                                                    <span class="badge bg-success">DISPONIBLE</span>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="text-warning me-2">
+                                                            <i class="bi bi-star-fill"></i>
+                                                            <i class="bi bi-star-fill"></i>
+                                                            <i class="bi bi-star-fill"></i>
+                                                            <i class="bi bi-star-fill"></i>
+                                                            <i class="bi bi-star-half"></i>
+                                                        </div>
+                                                        <span class="text-muted">(4.5)</span>
+                                                    </div>
+                                                </div>
+                                                <button class="btn btn-secondary w-100 mt-3">Ver curso</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-                            <div class="card custom-card h-100 w-100 d-flex flex-column justify-content-between">
-                                <div>
-                                    <div class="card-header"><i class="bi bi-palette"></i> UX/UI Design</div>
-                                    <div class="card-body">
-                                        <p><strong>Nivel:</strong> Básico | <strong>Duración:</strong> 4 semanas</p>
-                                        <p>Diseño centrado en el usuario. <strong>Área con mayor crecimiento en
-                                            contrataciones.</strong></p>
+                            <div class="carousel-item">
+                                <div class="row g-4">
+                                    <!-- Curso 4 -->
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="card custom-card h-100 d-flex flex-column">
+                                            <div class="card-header"><i class="bi bi-phone"></i> Desarrollo de Apps Móviles</div>
+                                            <div class="card-body">
+                                                <p><strong>Categoría:</strong> Desarrollo Móvil</p>
+                                                <p><strong>Descripción:</strong> Crea aplicaciones móviles nativas e híbridas usando React Native, Flutter y las mejores prácticas del mercado.</p>
+                                                <div class="mb-3">
+                                                    <strong>Herramientas:</strong> React Native, Flutter, Android Studio, Xcode
+                                                </div>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <span class="badge bg-warning text-dark">Nivel: Intermedio</span>
+                                                    <span class="badge bg-secondary">Duración: 10 semanas</span>
+                                                </div>
+                                                <div class="d-flex justify-content-between align-items-center mt-2">
+                                                    <span class="badge bg-success">DISPONIBLE</span>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="text-warning me-2">
+                                                            <i class="bi bi-star-fill"></i>
+                                                            <i class="bi bi-star-fill"></i>
+                                                            <i class="bi bi-star-fill"></i>
+                                                            <i class="bi bi-star-fill"></i>
+                                                            <i class="bi bi-star"></i>
+                                                        </div>
+                                                        <span class="text-muted">(4.0)</span>
+                                                    </div>
+                                                </div>
+                                                <button class="btn btn-secondary w-100 mt-3">Ver curso</button>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="card-footer bg-transparent border-0 mt-auto">
-                                    <div class="badge bg-success mt-2">
-                                        <i class="bi bi-graph-up-arrow"></i> Crecimiento del 40%
+                                    <!-- Curso 5 -->
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="card custom-card h-100 d-flex flex-column">
+                                            <div class="card-header"><i class="bi bi-palette"></i> Diseño UX/UI Avanzado</div>
+                                            <div class="card-body">
+                                                <p><strong>Categoría:</strong> Diseño</p>
+                                                <p><strong>Descripción:</strong> Domina el diseño de experiencias de usuario, prototipado, investigación y herramientas como Figma y Adobe XD.</p>
+                                                <div class="mb-3">
+                                                    <strong>Herramientas:</strong> Figma, Adobe XD, Sketch, InVision, Miro
+                                                </div>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <span class="badge bg-danger">Nivel: Avanzado</span>
+                                                    <span class="badge bg-secondary">Duración: 8 semanas</span>
+                                                </div>
+                                                <div class="d-flex justify-content-between align-items-center mt-2">
+                                                    <span class="badge bg-success">DISPONIBLE</span>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="text-warning me-2">
+                                                            <i class="bi bi-star-fill"></i>
+                                                            <i class="bi bi-star-fill"></i>
+                                                            <i class="bi bi-star-fill"></i>
+                                                            <i class="bi bi-star-fill"></i>
+                                                            <i class="bi bi-star-fill"></i>
+                                                        </div>
+                                                        <span class="text-muted">(5.0)</span>
+                                                    </div>
+                                                </div>
+                                                <button class="btn btn-secondary w-100 mt-3">Ver curso</button>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-                            <div class="card custom-card h-100 w-100 d-flex flex-column justify-content-between">
-                                <div>
-                                    <div class="card-header"><i class="bi bi-megaphone"></i> Marketing Digital</div>
-                                    <div class="card-body">
-                                        <p><strong>Nivel:</strong> Intermedio | <strong>Duración:</strong> 5 semanas</p>
-                                        <p>Estrategias digitales efectivas. <strong>Skill esencial para startups y
-                                            PyMEs.</strong></p>
-                                    </div>
-                                </div>
-                                <div class="card-footer bg-transparent border-0 mt-auto">
-                                    <div class="badge bg-warning text-dark mt-2">
-                                        <i class="bi bi-briefcase"></i> Esencial para PyMEs
+                                    <!-- Curso 6 -->
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="card custom-card h-100 d-flex flex-column">
+                                            <div class="card-header"><i class="bi bi-cloud"></i> Cloud Computing con AWS</div>
+                                            <div class="card-body">
+                                                <p><strong>Categoría:</strong> Cloud</p>
+                                                <p><strong>Descripción:</strong> Aprende a desplegar y gestionar aplicaciones en la nube usando servicios de AWS, Docker y Kubernetes.</p>
+                                                <div class="mb-3">
+                                                    <strong>Herramientas:</strong> AWS Console, Docker, Kubernetes, Terraform
+                                                </div>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <span class="badge bg-warning text-dark">Nivel: Intermedio</span>
+                                                    <span class="badge bg-secondary">Duración: 9 semanas</span>
+                                                </div>
+                                                <div class="d-flex justify-content-between align-items-center mt-2">
+                                                    <span class="badge bg-success">DISPONIBLE</span>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="text-warning me-2">
+                                                            <i class="bi bi-star-fill"></i>
+                                                            <i class="bi bi-star-fill"></i>
+                                                            <i class="bi bi-star-fill"></i>
+                                                            <i class="bi bi-star-fill"></i>
+                                                            <i class="bi bi-star-half"></i>
+                                                        </div>
+                                                        <span class="text-muted">(4.5)</span>
+                                                    </div>
+                                                </div>
+                                                <button class="btn btn-secondary w-100 mt-3">Ver curso</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
