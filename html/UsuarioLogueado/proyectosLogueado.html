@@ -41,6 +41,29 @@
             .carousel-control-prev-custom { left: 0; }
             .carousel-control-next-custom { right: 0; }
         }
+        #proyectos-grilla .card.custom-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            min-height: 420px;
+        }
+        #proyectos-grilla .card.custom-card .card-body {
+            flex: 1 1 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        #proyectos-grilla .card.custom-card .mb-3 {
+            margin-bottom: 1rem !important;
+        }
+        #proyectos-grilla .card.custom-card .btn {
+            margin-top: auto;
+        }
+        @media (max-width: 991px) {
+            #proyectos-grilla .card.custom-card {
+                min-height: 360px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -48,23 +71,41 @@
     <header class="custom-header">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-6 d-none d-lg-block">
+                <div class="col-md-4 d-none d-lg-block">
                     <h1 class="h3 mb-0"><i class="bi bi-lightbulb"></i> TalentLab</h1>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-8">
                     <nav class="navbar navbar-expand-lg navbar-dark">
                         <a class="navbar-brand d-lg-none" href="#"><i class="bi bi-lightbulb"></i> TalentLab</a>
-                        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarProyectosLog" aria-controls="navbarProyectosLog" aria-expanded="false" aria-label="Toggle navigation">
+                        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarPerfilUsuario" aria-controls="navbarPerfilUsuario" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
-                        <div class="collapse navbar-collapse" id="navbarProyectosLog">
-                            <div class="navbar-nav ms-auto">
-                                <a class="nav-link d-flex align-items-center gap-2 text-nowrap" href="../UsuarioLogueado/homeLogueado.html"><i class="bi bi-house-door"></i> Inicio</a>
-                                <a class="nav-link d-flex align-items-center gap-2 text-nowrap" href="../CursosComponente/cursosLogueado.html"><i class="bi bi-book"></i> Cursos</a>
-                                <a class="nav-link active d-flex align-items-center gap-2 text-nowrap" href="proyectosLogueado.html"><i class="bi bi-rocket"></i> Proyectos</a>
-                                <a class="nav-link d-flex align-items-center gap-2 text-nowrap" href="../UsuarioLogueado/ranking.html"><i class="bi bi-trophy"></i> Ranking</a>
-                                <a class="nav-link btn-profile d-flex align-items-center gap-2 text-nowrap" href="../UsuarioLogueado/perfilUsuario.html"><i class="bi bi-person-circle"></i> Mi Perfil</a>
-                                <a class="nav-link btn-logout d-flex align-items-center gap-2 text-nowrap" href="../UsuarioNoLogueado/homeNoLogueado.html"><i class="bi bi-box-arrow-left"></i> Cerrar Sesión</a>
+                        <div class="collapse navbar-collapse" id="navbarPerfilUsuario">
+                            <div class="navbar-nav ms-auto ps-3 mt-4 mt-lg-0">
+                                <a class="nav-link d-flex align-items-center gap-2 text-nowrap"
+                                    href="./homeLogueado.html"><i class="bi bi-house-door"></i>
+                                    <p class="m-0">Inicio</p>
+                                </a>
+                                <a class="nav-link d-flex align-items-center gap-2 text-nowrap"
+                                    href="./cursosLogueado.html"><i class="bi bi-book"></i>
+                                    <p class="m-0">Cursos</p>
+                                </a>
+                                <a class="nav-link active d-flex align-items-center gap-2 text-nowrap"
+                                    href="./proyectosLogueado.html"><i class="bi bi-rocket"></i>
+                                    <p class="m-0">Proyectos</p>
+                                </a>
+                                <a class="nav-link d-flex align-items-center gap-2 text-nowrap" href="./ranking.html"><i
+                                        class="bi bi-trophy"></i>
+                                    <p class="m-0">Ranking</p>
+                                </a>
+                                <a class="nav-link btn-profile d-flex align-items-center gap-2 text-nowrap"
+                                    href="./perfilUsuario.html"><i class="bi bi-person-circle"></i>
+                                    <p class="m-0">Mi Perfil</p>
+                                </a>
+                                <a class="nav-link btn-logout d-flex align-items-center gap-2 text-nowrap"
+                                    href="../UsuarioNoLogueado/homeNoLogueado.html"><i class="bi bi-box-arrow-left"></i>
+                                    <p class="m-0 w-100">Cerrar Sesión</p>
+                                </a>
                             </div>
                         </div>
                     </nav>
@@ -73,21 +114,128 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
+        <!-- Carrusel de proyectos en progreso -->
+    <section class="py-4 bg-light">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h1 class="display-4 mb-4">Proyectos de Impacto</h1>
-                    <p class="lead mb-4">Participá en proyectos reales que generan un impacto positivo en la sociedad</p>
-                    <div class="d-flex justify-content-center gap-3 flex-wrap">
-                        <button class="btn btn-accent btn-lg">Explorar Proyectos</button>
-                        <button class="btn btn-outline-light btn-lg">Ver Mi Portfolio</button>
+                <div class="col-12">
+                    <h4 class="mb-3"><i class="bi bi-play-circle me-2"></i>Mis Proyectos en Progreso</h4>
+                </div>
+            </div>
+            <div id="proyectosProgresoCarousel" class="carousel slide my-auto" data-bs-ride="false">
+                <button class="carousel-control-custom carousel-control-prev-custom" type="button" data-bs-target="#proyectosProgresoCarousel" data-bs-slide="prev" aria-label="Anterior">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 8L12 16L20 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <button class="carousel-control-custom carousel-control-next-custom" type="button" data-bs-target="#proyectosProgresoCarousel" data-bs-slide="next" aria-label="Siguiente">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 8L20 16L12 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row g-4">
+                            <!-- Proyecto en progreso 1 -->
+                            <div class="col-lg-4 col-md-4">
+                                <div class="card custom-card border border-secondary h-100 d-flex flex-column">
+                                    <div class="card-header"><i class="bi bi-cart"></i> E-commerce Verde - Tienda Verde</div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">E-commerce Verde</h5>
+                                        <p class="card-text">Implementando sistema de carrito y pasarela de pagos para e-commerce sostenible...</p>
+                                        <div class="mb-3"><strong>Rol:</strong> Full Stack Developer</div>
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <span class="badge bg-warning text-dark">En curso</span>
+                                            <span class="badge bg-info">Tienda Verde</span>
+                                        </div>
+                                        <div class="progress mb-3" style="height: 8px;">
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <a  class="btn btn-secondary w-100 mt-auto">
+                                            <i class="bi bi-eye me-2"></i>Ver detalles
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Proyecto en progreso 2 -->
+                            <div class="col-lg-4 col-md-4">
+                                <div class="card custom-card border border-secondary h-100 d-flex flex-column">
+                                    <div class="card-header"><i class="bi bi-mortarboard"></i> App Educativa - ONG EduTech</div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">App Educativa</h5>
+                                        <p class="card-text">Desarrollando la interfaz de usuario para una plataforma educativa infantil usando React...</p>
+                                        <div class="mb-3"><strong>Rol:</strong> Frontend Developer</div>
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <span class="badge bg-warning text-dark">En curso</span>
+                                            <span class="badge bg-info">ONG EduTech</span>
+                                        </div>
+                                        <div class="progress mb-3" style="height: 8px;">
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <a class="btn btn-secondary w-100 mt-auto">
+                                            <i class="bi bi-eye me-2"></i>Ver detalles
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Proyecto en progreso 3 -->
+                            <div class="col-lg-4 col-md-4">
+                                <div class="card custom-card border border-secondary h-100 d-flex flex-column">
+                                    <div class="card-header"><i class="bi bi-tree"></i> Huerta Urbana - Fundación EcoVida</div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Huerta Urbana Inteligente</h5>
+                                        <p class="card-text">Desarrollar sensores IoT para monitorear y optimizar huertas urbanas comunitarias...</p>
+                                        <div class="mb-3"><strong>Rol:</strong> IoT Developer</div>
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <span class="badge bg-warning text-dark">En curso</span>
+                                            <span class="badge bg-info">Fundación EcoVida</span>
+                                        </div>
+                                        <div class="progress mb-3" style="height: 8px;">
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <a class="btn btn-secondary w-100 mt-auto">
+                                            <i class="bi bi-eye me-2"></i>Ver detalles
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row g-4">
+                            <!-- Proyecto en progreso 4 -->
+                            <div class="col-lg-4 col-md-4">
+                                <div class="card custom-card border border-secondary h-100 d-flex flex-column">
+                                    <div class="card-header"><i class="bi bi-heart-pulse"></i> App de Seguimiento Médico - Startup HealthTech</div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">App de Seguimiento Médico</h5>
+                                        <p class="card-text">Aplicación móvil para que pacientes registren síntomas y medicamentos...</p>
+                                        <div class="mb-3"><strong>Rol:</strong> Mobile Developer</div>
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <span class="badge bg-warning text-dark">En curso</span>
+                                            <span class="badge bg-info">Startup HealthTech</span>
+                                        </div>
+                                        <div class="progress mb-3" style="height: 8px;">
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <a class="btn btn-secondary w-100 mt-auto">
+                                            <i class="bi bi-eye me-2"></i>Ver detalles
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+        <!-- Separador -->
+    <div class="container">
+        <hr class="my-3" style="border: 1px solid #0B2D59; border-radius: 1px;">
+    </div>
+
 
     <!-- Filtros -->
     <section class="py-4">
@@ -129,252 +277,257 @@
         </div>
     </section>
 
-    <!-- Listado de proyectos en carrusel -->
+    <!-- Listado de proyectos -->
     <section class="py-4">
         <div class="container">
-            <div id="proyectosCarousel" class="carousel slide my-auto" data-bs-ride="false">
-                <button class="carousel-control-custom carousel-control-prev-custom" type="button" data-bs-target="#proyectosCarousel" data-bs-slide="prev" aria-label="Anterior">
-                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 8L12 16L20 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </button>
-                <button class="carousel-control-custom carousel-control-next-custom" type="button" data-bs-target="#proyectosCarousel" data-bs-slide="next" aria-label="Siguiente">
-                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 8L20 16L12 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </button>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="row g-4">
-                            <!-- Proyecto 1 -->
-                            <div class="col-lg-4 col-md-6">
-                                <div class="card custom-card h-100 d-flex flex-column proyecto-card">
-                                    <div class="card-header"><i class="bi bi-mortarboard"></i> ONG EduTech</div>
-                                    <div class="card-body d-flex flex-column">
-                                        <h4>Plataforma de Aprendizaje Infantil</h4>
-                                        <p>Desarrollar una app web educativa para niños de 6-12 años con juegos interactivos...</p>
-                                        <div class="mb-3">
-                                            <strong>Skills requeridas:</strong> React, Node.js, MongoDB, UX/UI
-                                        </div>
-                                        <div class="mt-auto">
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <span class="badge bg-info">3/5 participantes</span>
-                                                <span class="badge bg-success">ABIERTO</span>
-                                            </div>
-                                            <a href="proyectoDetalle.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
-                                        </div>
-                                    </div>
-                                </div>
+            <div class="row g-4" id="proyectos-grilla">
+                <!-- Proyecto 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card custom-card h-100 d-flex flex-column">
+                        <div class="card-header"><i class="bi bi-mortarboard"></i> ONG EduTech</div>
+                        <div class="card-body">
+                            <h4>Plataforma de Aprendizaje Infantil</h4>
+                            <p>Desarrollar una app web educativa para niños de 6-12 años con juegos interactivos...</p>
+                            <div class="mb-3">
+                                <strong>Skills requeridas:</strong> React, Node.js, MongoDB, UX/UI
                             </div>
-                            <!-- Proyecto 2 -->
-                            <div class="col-lg-4 col-md-6">
-                                <div class="card custom-card h-100 d-flex flex-column proyecto-card">
-                                    <div class="card-header"><i class="bi bi-cart"></i> Tienda Verde</div>
-                                    <div class="card-body d-flex flex-column">
-                                        <h4>E-commerce Sostenible</h4>
-                                        <p>Crear una tienda online para productos ecológicos con sistema de puntos...</p>
-                                        <div class="mb-3">
-                                            <strong>Skills requeridas:</strong> Shopify, Diseño UX, Marketing Digital
-                                        </div>
-                                        <div class="mt-auto">
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <span class="badge bg-info">2/4 participantes</span>
-                                                <span class="badge bg-success">ABIERTO</span>
-                                            </div>
-                                            <a href="proyectoDetalle.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-info">3/5 participantes</span>
+                                <span class="badge bg-success">ABIERTO</span>
                             </div>
-                            <!-- Proyecto 3 -->
-                            <div class="col-lg-4 col-md-6">
-                                <div class="card custom-card h-100 d-flex flex-column proyecto-card">
-                                    <div class="card-header"><i class="bi bi-heart-pulse"></i> Startup HealthTech</div>
-                                    <div class="card-body d-flex flex-column">
-                                        <h4>App de Seguimiento Médico</h4>
-                                        <p>Aplicación móvil para que pacientes registren síntomas y medicamentos...</p>
-                                        <div class="mb-3">
-                                            <strong>Skills requeridas:</strong> React Native, Python, Cloud Computing
-                                        </div>
-                                        <div class="mt-auto">
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <span class="badge bg-warning text-dark">4/4 participantes</span>
-                                                <span class="badge bg-warning text-dark">EN CURSO</span>
-                                            </div>
-                                            <a href="proyectoDetalle.html" class="btn btn-secondary w-100 mt-3 disabled" tabindex="-1" aria-disabled="true">Ver proyecto</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <a href="proyectoDetalle.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <div class="row g-4">
-                            <!-- Proyecto 4 -->
-                            <div class="col-lg-4 col-md-6">
-                                <div class="card custom-card h-100 d-flex flex-column proyecto-card">
-                                    <div class="card-header"><i class="bi bi-tree"></i> Fundación EcoVida</div>
-                                    <div class="card-body d-flex flex-column">
-                                        <h4>Huerta Urbana Inteligente</h4>
-                                        <p>Desarrollar sensores IoT para monitorear y optimizar huertas urbanas comunitarias...</p>
-                                        <div class="mb-3">
-                                            <strong>Skills requeridas:</strong> Arduino, Python, IoT, UX/UI
-                                        </div>
-                                        <div class="mt-auto">
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <span class="badge bg-info">1/5 participantes</span>
-                                                <span class="badge bg-success">ABIERTO</span>
-                                            </div>
-                                            <a href="proyectoDetalle.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
-                                        </div>
-                                    </div>
-                                </div>
+                </div>
+                <!-- Proyecto 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card custom-card h-100 d-flex flex-column">
+                        <div class="card-header"><i class="bi bi-cart"></i> Tienda Verde</div>
+                        <div class="card-body">
+                            <h4>E-commerce Sostenible</h4>
+                            <p>Crear una tienda online para productos ecológicos con sistema de puntos...</p>
+                            <div class="mb-3">
+                                <strong>Skills requeridas:</strong> Shopify, Diseño UX, Marketing Digital
                             </div>
-                            <!-- Proyecto 5 -->
-                            <div class="col-lg-4 col-md-6">
-                                <div class="card custom-card h-100 d-flex flex-column proyecto-card">
-                                    <div class="card-header"><i class="bi bi-flower2"></i> PyME AgroTech</div>
-                                    <div class="card-body d-flex flex-column">
-                                        <h4>Gestión de Cultivos</h4>
-                                        <p>Plataforma para registrar y analizar datos de cultivos en tiempo real...</p>
-                                        <div class="mb-3">
-                                            <strong>Skills requeridas:</strong> Java, Spring, SQL, QA
-                                        </div>
-                                        <div class="mt-auto">
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <span class="badge bg-info">4/8 participantes</span>
-                                                <span class="badge bg-success">ABIERTO</span>
-                                            </div>
-                                            <a href="proyectoDetalle.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-info">2/4 participantes</span>
+                                <span class="badge bg-success">ABIERTO</span>
                             </div>
-                            <!-- Proyecto 6 -->
-                            <div class="col-lg-4 col-md-6">
-                                <div class="card custom-card h-100 d-flex flex-column proyecto-card">
-                                    <div class="card-header"><i class="bi bi-heart-pulse"></i> ONG SaludAR</div>
-                                    <div class="card-body d-flex flex-column">
-                                        <h4>Red de Donantes</h4>
-                                        <p>App para conectar donantes de sangre con hospitales y pacientes en tiempo real...</p>
-                                        <div class="mb-3">
-                                            <strong>Skills requeridas:</strong> Flutter, Firebase, UX/UI
-                                        </div>
-                                        <div class="mt-auto">
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <span class="badge bg-info">2/6 participantes</span>
-                                                <span class="badge bg-success">ABIERTO</span>
-                                            </div>
-                                            <a href="proyectoDetalle.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <a href="proyectoDetalle.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <div class="row g-4">
-                            <!-- Proyecto 7 -->
-                            <div class="col-lg-4 col-md-6">
-                                <div class="card custom-card h-100 d-flex flex-column proyecto-card">
-                                    <div class="card-header"><i class="bi bi-cash-coin"></i> Startup FinanTech</div>
-                                    <div class="card-body d-flex flex-column">
-                                        <h4>Educación Financiera Joven</h4>
-                                        <p>Desarrollar una app para enseñar finanzas personales a jóvenes con juegos y retos...</p>
-                                        <div class="mb-3">
-                                            <strong>Skills requeridas:</strong> React Native, Node.js, UX/UI
-                                        </div>
-                                        <div class="mt-auto">
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <span class="badge bg-info">3/5 participantes</span>
-                                                <span class="badge bg-success">ABIERTO</span>
-                                            </div>
-                                            <a href="proyectoDetalle.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
-                                        </div>
-                                    </div>
-                                </div>
+                </div>
+                <!-- Proyecto 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card custom-card h-100 d-flex flex-column">
+                        <div class="card-header"><i class="bi bi-heart-pulse"></i> Startup HealthTech</div>
+                        <div class="card-body">
+                            <h4>App de Seguimiento Médico</h4>
+                            <p>Aplicación móvil para que pacientes registren síntomas y medicamentos...</p>
+                            <div class="mb-3">
+                                <strong>Skills requeridas:</strong> React Native, Python, Cloud Computing
                             </div>
-                            <!-- Proyecto 8 -->
-                            <div class="col-lg-4 col-md-6">
-                                <div class="card custom-card h-100 d-flex flex-column proyecto-card">
-                                    <div class="card-header"><i class="bi bi-music-note-beamed"></i> ONG Cultura+</div>
-                                    <div class="card-body d-flex flex-column">
-                                        <h4>Plataforma de Voluntariado</h4>
-                                        <p>Web para conectar voluntarios con eventos culturales y sociales en su ciudad...</p>
-                                        <div class="mb-3">
-                                            <strong>Skills requeridas:</strong> Vue.js, Firebase, Marketing
-                                        </div>
-                                        <div class="mt-auto">
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <span class="badge bg-info">5/10 participantes</span>
-                                                <span class="badge bg-success">ABIERTO</span>
-                                            </div>
-                                            <a href="proyectoDetalle.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-warning text-dark">4/4 participantes</span>
+                                <span class="badge bg-warning text-dark">EN CURSO</span>
                             </div>
-                            <!-- Proyecto 9 -->
-                            <div class="col-lg-4 col-md-6">
-                                <div class="card custom-card h-100 d-flex flex-column proyecto-card">
-                                    <div class="card-header"><i class="bi bi-building"></i> PyME GreenBuild</div>
-                                    <div class="card-body d-flex flex-column">
-                                        <h4>Gestión de Residuos</h4>
-                                        <p>Desarrollar un sistema para optimizar la recolección y reciclaje de residuos urbanos...</p>
-                                        <div class="mb-3">
-                                            <strong>Skills requeridas:</strong> Angular, .NET, SQL, QA
-                                        </div>
-                                        <div class="mt-auto">
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <span class="badge bg-info">6/12 participantes</span>
-                                                <span class="badge bg-success">ABIERTO</span>
-                                            </div>
-                                            <a href="proyectoDetalle.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <a href="proyectoDetalle.html" class="btn btn-secondary w-100 mt-3 disabled" tabindex="-1" aria-disabled="true">Ver proyecto</a>
                         </div>
                     </div>
+                </div>
+                <!-- Proyecto 4 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card custom-card h-100 d-flex flex-column">
+                        <div class="card-header"><i class="bi bi-tree"></i> Fundación EcoVida</div>
+                        <div class="card-body">
+                            <h4>Huerta Urbana Inteligente</h4>
+                            <p>Desarrollar sensores IoT para monitorear y optimizar huertas urbanas comunitarias...</p>
+                            <div class="mb-3">
+                                <strong>Skills requeridas:</strong> Arduino, Python, IoT, UX/UI
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-info">1/5 participantes</span>
+                                <span class="badge bg-success">ABIERTO</span>
+                            </div>
+                            <a href="proyectoDetalle.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Proyecto 5 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card custom-card h-100 d-flex flex-column">
+                        <div class="card-header"><i class="bi bi-flower2"></i> PyME AgroTech</div>
+                        <div class="card-body">
+                            <h4>Gestión de Cultivos</h4>
+                            <p>Plataforma para registrar y analizar datos de cultivos en tiempo real...</p>
+                            <div class="mb-3">
+                                <strong>Skills requeridas:</strong> Java, Spring, SQL, QA
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-info">4/8 participantes</span>
+                                <span class="badge bg-success">ABIERTO</span>
+                            </div>
+                            <a href="proyectoDetalle.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Proyecto 6 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card custom-card h-100 d-flex flex-column">
+                        <div class="card-header"><i class="bi bi-heart-pulse"></i> ONG SaludAR</div>
+                        <div class="card-body">
+                            <h4>Red de Donantes</h4>
+                            <p>App para conectar donantes de sangre con hospitales y pacientes en tiempo real...</p>
+                            <div class="mb-3">
+                                <strong>Skills requeridas:</strong> Flutter, Firebase, UX/UI
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-info">2/6 participantes</span>
+                                <span class="badge bg-success">ABIERTO</span>
+                            </div>
+                            <a href="proyectoDetalle.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Proyectos adicionales (ocultos inicialmente) -->
+                <!-- Proyecto 7 -->
+                <div class="col-lg-4 col-md-6" id="proyecto-7" style="display: none;">
+                    <div class="card custom-card h-100 d-flex flex-column">
+                        <div class="card-header"><i class="bi bi-cash-coin"></i> Startup FinanTech</div>
+                        <div class="card-body">
+                            <h4>Educación Financiera Joven</h4>
+                            <p>Desarrollar una app para enseñar finanzas personales a jóvenes con juegos y retos...</p>
+                            <div class="mb-3">
+                                <strong>Skills requeridas:</strong> React Native, Node.js, UX/UI
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-info">3/5 participantes</span>
+                                <span class="badge bg-success">ABIERTO</span>
+                            </div>
+                            <a href="proyectoDetalle.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Proyecto 8 -->
+                <div class="col-lg-4 col-md-6" id="proyecto-8" style="display: none;">
+                    <div class="card custom-card h-100 d-flex flex-column">
+                        <div class="card-header"><i class="bi bi-music-note-beamed"></i> ONG Cultura+</div>
+                        <div class="card-body">
+                            <h4>Plataforma de Voluntariado</h4>
+                            <p>Web para conectar voluntarios con eventos culturales y sociales en su ciudad...</p>
+                            <div class="mb-3">
+                                <strong>Skills requeridas:</strong> Vue.js, Firebase, Marketing
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-info">5/10 participantes</span>
+                                <span class="badge bg-success">ABIERTO</span>
+                            </div>
+                            <a href="proyectoDetalle.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Proyecto 9 -->
+                <div class="col-lg-4 col-md-6" id="proyecto-9" style="display: none;">
+                    <div class="card custom-card h-100 d-flex flex-column">
+                        <div class="card-header"><i class="bi bi-building"></i> PyME GreenBuild</div>
+                        <div class="card-body">
+                            <h4>Gestión de Residuos</h4>
+                            <p>Desarrollar un sistema para optimizar la recolección y reciclaje de residuos urbanos...</p>
+                            <div class="mb-3">
+                                <strong>Skills requeridas:</strong> Angular, .NET, SQL, QA
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-info">6/12 participantes</span>
+                                <span class="badge bg-success">ABIERTO</span>
+                            </div>
+                            <a href="proyectoDetalle.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Proyecto 10 -->
+                <div class="col-lg-4 col-md-6" id="proyecto-10" style="display: none;">
+                    <div class="card custom-card h-100 d-flex flex-column">
+                        <div class="card-header"><i class="bi bi-robot"></i> ONG Robótica Social</div>
+                        <div class="card-body">
+                            <h4>Robots para Inclusión</h4>
+                            <p>Desarrollar robots educativos para niños con discapacidad en escuelas públicas...</p>
+                            <div class="mb-3">
+                                <strong>Skills requeridas:</strong> Arduino, Python, UX/UI, Educación
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-info">2/6 participantes</span>
+                                <span class="badge bg-success">ABIERTO</span>
+                            </div>
+                            <a href="proyectoDetalle.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Proyecto 11 -->
+                <div class="col-lg-4 col-md-6" id="proyecto-11" style="display: none;">
+                    <div class="card custom-card h-100 d-flex flex-column">
+                        <div class="card-header"><i class="bi bi-bug"></i> Startup QA+</div>
+                        <div class="card-body">
+                            <h4>Testing Automatizado para ONGs</h4>
+                            <p>Implementar pruebas automáticas para plataformas solidarias y sociales...</p>
+                            <div class="mb-3">
+                                <strong>Skills requeridas:</strong> Selenium, Jest, Cypress, Postman
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-info">3/7 participantes</span>
+                                <span class="badge bg-success">ABIERTO</span>
+                            </div>
+                            <a href="proyectoDetalle.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Proyecto 12 -->
+                <div class="col-lg-4 col-md-6" id="proyecto-12" style="display: none;">
+                    <div class="card custom-card h-100 d-flex flex-column">
+                        <div class="card-header"><i class="bi bi-server"></i> PyME DevOps</div>
+                        <div class="card-body">
+                            <h4>Automatización de Despliegues</h4>
+                            <p>Implementar pipelines de CI/CD y automatización para empresas tecnológicas...</p>
+                            <div class="mb-3">
+                                <strong>Skills requeridas:</strong> Jenkins, GitLab CI, Docker, Kubernetes
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-info">4/8 participantes</span>
+                                <span class="badge bg-success">ABIERTO</span>
+                            </div>
+                            <a href="proyectoDetalle.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Botón Ver Más -->
+            <div class="row pt-4" id="btnVerMasContainer">
+                <div class="col-12 text-center">
+                    <button class="btn btn-primary btn-lg" id="btnVerMas" onclick="mostrarMasProyectos()">
+                        <i class="bi bi-plus-circle me-2"></i>Ver más proyectos
+                    </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Categorías -->
-    <section class="py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center mb-5">Explorar por Categoría</h2>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card custom-card text-center">
-                        <div class="card-body">
-                            <i class="bi bi-laptop display-4 text-primary mb-3"></i>
-                            <h4>Tecnología</h4>
-                            <p class="text-muted">Software, Apps, Sistemas</p>
-                            <button class="btn btn-outline-primary">Ver Proyectos</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card custom-card text-center">
-                        <div class="card-body">
-                            <i class="bi bi-heart-pulse display-4 text-primary mb-3"></i>
-                            <h4>Salud</h4>
-                            <p class="text-muted">Medicina, Bienestar, Investigación</p>
-                            <button class="btn btn-outline-primary">Ver Proyectos</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card custom-card text-center">
-                        <div class="card-body">
-                            <i class="bi bi-tree display-4 text-primary mb-3"></i>
-                            <h4>Medio Ambiente</h4>
-                            <p class="text-muted">Sostenibilidad, Conservación</p>
-                            <button class="btn btn-outline-primary">Ver Proyectos</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <script>
+        function mostrarMasProyectos() {
+            const btnVerMasContainer = document.getElementById('btnVerMasContainer');
+            const btnVerMas = document.getElementById('btnVerMas');
+            // Mostrar todos los proyectos adicionales
+            for (let i = 7; i <= 12; i++) {
+                const proyecto = document.getElementById(`proyecto-${i}`);
+                if (proyecto) {
+                    proyecto.style.display = 'block';
+                }
+            }
+            // Cambiar la función del botón para que no haga nada
+            btnVerMas.onclick = function() { return false; };
+            // Mover el botón debajo de los proyectos adicionales
+            const proyectosGrilla = document.getElementById('proyectos-grilla');
+            proyectosGrilla.appendChild(btnVerMasContainer);
+        }
+    </script>
 
     <!-- Footer -->
     <footer class="footer">
