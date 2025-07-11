@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase en Curso - TalentLab</title>
+    <link rel="stylesheet" href="../../css/bootstrap-custom.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        body {
+            background: #f6f8fa;
+        }
+        /* Sticky solo en desktop */
+        @media (min-width: 992px) {
+            .video-sticky {
+                position: static;
+                top: auto;
+                z-index: auto;
+                background: #fff;
+                border-radius: 12px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            }
+            /* Aseguramos que la columna principal tenga suficiente altura para que el sticky funcione */
+            .col-lg-8 {
+                min-height: 120vh;
+            }
+        }
+        @media (max-width: 991px) {
+            .video-sticky {
+                position: static !important;
+                box-shadow: none;
+            }
+            .sidebar-scroll {
+                max-height: 30vh;
+            }
+        }
+        .sidebar-scroll {
+            max-height: none;
+            overflow-y: visible;
+        }
+        /* Chat Edutin-like */
+        .chat-edutin {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+        .chat-messages {
+            max-height: 220px;
+            overflow-y: auto;
+            margin-bottom: 1rem;
+        }
+        .chat-message {
+            margin-bottom: 0.5rem;
+        }
+        .chat-message .card {
+            display: inline-block;
+            max-width: 80%;
+        }
+        .chat-message.user {
+            text-align: right;
+        }
+        .chat-message.user .card {
+            background: #0B2D59;
+            color: #fff;
+            border-top-right-radius: 0.5rem;
+            border-bottom-right-radius: 0.5rem;
+            border-top-left-radius: 1.5rem;
+            border-bottom-left-radius: 1.5rem;
+        }
+        .chat-message.other .card {
+            background: #e9ecef;
+            color: #222;
+            border-top-left-radius: 0.5rem;
+            border-bottom-left-radius: 0.5rem;
+            border-top-right-radius: 1.5rem;
+            border-bottom-right-radius: 1.5rem;
+        }
+        .clase-item {
+            padding: 0.75rem 1rem;
+            border-radius: 12px;
+            background: #fff;
+            border: 1px solid #e0e6ed;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            transition: box-shadow 0.2s, border-color 0.2s, background 0.2s;
+            width: 100%;
+        }
+        .clase-item.active {
+            background: #e9f1fb;
+            border-color: #0B2D59;
+            box-shadow: 0 2px 8px rgba(11,45,89,0.10);
+        }
+        .clase-item:hover {
+            box-shadow: 0 2px 8px rgba(11,45,89,0.10);
+            border-color: #b6c6e3;
+            background: #f7fafd;
+        }
+        .clase-numero {
+            font-weight: 600;
+            color: #0B2D59;
+            margin-right: 0.5rem;
+        }
+        .clase-nombre {
+            cursor: pointer;
+            color: #222;
+            transition: color 0.2s;
+        }
+        .clase-nombre:hover {
+            color: #0B2D59;
+            text-decoration: underline;
+        }
+        .respuesta-item {
+            margin-top: 1.2rem;
+            border-left: 3px solid #e0e6ed;
+            padding-left: 16px;
+        }
+    </style>
+</head>
+<body>
+    <header class="custom-header mb-0">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 d-none d-lg-block">
+                    <h1 class="h3 mb-0"><i class="bi bi-lightbulb"></i> TalentLab</h1>
+                </div>
+                <div class="col-md-6">
+                    <nav class="navbar navbar-expand-lg navbar-dark">
+                        <a class="navbar-brand d-lg-none" href="#"><i class="bi bi-lightbulb"></i> TalentLab</a>
+                        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarClase" aria-controls="navbarClase" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarClase">
+                            <div class="navbar-nav ms-auto">
+                                <a class="nav-link d-flex align-items-center gap-2 text-nowrap" href="homeLogueado.html"><i class="bi bi-house-door"></i> Inicio</a>
+                                <a class="nav-link d-flex align-items-center gap-2 text-nowrap" href="cursosLogueado.html"><i class="bi bi-book"></i> Cursos</a>
+                                <a class="nav-link d-flex align-items-center gap-2 text-nowrap" href="proyectosLogueado.html"><i class="bi bi-rocket"></i> Proyectos</a>
+                                <a class="nav-link d-flex align-items-center gap-2 text-nowrap" href="ranking.html"><i class="bi bi-trophy"></i> Ranking</a>
+                                <a class="nav-link btn-profile d-flex align-items-center gap-2 text-nowrap" href="perfilUsuario.html"><i class="bi bi-person-circle"></i> Mi Perfil</a>
+                                <a class="nav-link btn-logout d-flex align-items-center gap-2 text-nowrap" href="../UsuarioNoLogueado/homeNoLogueado.html"><i class="bi bi-box-arrow-left"></i> Cerrar Sesión</a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="py-4">
+        <div class="container-fluid">
+            <div class="row g-4">
+                <!-- Columna principal -->
+                <div class="col-lg-8">
+                    <div class="video-sticky mb-4">
+                        <div class="ratio ratio-16x9 rounded-top">
+                            <iframe src="https://www.youtube.com/embed/PkZNo7MFNFg" title="Clase actual" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="card shadow-sm mb-4">
+                        <div class="card-body">
+                            <h2 class="mb-1">JavaScript Avanzado</h2>
+                            <span class="badge bg-primary">Tecnología - Desarrollo</span>
+                            <span class="badge bg-danger ms-2">Nivel: Avanzado</span>
+                            <hr>
+                            <div class="mb-4">
+                                <h5 class="mb-2">Descripción del curso</h5>
+                                <p>Domina conceptos avanzados de JavaScript: closures, prototipos, async/await, y patrones modernos de desarrollo web. Este curso está diseñado para desarrolladores que ya tienen experiencia con JavaScript básico y quieren llevar sus habilidades al siguiente nivel profesional.</p>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-md-6 mb-2">
+                                    <h6 class="mb-1"><i class="bi bi-person-badge me-1"></i> Instructor</h6>
+                                    <p class="mb-0">María González - Senior Developer</p>
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <h6 class="mb-1"><i class="bi bi-clock-history me-1"></i> Duración</h6>
+                                    <p class="mb-0">6 semanas (36 horas)</p>
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <h6 class="mb-1"><i class="bi bi-laptop me-1"></i> Modalidad</h6>
+                                    <p class="mb-0">Online en vivo + Grabaciones</p>
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <h6 class="mb-1"><i class="bi bi-calendar-event me-1"></i> Fecha de inicio</h6>
+                                    <p class="mb-0">15 de agosto, 2025</p>
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <h6 class="mb-1"><i class="bi bi-alarm me-1"></i> Horario</h6>
+                                    <p class="mb-0">Martes y Jueves 19:00 - 21:00</p>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <h5 class="mb-2"><i class="bi bi-bullseye me-1"></i> Objetivos del curso</h5>
+                                <ul class="mb-0 list-unstyled">
+                                    <li><i class="bi bi-check-circle me-1 text-dark"></i> Dominar closures, scope y el contexto de ejecución</li>
+                                    <li><i class="bi bi-check-circle me-1 text-dark"></i> Entender prototipos, herencia y programación orientada a objetos</li>
+                                    <li><i class="bi bi-check-circle me-1 text-dark"></i> Manejar programación asíncrona con Promises y async/await</li>
+                                    <li><i class="bi bi-check-circle me-1 text-dark"></i> Aplicar patrones de diseño modernos en JavaScript</li>
+                                    <li><i class="bi bi-check-circle me-1 text-dark"></i> Optimizar el rendimiento y debugging avanzado</li>
+                                    <li><i class="bi bi-check-circle me-1 text-dark"></i> Desarrollar un proyecto completo aplicando todos los conceptos</li>
+                                </ul>
+                            </div>
+                            <div class="mb-4">
+                                <h5 class="mb-2"><i class="bi bi-list-check me-1"></i> Requisitos previos</h5>
+                                <ul class="mb-0 list-unstyled">
+                                    <li><i class="bi bi-exclamation-circle me-1 text-dark"></i> Conocimientos sólidos de JavaScript básico</li>
+                                    <li><i class="bi bi-exclamation-circle me-1 text-dark"></i> Experiencia con ES6+ (let/const, arrow functions, destructuring)</li>
+                                    <li><i class="bi bi-exclamation-circle me-1 text-dark"></i> Manejo básico de HTML y CSS</li>
+                                    <li><i class="bi bi-exclamation-circle me-1 text-dark"></i> Familiaridad con herramientas de desarrollo (DevTools)</li>
+                                </ul>
+                            </div>
+                            <div class="mb-4">
+                                <h5 class="mb-2"><i class="bi bi-tools me-1"></i> Herramientas que utilizarás</h5>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <ul class="mb-0 list-unstyled">
+                                            <li><i class="bi bi-terminal me-1 text-dark"></i> Visual Studio Code</li>
+                                            <li><i class="bi bi-cpu me-1 text-dark"></i> Node.js y npm</li>
+                                            <li><i class="bi bi-git me-1 text-dark"></i> Git y GitHub</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ul class="mb-0 list-unstyled">
+                                            <li><i class="bi bi-check2-square me-1 text-dark"></i> Jest para testing</li>
+                                            <li><i class="bi bi-boxes me-1 text-dark"></i> Babel y Webpack</li>
+                                            <li><i class="bi bi-browser-chrome me-1 text-dark"></i> Chrome DevTools</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <h5 class="mb-2"><i class="bi bi-gift me-1"></i> Qué obtendrás</h5>
+                                <ul class="mb-0 list-unstyled">
+                                    <li><i class="bi bi-award me-1 text-dark"></i> Certificado de completitud verificable</li>
+                                    <li><i class="bi bi-briefcase me-1 text-dark"></i> Proyecto portfolio para mostrar a empleadores</li>
+                                    <li><i class="bi bi-infinity me-1 text-dark"></i> Acceso de por vida al material del curso</li>
+                                    <li><i class="bi bi-people me-1 text-dark"></i> Comunidad privada de estudiantes</li>
+                                    <li><i class="bi bi-question-circle me-1 text-dark"></i> Sesiones de Q&A en vivo</li>
+                                    <li><i class="bi bi-chat-dots me-1 text-dark"></i> Feedback personalizado en tu proyecto</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Chat tipo foro/comentarios -->
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="mb-3">Comentarios</h5>
+                            <!-- Formulario de nuevo comentario -->
+                            <form id="comentario-form" class="mb-4">
+                                <div class="bg-light rounded p-3 mb-2">
+                                    <textarea class="form-control border-0 bg-light" id="comentario-input" rows="3" placeholder="Escriba su participación..."></textarea>
+                                </div>
+                                <div class="d-flex justify-content-end gap-2">
+                                    <button type="button" class="btn btn-link text-secondary" id="comentario-cancelar">Cancelar</button>
+                                    <button type="submit" class="btn btn-accent">Enviar</button>
+                                </div>
+                            </form>
+                            <!-- Lista de comentarios -->
+                            <div id="comentarios-lista">
+                                <!-- Comentarios simulados se insertarán por JS -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sidebar derecho -->
+                <div class="col-lg-4">
+                    <div class="bg-white rounded shadow-sm p-4 sidebar-scroll">
+                        <h5 class="mb-3"><i class="bi bi-journal-code me-1 text-dark"></i> Contenido del curso</h5>
+                        <div class="accordion" id="contenidoCurso">
+                            <!-- Semana 1 -->
+                            <div class="accordion-item">
+                                <h6 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#semana1">
+                                        <i class="bi bi-braces me-1"></i> Semana 1: Closures y Scope Avanzado
+                                    </button>
+                                </h6>
+                                <div id="semana1" class="accordion-collapse collapse">
+                                    <div class="accordion-body">
+                                        <ul class="mb-0 list-unstyled">
+                                            <li class="clase-item d-flex align-items-center gap-2">
+                                                <input type="checkbox" class="form-check-input me-2 clase-checkbox">
+                                                <span class="clase-numero fw-semibold">1.</span>
+                                                <span class="clase-nombre flex-grow-1" data-video="https://www.youtube.com/embed/PkZNo7MFNFg">Contexto de ejecución y call stack</span>
+                                            </li>
+                                            <li class="clase-item d-flex align-items-center gap-2">
+                                                <input type="checkbox" class="form-check-input me-2 clase-checkbox">
+                                                <span class="clase-numero fw-semibold">2.</span>
+                                                <span class="clase-nombre flex-grow-1" data-video="https://www.youtube.com/embed/PkZNo7MFNFg">Closures: conceptos y casos de uso</span>
+                                            </li>
+                                            <li class="clase-item d-flex align-items-center gap-2">
+                                                <input type="checkbox" class="form-check-input me-2 clase-checkbox">
+                                                <span class="clase-numero fw-semibold">3.</span>
+                                                <span class="clase-nombre flex-grow-1" data-video="https://www.youtube.com/embed/PkZNo7MFNFg">Scope chain y hoisting avanzado</span>
+                                            </li>
+                                            <li class="clase-item d-flex align-items-center gap-2">
+                                                <input type="checkbox" class="form-check-input me-2 clase-checkbox">
+                                                <span class="clase-numero fw-semibold">4.</span>
+                                                <span class="clase-nombre flex-grow-1" data-video="https://www.youtube.com/embed/PkZNo7MFNFg">Ejercicios prácticos con closures</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Semana 2 -->
+                            <div class="accordion-item">
+                                <h6 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#semana2">
+                                        <i class="bi bi-diagram-3 me-1"></i> Semana 2: Prototipos y Herencia
+                                    </button>
+                                </h6>
+                                <div id="semana2" class="accordion-collapse collapse">
+                                    <div class="accordion-body">
+                                        <ul class="mb-0 list-unstyled">
+                                            <li class="clase-item d-flex align-items-center gap-2">
+                                                <input type="checkbox" class="form-check-input me-2 clase-checkbox">
+                                                <span class="clase-numero fw-semibold">1.</span>
+                                                <span class="clase-nombre flex-grow-1" data-video="https://www.youtube.com/embed/PkZNo7MFNFg">Prototype chain y Object.create()</span>
+                                            </li>
+                                            <li class="clase-item d-flex align-items-center gap-2">
+                                                <input type="checkbox" class="form-check-input me-2 clase-checkbox">
+                                                <span class="clase-numero fw-semibold">2.</span>
+                                                <span class="clase-nombre flex-grow-1" data-video="https://www.youtube.com/embed/PkZNo7MFNFg">Clases ES6 vs funciones constructoras</span>
+                                            </li>
+                                            <li class="clase-item d-flex align-items-center gap-2">
+                                                <input type="checkbox" class="form-check-input me-2 clase-checkbox">
+                                                <span class="clase-numero fw-semibold">3.</span>
+                                                <span class="clase-nombre flex-grow-1" data-video="https://www.youtube.com/embed/PkZNo7MFNFg">Herencia y polimorfismo</span>
+                                            </li>
+                                            <li class="clase-item d-flex align-items-center gap-2">
+                                                <input type="checkbox" class="form-check-input me-2 clase-checkbox">
+                                                <span class="clase-numero fw-semibold">4.</span>
+                                                <span class="clase-nombre flex-grow-1" data-video="https://www.youtube.com/embed/PkZNo7MFNFg">Mixins y composición</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Semana 3 -->
+                            <div class="accordion-item">
+                                <h6 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#semana3">
+                                        <i class="bi bi-arrow-repeat me-1"></i> Semana 3: Programación Asíncrona
+                                    </button>
+                                </h6>
+                                <div id="semana3" class="accordion-collapse collapse">
+                                    <div class="accordion-body">
+                                        <ul class="mb-0 list-unstyled">
+                                            <li class="clase-item d-flex align-items-center gap-2">
+                                                <input type="checkbox" class="form-check-input me-2 clase-checkbox">
+                                                <span class="clase-numero fw-semibold">1.</span>
+                                                <span class="clase-nombre flex-grow-1" data-video="https://www.youtube.com/embed/PkZNo7MFNFg">Event Loop y Web APIs</span>
+                                            </li>
+                                            <li class="clase-item d-flex align-items-center gap-2">
+                                                <input type="checkbox" class="form-check-input me-2 clase-checkbox">
+                                                <span class="clase-numero fw-semibold">2.</span>
+                                                <span class="clase-nombre flex-grow-1" data-video="https://www.youtube.com/embed/PkZNo7MFNFg">Promises: creación y manejo</span>
+                                            </li>
+                                            <li class="clase-item d-flex align-items-center gap-2">
+                                                <input type="checkbox" class="form-check-input me-2 clase-checkbox">
+                                                <span class="clase-numero fw-semibold">3.</span>
+                                                <span class="clase-nombre flex-grow-1" data-video="https://www.youtube.com/embed/PkZNo7MFNFg">async/await y manejo de errores</span>
+                                            </li>
+                                            <li class="clase-item d-flex align-items-center gap-2">
+                                                <input type="checkbox" class="form-check-input me-2 clase-checkbox">
+                                                <span class="clase-numero fw-semibold">4.</span>
+                                                <span class="clase-nombre flex-grow-1" data-video="https://www.youtube.com/embed/PkZNo7MFNFg">Fetch API y llamadas HTTP</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Semana 4 -->
+                            <div class="accordion-item">
+                                <h6 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#semana4">
+                                        <i class="bi bi-diagram-2 me-1"></i> Semana 4: Patrones de Diseño
+                                    </button>
+                                </h6>
+                                <div id="semana4" class="accordion-collapse collapse">
+                                    <div class="accordion-body">
+                                        <ul class="mb-0 list-unstyled">
+                                            <li class="clase-item d-flex align-items-center gap-2">
+                                                <input type="checkbox" class="form-check-input me-2 clase-checkbox">
+                                                <span class="clase-numero fw-semibold">1.</span>
+                                                <span class="clase-nombre flex-grow-1" data-video="https://www.youtube.com/embed/PkZNo7MFNFg">Module Pattern y Revealing Module</span>
+                                            </li>
+                                            <li class="clase-item d-flex align-items-center gap-2">
+                                                <input type="checkbox" class="form-check-input me-2 clase-checkbox">
+                                                <span class="clase-numero fw-semibold">2.</span>
+                                                <span class="clase-nombre flex-grow-1" data-video="https://www.youtube.com/embed/PkZNo7MFNFg">Observer Pattern y Event Emitters</span>
+                                            </li>
+                                            <li class="clase-item d-flex align-items-center gap-2">
+                                                <input type="checkbox" class="form-check-input me-2 clase-checkbox">
+                                                <span class="clase-numero fw-semibold">3.</span>
+                                                <span class="clase-nombre flex-grow-1" data-video="https://www.youtube.com/embed/PkZNo7MFNFg">Singleton y Factory Pattern</span>
+                                            </li>
+                                            <li class="clase-item d-flex align-items-center gap-2">
+                                                <input type="checkbox" class="form-check-input me-2 clase-checkbox">
+                                                <span class="clase-numero fw-semibold">4.</span>
+                                                <span class="clase-nombre flex-grow-1" data-video="https://www.youtube.com/embed/PkZNo7MFNFg">Decorator Pattern en JavaScript</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Semana 5 -->
+                            <div class="accordion-item">
+                                <h6 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#semana5">
+                                        <i class="bi bi-lightning-charge me-1"></i> Semana 5: Optimización y Debugging
+                                    </button>
+                                </h6>
+                                <div id="semana5" class="accordion-collapse collapse">
+                                    <div class="accordion-body">
+                                        <ul class="mb-0 list-unstyled">
+                                            <li class="clase-item d-flex align-items-center gap-2">
+                                                <input type="checkbox" class="form-check-input me-2 clase-checkbox">
+                                                <span class="clase-numero fw-semibold">1.</span>
+                                                <span class="clase-nombre flex-grow-1" data-video="https://www.youtube.com/embed/PkZNo7MFNFg">Profiling y análisis de rendimiento</span>
+                                            </li>
+                                            <li class="clase-item d-flex align-items-center gap-2">
+                                                <input type="checkbox" class="form-check-input me-2 clase-checkbox">
+                                                <span class="clase-numero fw-semibold">2.</span>
+                                                <span class="clase-nombre flex-grow-1" data-video="https://www.youtube.com/embed/PkZNo7MFNFg">Memory leaks y garbage collection</span>
+                                            </li>
+                                            <li class="clase-item d-flex align-items-center gap-2">
+                                                <input type="checkbox" class="form-check-input me-2 clase-checkbox">
+                                                <span class="clase-numero fw-semibold">3.</span>
+                                                <span class="clase-nombre flex-grow-1" data-video="https://www.youtube.com/embed/PkZNo7MFNFg">Debugging avanzado con DevTools</span>
+                                            </li>
+                                            <li class="clase-item d-flex align-items-center gap-2">
+                                                <input type="checkbox" class="form-check-input me-2 clase-checkbox">
+                                                <span class="clase-numero fw-semibold">4.</span>
+                                                <span class="clase-nombre flex-grow-1" data-video="https://www.youtube.com/embed/PkZNo7MFNFg">Testing unitario con Jest</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Semana 6 -->
+                            <div class="accordion-item">
+                                <h6 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#semana6">
+                                        <i class="bi bi-rocket-takeoff me-1"></i> Semana 6: Proyecto Final
+                                    </button>
+                                </h6>
+                                <div id="semana6" class="accordion-collapse collapse">
+                                    <div class="accordion-body">
+                                        <ul class="mb-0 list-unstyled">
+                                            <li class="clase-item d-flex align-items-center gap-2">
+                                                <input type="checkbox" class="form-check-input me-2 clase-checkbox">
+                                                <span class="clase-numero fw-semibold">1.</span>
+                                                <span class="clase-nombre flex-grow-1" data-video="https://www.youtube.com/embed/PkZNo7MFNFg">Planificación y arquitectura del proyecto</span>
+                                            </li>
+                                            <li class="clase-item d-flex align-items-center gap-2">
+                                                <input type="checkbox" class="form-check-input me-2 clase-checkbox">
+                                                <span class="clase-numero fw-semibold">2.</span>
+                                                <span class="clase-nombre flex-grow-1" data-video="https://www.youtube.com/embed/PkZNo7MFNFg">Desarrollo de una aplicación completa</span>
+                                            </li>
+                                            <li class="clase-item d-flex align-items-center gap-2">
+                                                <input type="checkbox" class="form-check-input me-2 clase-checkbox">
+                                                <span class="clase-numero fw-semibold">3.</span>
+                                                <span class="clase-nombre flex-grow-1" data-video="https://www.youtube.com/embed/PkZNo7MFNFg">Code review y buenas prácticas</span>
+                                            </li>
+                                            <li class="clase-item d-flex align-items-center gap-2">
+                                                <input type="checkbox" class="form-check-input me-2 clase-checkbox">
+                                                <span class="clase-numero fw-semibold">4.</span>
+                                                <span class="clase-nombre flex-grow-1" data-video="https://www.youtube.com/embed/PkZNo7MFNFg">Presentación y feedback</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <div class="progress mb-2" style="height: 8px;">
+                                <div class="progress-bar bg-accent" id="progreso-curso-bar" role="progressbar" style="width: 0%"></div>
+                            </div>
+                            <div class="d-flex justify-content-between small">
+                                <span>Progreso del curso</span>
+                                <span id="progreso-curso-text"></span>
+                            </div>
+                        </div>
+                        <!-- Botón para marcar curso como completado -->
+                        <button class="btn btn-success w-100 mt-3" id="btn-curso-completado" data-bs-toggle="modal" data-bs-target="#modalCursoCompletado" disabled><i class="bi bi-check2-circle me-1"></i> Marcar curso como completado</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer mt-5">
+        <div class="container">
+            <div class="text-center">
+                <p class="mb-0">Redes Sociales | Contacto | Acerca de | Términos y Condiciones</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de éxito de curso completado -->
+    <div class="modal fade" id="modalCursoCompletado" tabindex="-1" aria-labelledby="modalCursoCompletadoLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header bg-primary text-white border-0 d-flex flex-column align-items-center" style="background-color: #0B2D59 !important; position: relative;">
+            <button type="button" class="btn-close btn-close-white position-absolute end-0 top-0 m-3" data-bs-dismiss="modal" aria-label="Cerrar" style="z-index: 2;"></button>
+            <div class="w-100 d-flex flex-column align-items-center">
+              <i class="bi bi-trophy-fill text-success" style="font-size: 3rem;"></i>
+              <h5 class="modal-title mt-2 text-white text-center w-100" id="modalCursoCompletadoLabel">¡Curso completado!</h5>
+            </div>
+          </div>
+          <div class="modal-body text-center">
+            <p class="mb-2">¡Felicitaciones! Has completado el curso</p>
+            <div class="fw-bold text-primary mb-0" style="font-size: 1.2rem;">JavaScript Avanzado</div>
+            <p class="mt-2 mb-0">Puedes darte un descanso o seguir aprendiendo.</p>
+          </div>
+          <div class="modal-footer d-flex flex-column gap-2 border-0">
+            <a href="perfilUsuario.html" class="btn btn-secondary w-100">Ir a mi perfil</a>
+            <a href="cursosLogueado.html" class="btn btn-accent w-100">Explorar más cursos</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // --- Comentarios simulados y lógica de foro ---
+        const comentariosSimulados = [
+            {
+                id: 1,
+                usuario: 'Ana Garcia',
+                avatar: '../../imagenes/perfil1.jpg',
+                rol: 'Estudiante',
+                tiempo: 'hace 3 días',
+                texto: 'Es importante saber que la salud mental, no solo pasa por la alimentación, actividad física y entrenamiento mental, pues es un conjunto de bienestares, logrados por un estado de hábitos y actividades que apuntan a la integridad del organismo, y que a su vez , influyen en el desarrollo y mantención de un cerebro saludable.<br><br>Luego, aquella relación que existe respecto al funcionamiento del cerebro, cuando pensamos, aprendemos, recordamos o tomamos decisiones, involucrarán estructuras cerebrales que deben estar siempre en estado saludable. Entonces, es de mucho cuidado evitar las lesiones cerebrales que puedan afectar la cognición e incluso el comportamiento.',
+                likes: 2,
+                liked: false,
+                respuestas: [
+                    {
+                        id: 101,
+                        usuario: 'María Rodríguez',
+                        avatar: '../../imagenes/perfil3.jpg',
+                        rol: 'Instructor',
+                        tiempo: 'hace 2 días',
+                        texto: '¡Excelente aporte José! La salud mental es fundamental para el aprendizaje.',
+                        likes: 1,
+                        liked: false
+                    }
+                ]
+            },
+            {
+                id: 2,
+                usuario: 'Carlos López',
+                avatar: '../../imagenes/perfil2.jpg',
+                rol: 'Estudiante',
+                tiempo: 'hace 1 día',
+                texto: '¡Excelente explicación! Me ayudó a entender mejor la importancia de los hábitos saludables para el cerebro.',
+                likes: 0,
+                liked: false,
+                respuestas: []
+            },
+            {
+                id: 3,
+                usuario: 'Luis Martínez',
+                avatar: '../../imagenes/perfil4.jpg',
+                rol: 'Estudiante',
+                tiempo: 'hace 12 horas',
+                texto: '¿Alguien recomienda algún recurso extra para practicar closures?',
+                likes: 1,
+                liked: false,
+                respuestas: [
+                    {
+                        id: 102,
+                        usuario: 'Carlos López',
+                        avatar: '../../imagenes/perfil2.jpg',
+                        rol: 'Estudiante',
+                        tiempo: 'hace 10 horas',
+                        texto: 'En freeCodeCamp hay ejercicios interactivos muy buenos.',
+                        likes: 0,
+                        liked: false
+                    }
+                ]
+            },
+            {
+                id: 4,
+                usuario: 'Sofía González',
+                avatar: '../../imagenes/perfil6.jpg',
+                rol: 'Estudiante',
+                tiempo: 'hace 2 horas',
+                texto: '¡Gracias por la clase! Me gustó mucho la parte de async/await.',
+                likes: 0,
+                liked: false,
+                respuestas: []
+            }
+        ];
+
+        let comentarios = [...comentariosSimulados];
+        let respuestaAComentario = null; // id del comentario al que se responde
+
+        function renderComentarios() {
+            const lista = document.getElementById('comentarios-lista');
+            lista.innerHTML = '';
+            comentarios.forEach((comentario) => {
+                const div = document.createElement('div');
+                div.className = 'd-flex mb-4 comentario-item';
+                div.innerHTML = `
+                    <img src="${comentario.avatar}" alt="Avatar" class="rounded-circle me-3" style="width:48px;height:48px;object-fit:cover;">
+                    <div class="flex-grow-1">
+                        <div class="d-flex align-items-center gap-2 mb-1">
+                            <span class="fw-semibold">${comentario.usuario}</span>
+                            <span class="text-muted small">${comentario.rol} · ${comentario.tiempo}</span>
+                        </div>
+                        <div class="text-dark mb-2">${comentario.texto}</div>
+                        <div class="d-flex align-items-center gap-3 mb-1">
+                            <a href="#" class="text-decoration-none small btn-like ${comentario.liked ? 'text-primary' : 'text-secondary'}" data-id="${comentario.id}"><i class="bi bi-hand-thumbs-up${comentario.liked ? '-fill' : ''}"></i> <span class="like-count">${comentario.likes}</span> Me gusta</a>
+                            <a href="#" class="text-decoration-none text-secondary small btn-responder" data-id="${comentario.id}"><i class="bi bi-reply"></i> Responder</a>
+                            ${comentario.respuestas.length > 0 ? `<a href="#" class="text-decoration-none text-primary small btn-ver-respuestas" data-id="${comentario.id}">Ver ${comentario.respuestas.length} respuesta${comentario.respuestas.length > 1 ? 's' : ''} <i class="bi bi-chevron-down"></i></a>` : ''}
+                        </div>
+                        <div class="respuestas-lista" style="display:none;"></div>
+                        <div class="form-respuesta-container"></div>
+                    </div>
+                `;
+                lista.appendChild(div);
+            });
+        }
+
+        function renderRespuestas(respuestas, contenedor, idComentario) {
+            contenedor.innerHTML = '';
+            respuestas.forEach((respuesta) => {
+                const div = document.createElement('div');
+                div.className = 'd-flex mb-3 ms-5 respuesta-item';
+                div.innerHTML = `
+                    <img src="${respuesta.avatar}" alt="Avatar" class="rounded-circle me-3" style="width:36px;height:36px;object-fit:cover;">
+                    <div class="flex-grow-1">
+                        <div class="d-flex align-items-center gap-2 mb-1">
+                            <span class="fw-semibold">${respuesta.usuario}</span>
+                            <span class="text-muted small">${respuesta.rol} · ${respuesta.tiempo}</span>
+                        </div>
+                        <div class="text-dark mb-2">${respuesta.texto}</div>
+                        <div class="d-flex align-items-center gap-3">
+                            <a href="#" class="text-decoration-none small btn-like-respuesta ${respuesta.liked ? 'text-primary' : 'text-secondary'}" data-id="${respuesta.id}" data-comentario="${idComentario}"><i class="bi bi-hand-thumbs-up${respuesta.liked ? '-fill' : ''}"></i> <span class="like-count">${respuesta.likes}</span> Me gusta</a>
+                        </div>
+                    </div>
+                `;
+                contenedor.appendChild(div);
+            });
+        }
+
+        function toggleRespuestas(idComentario, mostrar) {
+            const idx = comentarios.findIndex(c => c.id === idComentario);
+            if (idx === -1) return;
+            const comentarioDiv = document.querySelectorAll('.comentario-item')[idx];
+            const respuestasDiv = comentarioDiv.querySelector('.respuestas-lista');
+            if (mostrar) {
+                respuestasDiv.style.display = 'block';
+                renderRespuestas(comentarios[idx].respuestas, respuestasDiv, idComentario);
+            } else {
+                respuestasDiv.style.display = 'none';
+            }
+        }
+
+        function mostrarFormRespuesta(idComentario) {
+            // Ocultar cualquier otro form
+            document.querySelectorAll('.form-respuesta-container').forEach(f => f.innerHTML = '');
+            const idx = comentarios.findIndex(c => c.id === idComentario);
+            if (idx === -1) return;
+            const comentarioDiv = document.querySelectorAll('.comentario-item')[idx];
+            const formDiv = comentarioDiv.querySelector('.form-respuesta-container');
+            formDiv.innerHTML = `
+                <form class="form-respuesta mt-2">
+                    <textarea class="form-control form-control-sm mb-2" rows="2" placeholder="Escriba su respuesta..."></textarea>
+                    <div class="d-flex gap-2 justify-content-end">
+                        <button type="button" class="btn btn-link btn-cancelar-respuesta text-secondary">Cancelar</button>
+                        <button type="submit" class="btn btn-accent btn-enviar-respuesta">Responder</button>
+                    </div>
+                </form>
+            `;
+            // Focus automático
+            formDiv.querySelector('textarea').focus();
+        }
+
+        function ocultarFormRespuesta() {
+            document.querySelectorAll('.form-respuesta-container').forEach(f => f.innerHTML = '');
+        }
+
+        // Render inicial
+        renderComentarios();
+
+        // Delegación de eventos
+        document.getElementById('comentarios-lista').addEventListener('click', function(e) {
+            // Me gusta comentario
+            if (e.target.closest('.btn-like')) {
+                e.preventDefault();
+                const id = parseInt(e.target.closest('.btn-like').dataset.id);
+                const idx = comentarios.findIndex(c => c.id === id);
+                if (idx !== -1) {
+                    comentarios[idx].liked = !comentarios[idx].liked;
+                    comentarios[idx].likes += comentarios[idx].liked ? 1 : -1;
+                    renderComentarios();
+                }
+            }
+            // Me gusta respuesta
+            if (e.target.closest('.btn-like-respuesta')) {
+                e.preventDefault();
+                const id = parseInt(e.target.closest('.btn-like-respuesta').dataset.id);
+                const idComentario = parseInt(e.target.closest('.btn-like-respuesta').dataset.comentario);
+                const idx = comentarios.findIndex(c => c.id === idComentario);
+                if (idx !== -1) {
+                    const idxResp = comentarios[idx].respuestas.findIndex(r => r.id === id);
+                    if (idxResp !== -1) {
+                        const resp = comentarios[idx].respuestas[idxResp];
+                        resp.liked = !resp.liked;
+                        resp.likes += resp.liked ? 1 : -1;
+                        toggleRespuestas(idComentario, true);
+                    }
+                }
+            }
+            // Ver respuestas
+            if (e.target.closest('.btn-ver-respuestas')) {
+                e.preventDefault();
+                const id = parseInt(e.target.closest('.btn-ver-respuestas').dataset.id);
+                const idx = comentarios.findIndex(c => c.id === id);
+                if (idx !== -1) {
+                    const comentarioDiv = document.querySelectorAll('.comentario-item')[idx];
+                    const respuestasDiv = comentarioDiv.querySelector('.respuestas-lista');
+                    const visible = respuestasDiv.style.display === 'block';
+                    toggleRespuestas(id, !visible);
+                }
+            }
+            // Responder
+            if (e.target.closest('.btn-responder')) {
+                e.preventDefault();
+                const id = parseInt(e.target.closest('.btn-responder').dataset.id);
+                mostrarFormRespuesta(id);
+            }
+            // Cancelar respuesta
+            if (e.target.closest('.btn-cancelar-respuesta')) {
+                e.preventDefault();
+                ocultarFormRespuesta();
+            }
+        });
+
+        // Enviar respuesta
+        document.getElementById('comentarios-lista').addEventListener('submit', function(e) {
+            if (e.target.classList.contains('form-respuesta')) {
+                e.preventDefault();
+                const textarea = e.target.querySelector('textarea');
+                const texto = textarea.value.trim();
+                if (texto) {
+                    // Buscar a qué comentario responde
+                    const comentarioDiv = e.target.closest('.comentario-item');
+                    const idx = Array.from(document.querySelectorAll('.comentario-item')).indexOf(comentarioDiv);
+                    if (idx !== -1) {
+                        comentarios[idx].respuestas.unshift({
+                            id: Date.now(),
+                            usuario: 'Tú',
+                            avatar: '../../imagenes/JuanPerezPerfil.png',
+                            rol: 'Estudiante',
+                            tiempo: 'Ahora',
+                            texto: texto.replace(/\n/g, '<br>'),
+                            likes: 0,
+                            liked: false
+                        });
+                        renderComentarios();
+                        toggleRespuestas(comentarios[idx].id, true);
+                    }
+                }
+                ocultarFormRespuesta();
+            }
+        });
+
+        // Lógica para agregar nuevo comentario
+        const comentarioForm = document.getElementById('comentario-form');
+        const comentarioInput = document.getElementById('comentario-input');
+        const comentarioCancelar = document.getElementById('comentario-cancelar');
+        comentarioForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const texto = comentarioInput.value.trim();
+            if (texto) {
+                comentarios.unshift({
+                    id: Date.now(),
+                    usuario: 'Tú',
+                    avatar: '../../imagenes/JuanPerezPerfil.png',
+                    rol: 'Estudiante',
+                    tiempo: 'Ahora',
+                    texto: texto.replace(/\n/g, '<br>'),
+                    likes: 0,
+                    liked: false,
+                    respuestas: []
+                });
+                renderComentarios();
+                comentarioInput.value = '';
+            }
+        });
+        comentarioCancelar.addEventListener('click', function() {
+            comentarioInput.value = '';
+        });
+
+        // Cambiar video y resaltar clase activa (ahora sobre .clase-nombre)
+        document.querySelectorAll('.clase-nombre').forEach(function(span) {
+            span.addEventListener('click', function() {
+                // Quitar selección previa
+                document.querySelectorAll('.clase-item').forEach(function(item) {
+                    item.classList.remove('active');
+                });
+                // Marcar como activo
+                const item = span.closest('.clase-item');
+                item.classList.add('active');
+                // Cambiar video
+                const videoUrl = span.getAttribute('data-video');
+                document.querySelector('.video-sticky iframe').src = videoUrl;
+            });
+        });
+
+        // Lógica de progreso por cantidad de checkboxes
+        function actualizarProgresoCheckboxes() {
+            var checkboxes = document.querySelectorAll('.clase-checkbox');
+            var total = checkboxes.length;
+            var marcados = 0;
+            checkboxes.forEach(function(cb) {
+                if (cb.checked) marcados++;
+            });
+            var porcentaje = total === 0 ? 0 : (marcados / total) * 100;
+            document.getElementById('progreso-curso-bar').style.width = porcentaje + '%';
+            document.getElementById('progreso-curso-text').textContent = marcados + '/' + total + ' clases';
+            // Habilitar botón solo si todos los checkboxes están marcados
+            var btnCursoCompletado = document.getElementById('btn-curso-completado');
+            if (btnCursoCompletado) {
+                btnCursoCompletado.disabled = !(marcados === total && total > 0);
+            }
+        }
+
+        // Llamar al cargar la página y en cada cambio de checkbox
+        window.addEventListener('DOMContentLoaded', function() {
+            actualizarProgresoCheckboxes();
+            document.querySelectorAll('.clase-checkbox').forEach(function(cb) {
+                cb.addEventListener('change', actualizarProgresoCheckboxes);
+            });
+        });
+    </script>
+</body>
+</html>
