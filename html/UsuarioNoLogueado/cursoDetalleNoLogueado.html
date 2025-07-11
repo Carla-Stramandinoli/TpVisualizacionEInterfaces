@@ -10,46 +10,73 @@
             list-style: none;
             padding-left: 0;
         }
+        /* Estilos para evitar que el nav se rompa entre 992px y 1300px */
+        @media (max-width: 1300px) and (min-width: 1200px) {
+        .navbar-nav .nav-link {
+            /* Cambia la dirección para apilar ícono y texto */
+            flex-direction: column;
+            /* Reduce el espacio entre enlaces */
+            padding: 0.5rem 0.3rem;
+            /* Reduce el tamaño del texto */
+            font-size: 0.8rem;
+            /* Elimina el espacio entre el ícono y el texto */
+            gap: 0;
+        }
+
+        .navbar-nav .nav-link .bi {
+            /* Reduce el tamaño del ícono */
+            font-size: 1.1rem;
+        }
+        }
+        /* Eliminar media queries personalizados para el nav y dejar solo Bootstrap */
+        /* --- El resto de los estilos del archivo se mantienen igual --- */
     </style>
 </head>
 <body>
     <!-- Header -->
     <header class="custom-header">
-        <div class="container ">
+        <div class="container">
             <div class="row align-items-center justify-content-center">
-                <div class="col-md-4 d-none d-lg-block">
-                   <h1 class="h3 mb-0"><i class="bi bi-lightbulb"></i> TalentLab</h1>
+                <div class="col-4 d-none d-xl-block">
+                    <h1 class="h3 mb-0"><i class="bi bi-lightbulb"></i> TalentLab</h1>
                 </div>
-                <div class="col-md-8">
-                    <nav class="navbar navbar-expand-lg navbar-dark">
-                        <a class="navbar-brand d-lg-none" href="#"><i class="bi bi-lightbulb"></i> TalentLab</a>
-                        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCursoDetalle" aria-controls="navbarCursoDetalle" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="col-xl-8">
+                    <nav class="navbar navbar-expand-xl navbar-dark">
+                        <a class="navbar-brand d-xl-none" href="#"><i class="bi bi-lightbulb"></i> TalentLab</a>
+                        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNoLogueadoHome" aria-controls="navbarNoLogueadoHome"
+                            aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
-                        <div class="collapse navbar-collapse" id="navbarCursoDetalle">
+                        <div class="collapse navbar-collapse" id="navbarNoLogueadoHome">
                             <div class="navbar-nav ms-auto">
                                 <a class="nav-link d-flex align-items-center gap-2 text-nowrap"
-                                    href="./homeNoLogueado.html"><i class="bi bi-house-door"></i>
+                                    href="./homeNoLogueado.html">
+                                    <i class="bi bi-house-door"></i>
                                     <p class="m-0">Inicio</p>
                                 </a>
-                                <a class="nav-link active d-flex align-items-center gap-2 text-nowrap" 
-                                    href="./cursosNoLogueado.html"><i class="bi bi-book"></i>
+                                <a class="nav-link active d-flex align-items-center gap-2 text-nowrap"
+                                    href="./cursosNoLogueado.html">
+                                    <i class="bi bi-book"></i>
                                     <p class="m-0">Cursos</p>
                                 </a>
-                                <a class="nav-link d-flex align-items-center gap-2 text-nowrap"
-                                    href="./proyectos.html"><i class="bi bi-rocket"></i>
+                                <a class="nav-link d-flex align-items-center gap-2 text-nowrap" href="./proyectos.html">
+                                    <i class="bi bi-rocket"></i>
                                     <p class="m-0">Proyectos</p>
                                 </a>
                                 <a class="nav-link d-flex align-items-center gap-2 text-nowrap"
-                                    href="./rankingNoLogueado.html"><i class="bi bi-trophy"></i>
+                                    href="./rankingNoLogueado.html">
+                                    <i class="bi bi-trophy"></i>
                                     <p class="m-0">Ranking</p>
                                 </a>
                                 <a class="nav-link btn-login text-nowrap d-flex align-items-center gap-2"
-                                    href="./iniciarSesion.html"><i class="bi bi-box-arrow-in-right"></i>
+                                    href="./iniciarSesion.html">
+                                    <i class="bi bi-box-arrow-in-right"></i>
                                     <p class="m-0">Iniciar Sesión</p>
                                 </a>
                                 <a class="nav-link btn-register text-nowrap d-flex align-items-center gap-2"
-                                    href="./registrarse.html"><i class="bi bi-person-plus"></i>
+                                    href="./registrarse.html">
+                                    <i class="bi bi-person-plus"></i>
                                     <p class="m-0">Registrarse</p>
                                 </a>
                             </div>

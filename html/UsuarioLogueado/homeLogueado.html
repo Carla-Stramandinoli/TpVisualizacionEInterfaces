@@ -76,6 +76,28 @@
             color: #fff;
             text-shadow: 0 2px 8px rgba(0,0,0,0.18);
         }
+
+        /* Estilos para evitar que el nav se rompa entre 992px y 1300px */
+@media (max-width: 1300px) and (min-width: 992px) {
+    .navbar-nav .nav-link {
+        /* Cambia la dirección para apilar ícono y texto */
+        flex-direction: column;
+        /* Reduce el espacio entre enlaces */
+        padding: 0.5rem 0.3rem;
+        /* Reduce el tamaño del texto */
+        font-size: 0.8rem;
+        /* Elimina el espacio entre el ícono y el texto */
+        gap: 0;
+    }
+
+    .navbar-nav .nav-link .bi {
+        /* Reduce el tamaño del ícono */
+        font-size: 1.1rem;
+    }
+}
+
+
+
     </style>
 </head>
 <body>
