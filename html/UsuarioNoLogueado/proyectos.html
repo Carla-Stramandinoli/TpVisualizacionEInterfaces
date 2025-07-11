@@ -10,6 +10,7 @@
         #proyectosCarousel {
             position: relative;
         }
+
         .carousel-control-custom {
             position: absolute;
             top: 50%;
@@ -28,19 +29,103 @@
             align-items: center;
             justify-content: center;
         }
+
         .carousel-control-custom:hover {
             opacity: 0.9;
             color: #0B2D59;
         }
+
         .carousel-control-prev-custom {
             left: -2.5rem;
         }
+
         .carousel-control-next-custom {
             right: -2.5rem;
         }
+
+        .course-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 10px;
+            padding: 1.2rem;
+            color: white;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .course-item {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 0.8rem 1rem;
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .course-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-1px);
+        }
+
+        .course-item.completed {
+            background: rgba(40, 167, 69, 0.2);
+            border-color: rgba(40, 167, 69, 0.4);
+        }
+
+        .course-item.in-progress {
+            background: rgba(255, 193, 7, 0.2);
+            border-color: rgba(255, 193, 7, 0.4);
+        }
+
+        .course-icon {
+            width: 24px;
+            height: 24px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        .course-icon.completed {
+            color: #28a745;
+        }
+
+        .course-icon.in-progress {
+            color: #ffc107;
+        }
+
+        .section-title {
+            color: white;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-title i {
+            font-size: 1.2rem;
+        }
+
         @media (max-width: 991px) {
-            .carousel-control-prev-custom { left: 0; }
-            .carousel-control-next-custom { right: 0; }
+            .carousel-control-prev-custom {
+                left: 0;
+            }
+
+            .carousel-control-next-custom {
+                right: 0;
+            }
         }
     </style>
 </head>
@@ -57,7 +142,9 @@
                 <div class="col-md-6">
                     <nav class="navbar navbar-expand-lg navbar-dark">
                         <a class="navbar-brand d-lg-none" href="#"><i class="bi bi-lightbulb"></i> TalentLab</a>
-                        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarProyectos" aria-controls="navbarProyectos" aria-expanded="false" aria-label="Toggle navigation">
+                        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarProyectos" aria-controls="navbarProyectos" aria-expanded="false"
+                            aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarProyectos">
@@ -95,7 +182,7 @@
     </header>
 
     <!-- Título y filtros -->
-    <section class="py-4">
+    <section class="py-3">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -107,7 +194,7 @@
     </section>
 
     <!-- Filtros -->
-    <section class="py-4">
+    <section class="py-3">
         <div class="container">
             <div class="row g-3">
                 <div class="col-md-3">
@@ -147,14 +234,22 @@
     </section>
 
     <!-- Listado de proyectos en carrusel -->
-    <section class="py-4">
+    <section class="py-3">
         <div class="container">
             <div id="proyectosCarousel" class="carousel slide my-auto" data-bs-ride="false">
-                <button class="carousel-control-custom carousel-control-prev-custom" type="button" data-bs-target="#proyectosCarousel" data-bs-slide="prev" aria-label="Anterior">
-                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 8L12 16L20 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <button class="carousel-control-custom carousel-control-prev-custom" type="button"
+                    data-bs-target="#proyectosCarousel" data-bs-slide="prev" aria-label="Anterior">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 8L12 16L20 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
                 </button>
-                <button class="carousel-control-custom carousel-control-next-custom" type="button" data-bs-target="#proyectosCarousel" data-bs-slide="next" aria-label="Siguiente">
-                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 8L20 16L12 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <button class="carousel-control-custom carousel-control-next-custom" type="button"
+                    data-bs-target="#proyectosCarousel" data-bs-slide="next" aria-label="Siguiente">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 8L20 16L12 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
                 </button>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
@@ -165,7 +260,8 @@
                                     <div class="card-header"><i class="bi bi-mortarboard"></i> ONG EduTech</div>
                                     <div class="card-body d-flex flex-column">
                                         <h4>Plataforma de Aprendizaje Infantil</h4>
-                                        <p>Desarrollar una app web educativa para niños de 6-12 años con juegos interactivos...</p>
+                                        <p>Desarrollar una app web educativa para niños de 6-12 años con juegos
+                                            interactivos.</p>
                                         <div class="mb-3">
                                             <strong>Skills requeridas:</strong> React, Node.js, MongoDB, UX/UI
                                         </div>
@@ -174,7 +270,8 @@
                                                 <span class="badge bg-info">3/5 participantes</span>
                                                 <span class="badge bg-success">ABIERTO</span>
                                             </div>
-                                            <a href="proyectoDetalleNoLogueado.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
+                                            <a href="proyectoDetalleNoLogueado.html"
+                                                class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
                                         </div>
                                     </div>
                                 </div>
@@ -185,7 +282,8 @@
                                     <div class="card-header"><i class="bi bi-cart"></i> Tienda Verde</div>
                                     <div class="card-body d-flex flex-column">
                                         <h4>E-commerce Sostenible</h4>
-                                        <p>Crear una tienda online para productos ecológicos con sistema de puntos...</p>
+                                        <p>Crear una tienda online para productos ecológicos con sistema de puntos.
+                                        </p>
                                         <div class="mb-3">
                                             <strong>Skills requeridas:</strong> Shopify, Diseño UX, Marketing Digital
                                         </div>
@@ -194,9 +292,10 @@
                                                 <span class="badge bg-info">2/4 participantes</span>
                                                 <span class="badge bg-success">ABIERTO</span>
                                             </div>
-                                            <a href="proyectoDetalleNoLogueado.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
+                                            <a href="proyectoDetalleNoLogueado.html"
+                                                class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -206,7 +305,7 @@
                                     <div class="card-header"><i class="bi bi-heart-pulse"></i> Startup HealthTech</div>
                                     <div class="card-body d-flex flex-column">
                                         <h4>App de Seguimiento Médico</h4>
-                                        <p>Aplicación móvil para que pacientes registren síntomas y medicamentos...</p>
+                                        <p>Aplicación móvil para que pacientes registren síntomas y medicamentos.</p>
                                         <div class="mb-3">
                                             <strong>Skills requeridas:</strong> React Native, Python, Cloud Computing
                                         </div>
@@ -215,9 +314,11 @@
                                                 <span class="badge bg-warning text-dark">4/4 participantes</span>
                                                 <span class="badge bg-warning text-dark">EN CURSO</span>
                                             </div>
-                                            <a href="proyectoDetalleNoLogueado.html" class="btn btn-secondary w-100 mt-3 disabled" tabindex="-1" aria-disabled="true">Ver proyecto</a>
+                                            <a href="proyectoDetalleNoLogueado.html"
+                                                class="btn btn-secondary w-100 mt-3 disabled" tabindex="-1"
+                                                aria-disabled="true">Ver proyecto</a>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -231,7 +332,8 @@
                                     <div class="card-header"><i class="bi bi-tree"></i> Fundación EcoVida</div>
                                     <div class="card-body d-flex flex-column">
                                         <h4>Huerta Urbana Inteligente</h4>
-                                        <p>Desarrollar sensores IoT para monitorear y optimizar huertas urbanas comunitarias...</p>
+                                        <p>Desarrollar sensores IoT para monitorear y optimizar huertas urbanas
+                                            comunitarias...</p>
                                         <div class="mb-3">
                                             <strong>Skills requeridas:</strong> Arduino, Python, IoT, UX/UI
                                         </div>
@@ -240,9 +342,10 @@
                                                 <span class="badge bg-info">1/5 participantes</span>
                                                 <span class="badge bg-success">ABIERTO</span>
                                             </div>
-                                            <a href="proyectoDetalleNoLogueado.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
+                                            <a href="proyectoDetalleNoLogueado.html"
+                                                class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -261,7 +364,8 @@
                                                 <span class="badge bg-info">4/8 participantes</span>
                                                 <span class="badge bg-success">ABIERTO</span>
                                             </div>
-                                            <a href="proyectoDetalleNoLogueado.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
+                                            <a href="proyectoDetalleNoLogueado.html"
+                                                class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
                                         </div>
                                     </div>
                                 </div>
@@ -272,7 +376,8 @@
                                     <div class="card-header"><i class="bi bi-heart-pulse"></i> ONG SaludAR</div>
                                     <div class="card-body d-flex flex-column">
                                         <h4>Red de Donantes</h4>
-                                        <p>App para conectar donantes de sangre con hospitales y pacientes en tiempo real...</p>
+                                        <p>App para conectar donantes de sangre con hospitales y pacientes en tiempo
+                                            real...</p>
                                         <div class="mb-3">
                                             <strong>Skills requeridas:</strong> Flutter, Firebase, UX/UI
                                         </div>
@@ -281,9 +386,10 @@
                                                 <span class="badge bg-info">2/6 participantes</span>
                                                 <span class="badge bg-success">ABIERTO</span>
                                             </div>
-                                            <a href="proyectoDetalleNoLogueado.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
+                                            <a href="proyectoDetalleNoLogueado.html"
+                                                class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -297,7 +403,8 @@
                                     <div class="card-header"><i class="bi bi-cash-coin"></i> Startup FinanTech</div>
                                     <div class="card-body d-flex flex-column">
                                         <h4>Educación Financiera Joven</h4>
-                                        <p>Desarrollar una app para enseñar finanzas personales a jóvenes con juegos y retos...</p>
+                                        <p>Desarrollar una app para enseñar finanzas personales a jóvenes con juegos y
+                                            retos...</p>
                                         <div class="mb-3">
                                             <strong>Skills requeridas:</strong> React Native, Node.js, UX/UI
                                         </div>
@@ -306,9 +413,10 @@
                                                 <span class="badge bg-info">3/5 participantes</span>
                                                 <span class="badge bg-success">ABIERTO</span>
                                             </div>
-                                            <a href="proyectoDetalleNoLogueado.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
+                                            <a href="proyectoDetalleNoLogueado.html"
+                                                class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -318,7 +426,8 @@
                                     <div class="card-header"><i class="bi bi-music-note-beamed"></i> ONG Cultura+</div>
                                     <div class="card-body d-flex flex-column">
                                         <h4>Plataforma de Voluntariado</h4>
-                                        <p>Web para conectar voluntarios con eventos culturales y sociales en su ciudad...</p>
+                                        <p>Web para conectar voluntarios con eventos culturales y sociales en su
+                                            ciudad...</p>
                                         <div class="mb-3">
                                             <strong>Skills requeridas:</strong> Vue.js, Firebase, Marketing
                                         </div>
@@ -327,9 +436,10 @@
                                                 <span class="badge bg-info">5/10 participantes</span>
                                                 <span class="badge bg-success">ABIERTO</span>
                                             </div>
-                                            <a href="proyectoDetalleNoLogueado.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
+                                            <a href="proyectoDetalleNoLogueado.html"
+                                                class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -339,7 +449,8 @@
                                     <div class="card-header"><i class="bi bi-building"></i> PyME GreenBuild</div>
                                     <div class="card-body d-flex flex-column">
                                         <h4>Gestión de Residuos</h4>
-                                        <p>Desarrollar un sistema para optimizar la recolección y reciclaje de residuos urbanos...</p>
+                                        <p>Desarrollar un sistema para optimizar la recolección y reciclaje de residuos
+                                            urbanos...</p>
                                         <div class="mb-3">
                                             <strong>Skills requeridas:</strong> Angular, .NET, SQL, QA
                                         </div>
@@ -348,7 +459,8 @@
                                                 <span class="badge bg-info">6/12 participantes</span>
                                                 <span class="badge bg-success">ABIERTO</span>
                                             </div>
-                                            <a href="proyectoDetalleNoLogueado.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
+                                            <a href="proyectoDetalleNoLogueado.html"
+                                                class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
                                         </div>
                                     </div>
                                 </div>

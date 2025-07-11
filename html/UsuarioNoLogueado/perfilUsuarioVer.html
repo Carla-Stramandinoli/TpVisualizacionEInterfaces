@@ -4,10 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Perfil - TalentLab</title>
+    <title>Perfil de Usuario - TalentLab</title>
     <link rel="stylesheet" href="../../css/bootstrap-custom.css">
     <link rel="stylesheet" href="../../css/perfilUsuario.css">
-
 </head>
 
 <body>
@@ -22,36 +21,36 @@
                     <nav class="navbar navbar-expand-lg navbar-dark">
                         <a class="navbar-brand d-lg-none" href="#"><i class="bi bi-lightbulb"></i> TalentLab</a>
                         <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarPerfilUsuario" aria-controls="navbarPerfilUsuario"
+                            data-bs-target="#navbarPerfil" aria-controls="navbarPerfil"
                             aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
-                        <div class="collapse navbar-collapse" id="navbarPerfilUsuario">
+                        <div class="collapse navbar-collapse" id="navbarPerfil">
                             <div class="navbar-nav ms-auto ps-3 mt-4 mt-lg-0">
                                 <a class="nav-link active d-flex align-items-center gap-2 text-nowrap"
-                                    href="./homeLogueado.html"><i class="bi bi-house-door"></i>
-                                    <p class="m-0">Inicio</p>
-                                </a>
-                                <a class="nav-link d-flex align-items-center gap-2 text-nowrap"
-                                    href="./cursosLogueado.html"><i class="bi bi-book"></i>
-                                    <p class="m-0">Cursos</p>
-                                </a>
-                                <a class="nav-link d-flex align-items-center gap-2 text-nowrap"
-                                    href="./proyectosLogueado.html"><i class="bi bi-rocket"></i>
-                                    <p class="m-0">Proyectos</p>
-                                </a>
-                                <a class="nav-link d-flex align-items-center gap-2 text-nowrap" href="./ranking.html"><i
-                                        class="bi bi-trophy"></i>
-                                    <p class="m-0">Ranking</p>
-                                </a>
-                                <a class="nav-link btn-profile d-flex align-items-center gap-2 text-nowrap"
-                                    href="./perfilUsuario.html"><i class="bi bi-person-circle"></i>
-                                    <p class="m-0">Mi Perfil</p>
-                                </a>
-                                <a class="nav-link btn-logout d-flex align-items-center gap-2 text-nowrap"
-                                    href="../UsuarioNoLogueado/homeNoLogueado.html"><i class="bi bi-box-arrow-left"></i>
-                                    <p class="m-0 w-100">Cerrar Sesión</p>
-                                </a>
+                                href="./homeNoLogueado.html"><i class="bi bi-house-door"></i>
+                                <p class="m-0">Inicio</p>
+                            </a>
+                            <a class="nav-link d-flex align-items-center gap-2 text-nowrap" href="./cursos.html"><i
+                                    class="bi bi-book"></i>
+                                <p class="m-0">Cursos</p>
+                            </a>
+                            <a class="nav-link d-flex align-items-center gap-2 text-nowrap"
+                                href="./proyectos.html"><i class="bi bi-rocket"></i>
+                                <p class="m-0">Proyectos</p>
+                            </a>
+                            <a class="nav-link d-flex align-items-center gap-2 text-nowrap"
+                                href="./rankingNoLogueado.html"><i class="bi bi-trophy"></i>
+                                <p class="m-0">Ranking</p>
+                            </a>
+                            <a class="nav-link btn-login text-nowrap d-flex align-items-center gap-2"
+                                href="./iniciarSesion.html"><i class="bi bi-box-arrow-in-right"></i>
+                                <p class="m-0">Iniciar Sesión</p>
+                            </a>
+                            <a class="nav-link btn-register text-nowrap d-flex align-items-center gap-2"
+                                href="./registrarse.html"><i class="bi bi-person-plus"></i>
+                                <p class="m-0">Registrarse</p>
+                            </a>
                             </div>
                         </div>
                     </nav>
@@ -61,7 +60,7 @@
     </header>
 
     <!-- Header del perfil -->
-    <section class="py-3">
+    <section class="py-5">
         <div class="container">
             <div class="profile-header">
                 <div class="row align-items-center g-4">
@@ -75,39 +74,14 @@
                     <div class="col-md-6">
                         <div class="row">
                             <div class="col-12 col-lg-6">
-                                <h2>
-                                    <div class="editable-field" data-field="name">
-                                        <div class="editable-content">Juan Pérez</div>
-                                        <i class="bi bi-pencil edit-icon" title="Editar nombre"></i>
-                                        <div class="edit-actions">
-                                            <button class="btn-save"><i class="bi bi-check-lg"></i> Guardar</button>
-                                            <button class="btn-cancel"><i class="bi bi-x-lg"></i> Cancelar</button>
-                                        </div>
-                                    </div>
-                                </h2>
+                                <h2>Juan Pérez</h2>
                                 <div class="row">
                                     <div class="col-12 col-lg-6">
                                         <p class="mb-2">
-                                            <strong>Email:</strong>
-                                        <div class="editable-field" data-field="email">
-                                            <div class="editable-content">juan.perez@email.com</div>
-                                            <i class="bi bi-pencil edit-icon" title="Editar email"></i>
-                                            <div class="edit-actions">
-                                                <button class="btn-save"><i class="bi bi-check-lg"></i> Guardar</button>
-                                                <button class="btn-cancel"><i class="bi bi-x-lg"></i> Cancelar</button>
-                                            </div>
-                                        </div>
+                                            <strong>Email:</strong> juan.perez@email.com
                                         </p>
                                         <p class="mb-2">
-                                            <strong>País:</strong>
-                                        <div class="editable-field" data-field="country">
-                                            <div class="editable-content">Argentina</div>
-                                            <i class="bi bi-pencil edit-icon" title="Editar país"></i>
-                                            <div class="edit-actions">
-                                                <button class="btn-save"><i class="bi bi-check-lg"></i> Guardar</button>
-                                                <button class="btn-cancel"><i class="bi bi-x-lg"></i> Cancelar</button>
-                                            </div>
-                                        </div>
+                                            <strong>País:</strong> Argentina
                                         </p>
                                     </div>
                                 </div>
@@ -132,8 +106,9 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="btn btn-sm btn-custom btn-secondary-custom mt-2">
-                            <i class="bi bi-pencil me-2"></i>Editar perfil
+                        <!-- Botón de contacto para usuarios externos -->
+                        <button class="btn btn-sm btn-custom btn-accent-custom mt-2">
+                            <i class="bi bi-envelope me-2"></i>Contactar
                         </button>
                     </div>
                 </div>
@@ -152,26 +127,12 @@
                                 <i class="bi bi-person-lines-fill" style="color: #000;"></i>
                                 Acerca de mí
                             </h3>
-                            <div class="editable-field bio-field" data-field="bio">
-                                <div class="editing-indicator">
-                                    <i class="bi bi-pencil-square"></i> Modo edición activado
-                                </div>
-                                <div class="editable-content">
-                                    <p>Estudiante de Ingeniería en Sistemas con pasión por el desarrollo web y la
-                                        tecnología educativa. Me interesa especialmente el frontend y la experiencia de
-                                        usuario. Busco ganar experiencia práctica en proyectos reales.</p>
-                                    <p><strong>Intereses:</strong> React, JavaScript, UX/UI, Educación Digital, Startups
-                                    </p>
-                                </div>
-                                <i class="bi bi-pencil edit-icon" title="Editar información"></i>
-                                <div class="edit-actions">
-                                    <button class="btn-save">
-                                        <i class="bi bi-check-lg"></i> Guardar
-                                    </button>
-                                    <button class="btn-cancel">
-                                        <i class="bi bi-x-lg"></i> Cancelar
-                                    </button>
-                                </div>
+                            <div class="bio-content">
+                                <p>Estudiante de Ingeniería en Sistemas con pasión por el desarrollo web y la
+                                    tecnología educativa. Me interesa especialmente el frontend y la experiencia de
+                                    usuario. Busco ganar experiencia práctica en proyectos reales.</p>
+                                <p><strong>Intereses:</strong> React, JavaScript, UX/UI, Educación Digital, Startups
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -192,32 +153,32 @@
                                 Cursos
                             </h3>
                             <div class="d-flex flex-wrap gap-3">
-                                    <div class="course-item completed d-flex align-items-center gap-2">
-                                        <span class="course-icon completed flex-shrink-0">
-                                            <i class="bi bi-check-circle-fill"></i>
-                                        </span>
-                                        <a href="./cursoDetalle.html" class="d-inline-block align-middle" style="white-space: nowrap; text-decoration: none; color: #000;">React Básico</a>
-                                    </div>
-                                    <div class="course-item completed d-flex align-items-center gap-2">
-                                        <span class="course-icon completed flex-shrink-0">
-                                            <i class="bi bi-check-circle-fill"></i>
-                                        </span>
-                                        <a href="./cursoDetalle.html" class="d-inline-block align-middle" style="white-space: nowrap; text-decoration: none; color: #000;">JavaScript Avanzado</a>
-                                    </div>
-                                    <div class="course-item completed d-flex align-items-center gap-2">
-                                        <span class="course-icon completed flex-shrink-0">
-                                            <i class="bi bi-check-circle-fill"></i>
-                                        </span>
-                                        <a href="./cursoDetalle.html" class="d-inline-block align-middle" style="white-space: nowrap; text-decoration: none; color: #000;">Figma para Principiantes</a>
-                                    </div>
-                                    <div class="course-item in-progress d-flex align-items-center gap-2">
-                                        <span class="course-icon in-progress flex-shrink-0">
-                                            <i class="bi bi-clock-fill"></i>
-                                        </span>
-                                        <a href="./cursoDetalle.html" class="d-inline-block align-middle" style="white-space: nowrap; text-decoration: none; color: #000;">Node.js Intermedio</a>
-                                        <small class="opacity-75 ms-2">(En curso)</small>
-                                    </div>
-                            </div>
+                                <div class="course-item completed d-flex align-items-center gap-2">
+                                    <span class="course-icon completed flex-shrink-0">
+                                        <i class="bi bi-check-circle-fill"></i>
+                                    </span>
+                                    <a href="./cursoDetalleNoLogueado.html" class="d-inline-block align-middle" style="white-space: nowrap; text-decoration: none; color: #000;">React Básico</a>
+                                </div>
+                                <div class="course-item completed d-flex align-items-center gap-2">
+                                    <span class="course-icon completed flex-shrink-0">
+                                        <i class="bi bi-check-circle-fill"></i>
+                                    </span>
+                                    <a href="./cursoDetalleNoLogueado.html" class="d-inline-block align-middle" style="white-space: nowrap; text-decoration: none; color: #000;">JavaScript Avanzado</a>
+                                </div>
+                                <div class="course-item completed d-flex align-items-center gap-2">
+                                    <span class="course-icon completed flex-shrink-0">
+                                        <i class="bi bi-check-circle-fill"></i>
+                                    </span>
+                                    <a href="./cursoDetalleNoLogueado.html" class="d-inline-block align-middle" style="white-space: nowrap; text-decoration: none; color: #000;">Figma para Principiantes</a>
+                                </div>
+                                <div class="course-item in-progress d-flex align-items-center gap-2">
+                                    <span class="course-icon in-progress flex-shrink-0">
+                                        <i class="bi bi-clock-fill"></i>
+                                    </span>
+                                    <a href="./cursoDetalleNoLogueado.html" class="d-inline-block align-middle" style="white-space: nowrap; text-decoration: none; color: #000;">Node.js Intermedio</a>
+                                    <small class="opacity-75 ms-2">(En curso)</small>
+                                </div>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -252,9 +213,7 @@
                                                         <span class="badge bg-info">1/4 participantes</span>
                                                         <span class="badge bg-success">COMPLETADO</span>
                                                     </div>
-                                                    <a href="./proyectoDetalle.html" class="btn btn-secondary w-100 mt-3">
-                                                        <i class="bi bi-eye me-2"></i>Ver detalles
-                                                    </a>
+                                                    <a href="./proyectoDetalleNoLogueado.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -273,9 +232,7 @@
                                                         <span class="badge bg-info">2/5 participantes</span>
                                                         <span class="badge bg-warning text-dark">EN CURSO</span>
                                                     </div>
-                                                    <a href="./proyectoDetalle.html" class="btn btn-secondary w-100 mt-3">
-                                                        <i class="bi bi-eye me-2"></i>Ver detalles
-                                                    </a>
+                                                    <a href="./proyectoDetalleNoLogueado.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -321,13 +278,10 @@
                             <div class="portfolio-section">
                                 <div class="mb-4">
                                     <i class="bi bi-file-earmark-pdf display-4 mb-3" style="color: #0B2D59;"></i>
-                                    <p class="mb-4">Tu portfolio incluye todos los proyectos completados con detalles
+                                    <p class="mb-4">Portfolio con todos los proyectos completados, detalles
                                         técnicos, tecnologías utilizadas y resultados obtenidos.</p>
                                 </div>
                                 <div class="d-flex gap-3 justify-content-center flex-wrap">
-                                    <button class="btn btn-custom btn-primary-custom">
-                                        <i class="bi bi-download me-2"></i>Descargar Portfolio PDF
-                                    </button>
                                     <button class="btn btn-custom btn-accent-custom">
                                         <i class="bi bi-eye me-2"></i>Ver Portfolio Online
                                     </button>
@@ -354,13 +308,13 @@
                             <div class="mb-4">
                                 <div class="row text-center">
                                     <div class="col-md-3">
-                                        <div class="p-3 rounded  shadow-sm">
+                                        <div class="p-3 rounded shadow-sm">
                                             <h4 class="text-primary mb-1"><i class="bi bi-star-fill me-1"></i>4.0</h4>
                                             <small class="text-muted">Calificación</small>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
-                                        <div class="p-3 rounded  shadow-sm">
+                                        <div class="p-3 rounded shadow-sm">
                                             <h4 class="text-primary mb-1"><i class="bi bi-people me-1"></i>156</h4>
                                             <small class="text-muted">Estudiantes</small>
                                         </div>
@@ -398,127 +352,7 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Función universal para campos editables
-            function initEditableField(field) {
-                const editIcon = field.querySelector('.edit-icon');
-                const editableContent = field.querySelector('.editable-content');
-                const saveBtn = field.querySelector('.btn-save');
-                const cancelBtn = field.querySelector('.btn-cancel');
-                const fieldType = field.dataset.field;
 
-                let originalContent = '';
-                let isEditing = false;
-
-                function startEditing() {
-                    if (isEditing) return;
-
-                    // Cerrar otras ediciones
-                    document.querySelectorAll('.editable-field.editing').forEach(otherField => {
-                        if (otherField !== field) {
-                            const otherCancel = otherField.querySelector('.btn-cancel');
-                            if (otherCancel) otherCancel.click();
-                        }
-                    });
-
-                    isEditing = true;
-                    originalContent = editableContent.innerHTML;
-
-                    const textContent = editableContent.innerText;
-
-                    // Crear input apropiado
-                    let inputElement;
-                    if (fieldType === 'bio') {
-                        inputElement = document.createElement('textarea');
-                        inputElement.className = 'edit-textarea';
-                        inputElement.value = textContent;
-                    } else {
-                        inputElement = document.createElement('input');
-                        inputElement.className = 'edit-input';
-                        inputElement.type = fieldType === 'email' ? 'email' : 'text';
-                        inputElement.value = textContent;
-                    }
-
-                    // Reemplazar contenido
-                    editableContent.innerHTML = '';
-                    editableContent.appendChild(inputElement);
-
-                    // Cambiar estado
-                    field.classList.add('editing');
-                    editIcon.classList.remove('bi-pencil');
-                    editIcon.classList.add('bi-pencil-square');
-
-                    // Focus
-                    inputElement.focus();
-                    if (fieldType !== 'bio') {
-                        inputElement.select();
-                    }
-                }
-
-                function saveChanges() {
-                    if (!isEditing) return;
-
-                    const inputElement = editableContent.querySelector('.edit-input, .edit-textarea');
-                    const newValue = inputElement.value.trim();
-
-                    if (newValue) {
-                        if (fieldType === 'bio') {
-                            // Convertir texto a párrafos
-                            const paragraphs = newValue.split('\n\n').filter(p => p.trim() !== '');
-                            let newHTML = '';
-
-                            paragraphs.forEach(paragraph => {
-                                if (paragraph.toLowerCase().includes('intereses:')) {
-                                    newHTML += `<p><strong>${paragraph}</strong></p>`;
-                                } else {
-                                    newHTML += `<p>${paragraph}</p>`;
-                                }
-                            });
-
-                            editableContent.innerHTML = newHTML;
-                        } else {
-                            editableContent.textContent = newValue;
-                        }
-                    }
-
-                    exitEditing();
-                }
-
-                function cancelEditing() {
-                    if (!isEditing) return;
-                    editableContent.innerHTML = originalContent;
-                    exitEditing();
-                }
-
-                function exitEditing() {
-                    isEditing = false;
-                    field.classList.remove('editing');
-                    editIcon.classList.remove('bi-pencil-square');
-                    editIcon.classList.add('bi-pencil');
-                }
-
-                // Event listeners
-                if (editIcon) editIcon.addEventListener('click', startEditing);
-                if (saveBtn) saveBtn.addEventListener('click', saveChanges);
-                if (cancelBtn) cancelBtn.addEventListener('click', cancelEditing);
-
-                // Atajos de teclado
-                field.addEventListener('keydown', function (e) {
-                    if (!isEditing) return;
-
-                    if (e.ctrlKey && e.key === 'Enter') {
-                        saveChanges();
-                    } else if (e.key === 'Escape') {
-                        cancelEditing();
-                    }
-                });
-            }
-
-            // Inicializar todos los campos editables
-            document.querySelectorAll('.editable-field').forEach(initEditableField);
-        });
-    </script>
     <!-- Modal de insignias -->
     <div class="modal fade" id="insigniasModal" tabindex="-1" aria-labelledby="insigniasModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
