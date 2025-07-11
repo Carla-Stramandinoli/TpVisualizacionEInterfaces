@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalle del Curso - TalentLab</title>
     <link rel="stylesheet" href="../../css/bootstrap-custom.css">
+    <style>
+        ul.mb-0 {
+            list-style: none;
+            padding-left: 0;
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -17,17 +23,17 @@
                 <div class="col-md-6">
                     <nav class="navbar navbar-expand-lg navbar-dark">
                         <a class="navbar-brand d-lg-none" href="#"><i class="bi bi-lightbulb"></i> TalentLab</a>
-                        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCursoDetalleNL" aria-controls="navbarCursoDetalleNL" aria-expanded="false" aria-label="Toggle navigation">
+                        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCursoDetalle" aria-controls="navbarCursoDetalle" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
-                        <div class="collapse navbar-collapse" id="navbarCursoDetalleNL">
+                        <div class="collapse navbar-collapse" id="navbarCursoDetalle">
                             <div class="navbar-nav ms-auto">
-                                <a class="nav-link  d-flex align-items-center gap-2 text-nowrap" href="../UsuarioNoLogueado/homeNoLogueado.html"><i class="bi bi-house-door"></i><p class="m-0">Inicio</p></a>
-                                <a class="nav-link active d-flex align-items-center gap-2 text-nowrap" href="cursos.html"><i class="bi bi-book"></i><p class="m-0">Cursos</p></a>
-                                <a class="nav-link d-flex align-items-center gap-2 text-nowrap" href="../ProyectosComponente/proyectos.html"><i class="bi bi-rocket"></i><p class="m-0">Proyectos</p></a>
-                                <a class="nav-link d-flex align-items-center gap-2 text-nowrap" href="../UsuarioNoLogueado/ranking.html"><i class="bi bi-trophy"></i><p class="m-0">Ranking</p></a>
-                                <a class="nav-link btn-login text-nowrap d-flex align-items-center gap-2" href="../UsuarioNoLogueado/iniciarSesion.html"><i class="bi bi-box-arrow-in-right"></i><p class="m-0">Iniciar Sesión</p></a>
-                                <a class="nav-link btn-register text-nowrap d-flex align-items-center gap-2" href="../UsuarioNoLogueado/registrarse.html"><i class="bi bi-person-plus"></i><p class="m-0">Registrarse</p></a>
+                                <a class="nav-link  d-flex align-items-center gap-2 text-nowrap" href="../UsuarioLogueado/homeLogueado.html"><i class="bi bi-house-door"></i> Inicio</a>
+                                <a class="nav-link  d-flex align-items-center gap-2 active text-nowrap" href="cursosLogueado.html"><i class="bi bi-book"></i> Cursos</a>
+                                <a class="nav-link  d-flex align-items-center gap-2 text-nowrap" href="../ProyectosComponente/proyectosLogueado.html"><i class="bi bi-rocket"></i> Proyectos</a>
+                                <a class="nav-link  d-flex align-items-center gap-2 text-nowrap" href="../UsuarioLogueado/ranking.html"><i class="bi bi-trophy"></i> Ranking</a>
+                                <a class="nav-link btn-profile d-flex align-items-center gap-2 text-nowrap" href="../UsuarioLogueado/perfilUsuario.html"><i class="bi bi-person-circle"></i> Mi Perfil</a>
+                                <a class="nav-link btn-logout d-flex align-items-center gap-2 text-nowrap" href="../UsuarioNoLogueado/homeNoLogueado.html"><i class="bi bi-box-arrow-left"></i> Cerrar Sesión</a>
                             </div>
                         </div>
                     </nav>
@@ -49,7 +55,7 @@
                                 <div>
                                     <h2 class="mb-1">JavaScript Avanzado</h2>
                                     <span class="badge bg-primary">Tecnología - Desarrollo</span>
-                                    <span class="badge bg-warning text-dark ms-2">Avanzado</span>
+                                    <span class="badge bg-danger ms-2">Nivel: Avanzado</span>
                                 </div>
                             </div>
                             <hr>
@@ -63,48 +69,48 @@
                             <!-- Información básica -->
                             <div class="row mb-4">
                                 <div class="col-md-6 mb-2">
-                                    <h6 class="mb-1">Instructor</h6>
+                                    <h6 class="mb-1"><i class="bi bi-person-badge me-1"></i> Instructor</h6>
                                     <p class="mb-0">María González - Senior Developer</p>
                                 </div>
                                 <div class="col-md-6 mb-2">
-                                    <h6 class="mb-1">Duración</h6>
+                                    <h6 class="mb-1"><i class="bi bi-clock-history me-1"></i> Duración</h6>
                                     <p class="mb-0">6 semanas (36 horas)</p>
                                 </div>
                                 <div class="col-md-6 mb-2">
-                                    <h6 class="mb-1">Modalidad</h6>
+                                    <h6 class="mb-1"><i class="bi bi-laptop me-1"></i> Modalidad</h6>
                                     <p class="mb-0">Online en vivo + Grabaciones</p>
                                 </div>
                                 <div class="col-md-6 mb-2">
-                                    <h6 class="mb-1">Fecha de inicio</h6>
-                                    <p class="mb-0">15 de agosto, 2024</p>
+                                    <h6 class="mb-1"><i class="bi bi-calendar-event me-1"></i> Fecha de inicio</h6>
+                                    <p class="mb-0">15 de agosto, 2025</p>
                                 </div>
                                 <div class="col-md-6 mb-2">
-                                    <h6 class="mb-1">Horario</h6>
+                                    <h6 class="mb-1"><i class="bi bi-alarm me-1"></i> Horario</h6>
                                     <p class="mb-0">Martes y Jueves 19:00 - 21:00</p>
                                 </div>
                             </div>
 
-                            <!-- Objetivos -->
+                            <!-- Objetivos del curso -->
                             <div class="mb-4">
-                                <h5 class="mb-2">Objetivos del curso</h5>
+                                <h5 class="mb-2"><i class="bi bi-bullseye me-1"></i> Objetivos del curso</h5>
                                 <ul class="mb-0">
-                                    <li>Dominar closures, scope y el contexto de ejecución</li>
-                                    <li>Entender prototipos, herencia y programación orientada a objetos</li>
-                                    <li>Manejar programación asíncrona con Promises y async/await</li>
-                                    <li>Aplicar patrones de diseño modernos en JavaScript</li>
-                                    <li>Optimizar el rendimiento y debugging avanzado</li>
-                                    <li>Desarrollar un proyecto completo aplicando todos los conceptos</li>
+                                    <li><i class="bi bi-check-circle me-1 text-dark"></i> Dominar closures, scope y el contexto de ejecución</li>
+                                    <li><i class="bi bi-check-circle me-1 text-dark"></i> Entender prototipos, herencia y programación orientada a objetos</li>
+                                    <li><i class="bi bi-check-circle me-1 text-dark"></i> Manejar programación asíncrona con Promises y async/await</li>
+                                    <li><i class="bi bi-check-circle me-1 text-dark"></i> Aplicar patrones de diseño modernos en JavaScript</li>
+                                    <li><i class="bi bi-check-circle me-1 text-dark"></i> Optimizar el rendimiento y debugging avanzado</li>
+                                    <li><i class="bi bi-check-circle me-1 text-dark"></i> Desarrollar un proyecto completo aplicando todos los conceptos</li>
                                 </ul>
                             </div>
 
                             <!-- Contenido del curso -->
                             <div class="mb-4">
-                                <h5 class="mb-2">Contenido del curso</h5>
+                                <h5 class="mb-2"><i class="bi bi-journal-code me-1"></i> Contenido del curso</h5>
                                 <div class="accordion" id="contenidoCurso">
                                     <div class="accordion-item">
                                         <h6 class="accordion-header">
                                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#semana1">
-                                                Semana 1: Closures y Scope Avanzado
+                                                <i class="bi bi-braces me-1"></i> Semana 1: Closures y Scope Avanzado
                                             </button>
                                         </h6>
                                         <div id="semana1" class="accordion-collapse collapse" data-bs-parent="#contenidoCurso">
@@ -121,7 +127,7 @@
                                     <div class="accordion-item">
                                         <h6 class="accordion-header">
                                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#semana2">
-                                                Semana 2: Prototipos y Herencia
+                                                <i class="bi bi-diagram-3 me-1"></i> Semana 2: Prototipos y Herencia
                                             </button>
                                         </h6>
                                         <div id="semana2" class="accordion-collapse collapse" data-bs-parent="#contenidoCurso">
@@ -138,7 +144,7 @@
                                     <div class="accordion-item">
                                         <h6 class="accordion-header">
                                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#semana3">
-                                                Semana 3: Programación Asíncrona
+                                                <i class="bi bi-arrow-repeat me-1"></i> Semana 3: Programación Asíncrona
                                             </button>
                                         </h6>
                                         <div id="semana3" class="accordion-collapse collapse" data-bs-parent="#contenidoCurso">
@@ -155,7 +161,7 @@
                                     <div class="accordion-item">
                                         <h6 class="accordion-header">
                                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#semana4">
-                                                Semana 4: Patrones de Diseño
+                                                <i class="bi bi-diagram-2 me-1"></i> Semana 4: Patrones de Diseño
                                             </button>
                                         </h6>
                                         <div id="semana4" class="accordion-collapse collapse" data-bs-parent="#contenidoCurso">
@@ -172,7 +178,7 @@
                                     <div class="accordion-item">
                                         <h6 class="accordion-header">
                                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#semana5">
-                                                Semana 5: Optimización y Debugging
+                                                <i class="bi bi-lightning-charge me-1"></i> Semana 5: Optimización y Debugging
                                             </button>
                                         </h6>
                                         <div id="semana5" class="accordion-collapse collapse" data-bs-parent="#contenidoCurso">
@@ -189,7 +195,7 @@
                                     <div class="accordion-item">
                                         <h6 class="accordion-header">
                                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#semana6">
-                                                Semana 6: Proyecto Final
+                                                <i class="bi bi-rocket-takeoff me-1"></i> Semana 6: Proyecto Final
                                             </button>
                                         </h6>
                                         <div id="semana6" class="accordion-collapse collapse" data-bs-parent="#contenidoCurso">
@@ -208,31 +214,31 @@
 
                             <!-- Requisitos -->
                             <div class="mb-4">
-                                <h5 class="mb-2">Requisitos previos</h5>
+                                <h5 class="mb-2"><i class="bi bi-list-check me-1"></i> Requisitos previos</h5>
                                 <ul class="mb-0">
-                                    <li>Conocimientos sólidos de JavaScript básico</li>
-                                    <li>Experiencia con ES6+ (let/const, arrow functions, destructuring)</li>
-                                    <li>Manejo básico de HTML y CSS</li>
-                                    <li>Familiaridad con herramientas de desarrollo (DevTools)</li>
+                                    <li><i class="bi bi-exclamation-circle me-1 text-dark"></i> Conocimientos sólidos de JavaScript básico</li>
+                                    <li><i class="bi bi-exclamation-circle me-1 text-dark"></i> Experiencia con ES6+ (let/const, arrow functions, destructuring)</li>
+                                    <li><i class="bi bi-exclamation-circle me-1 text-dark"></i> Manejo básico de HTML y CSS</li>
+                                    <li><i class="bi bi-exclamation-circle me-1 text-dark"></i> Familiaridad con herramientas de desarrollo (DevTools)</li>
                                 </ul>
                             </div>
 
                             <!-- Herramientas -->
                             <div class="mb-4">
-                                <h5 class="mb-2">Herramientas que utilizarás</h5>
+                                <h5 class="mb-2"><i class="bi bi-tools me-1"></i> Herramientas que utilizarás</h5>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <ul class="mb-0">
-                                            <li>Visual Studio Code</li>
-                                            <li>Node.js y npm</li>
-                                            <li>Git y GitHub</li>
+                                            <li><i class="bi bi-terminal me-1 text-dark"></i> Visual Studio Code</li>
+                                            <li><i class="bi bi-cpu me-1 text-dark"></i> Node.js y npm</li>
+                                            <li><i class="bi bi-git me-1 text-dark"></i> Git y GitHub</li>
                                         </ul>
                                     </div>
                                     <div class="col-md-6">
                                         <ul class="mb-0">
-                                            <li>Jest para testing</li>
-                                            <li>Babel y Webpack</li>
-                                            <li>Chrome DevTools</li>
+                                            <li><i class="bi bi-check2-square me-1 text-dark"></i> Jest para testing</li>
+                                            <li><i class="bi bi-boxes me-1 text-dark"></i> Babel y Webpack</li>
+                                            <li><i class="bi bi-browser-chrome me-1 text-dark"></i> Chrome DevTools</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -240,14 +246,14 @@
 
                             <!-- Beneficios -->
                             <div class="mb-4">
-                                <h5 class="mb-2">Qué obtendrás</h5>
+                                <h5 class="mb-2"><i class="bi bi-gift me-1"></i> Qué obtendrás</h5>
                                 <ul class="mb-0">
-                                    <li>Certificado de completitud verificable</li>
-                                    <li>Proyecto portfolio para mostrar a empleadores</li>
-                                    <li>Acceso de por vida al material del curso</li>
-                                    <li>Comunidad privada de estudiantes</li>
-                                    <li>Sesiones de Q&A en vivo</li>
-                                    <li>Feedback personalizado en tu proyecto</li>
+                                    <li><i class="bi bi-award me-1 text-dark"></i> Certificado de completitud verificable</li>
+                                    <li><i class="bi bi-briefcase me-1 text-dark"></i> Proyecto portfolio para mostrar a empleadores</li>
+                                    <li><i class="bi bi-infinity me-1 text-dark"></i> Acceso de por vida al material del curso</li>
+                                    <li><i class="bi bi-people me-1 text-dark"></i> Comunidad privada de estudiantes</li>
+                                    <li><i class="bi bi-question-circle me-1 text-dark"></i> Sesiones de Q&A en vivo</li>
+                                    <li><i class="bi bi-chat-dots me-1 text-dark"></i> Feedback personalizado en tu proyecto</li>
                                 </ul>
                             </div>
 
@@ -256,25 +262,25 @@
                                 <div class="row text-center">
                                     <div class="col-md-3">
                                         <div class="bg-light p-3 rounded">
-                                            <h4 class="text-primary mb-1">4.8★</h4>
+                                            <h4 class="text-primary mb-1"><i class="bi bi-star-fill me-1"></i>4.0</h4>
                                             <small class="text-muted">Calificación</small>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="bg-light p-3 rounded">
-                                            <h4 class="text-primary mb-1">156</h4>
+                                            <h4 class="text-primary mb-1"><i class="bi bi-people me-1"></i>156</h4>
                                             <small class="text-muted">Estudiantes</small>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="bg-light p-3 rounded">
-                                            <h4 class="text-primary mb-1">92%</h4>
+                                            <h4 class="text-primary mb-1"><i class="bi bi-graph-up me-1"></i>92%</h4>
                                             <small class="text-muted">Completitud</small>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="bg-light p-3 rounded">
-                                            <h4 class="text-primary mb-1">36h</h4>
+                                            <h4 class="text-primary mb-1"><i class="bi bi-journal-code me-1"></i>36h</h4>
                                             <small class="text-muted">Contenido</small>
                                         </div>
                                     </div>
@@ -283,22 +289,20 @@
 
                             <!-- Instructor -->
                             <div class="mb-4">
-                                <h5 class="mb-2">Sobre el instructor</h5>
-                                <div class="d-flex align-items-center gap-3">
-                                    <div class="rounded-circle bg-primary d-flex align-items-center justify-content-center" style="width: 60px; height: 60px; font-size:1.5rem; color: white;">
-                                        <i class="bi bi-person"></i>
-                                    </div>
+                                <h5 class="mb-2"><i class="bi bi-person-vcard me-1 text-dark"></i> Sobre el instructor</h5>
+                                <div class="d-flex align-items-center gap-3 mt-4">
+                                    <img src="../../imagenes/perfil13.jpg" alt="Foto del instructor" class="rounded-circle border" style="width: 60px; height: 60px; object-fit: cover;">
                                     <div>
-                                        <h6 class="mb-1">María González</h6>
-                                        <p class="text-muted mb-1">Senior Full Stack Developer en TechCorp</p>
-                                        <p class="mb-0 small">8 años de experiencia • +2000 estudiantes • Especialista en JavaScript moderno</p>
+                                        <h6 class="mb-1">María González <i class="bi bi-award ms-1 text-dark"></i></h6>
+                                        <p class="text-muted mb-1"><i class="bi bi-briefcase me-1 text-dark"></i> Senior Full Stack Developer en TechCorp</p>
+                                        <p class="mb-0 small"><i class="bi bi-mortarboard me-1 text-dark"></i> 8 años de experiencia • +2000 estudiantes • Especialista en JavaScript moderno</p>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Botones de acción -->
                             <div class="d-flex justify-content-center gap-2 mt-4">
-                                <a href="cursosLogueado.html" class="btn btn-secondary">Volver a cursos</a>
+                                <a href="cursosNoLogueado.html" class="btn btn-secondary">Volver a cursos</a>
                                 <button class="btn btn-secondary disabled">Inscribirme al curso</button>
                                 
                             </div>
