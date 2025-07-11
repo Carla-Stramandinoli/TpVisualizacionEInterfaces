@@ -9,7 +9,7 @@
 :root {
     --primary-color: #0B2D59;
     --secondary-color: #3671BF;
-    --accent-color: #1bcf7b;
+    --accent-color: #10B981;
     --background-color: #F5F7FA;
     --text-color: #1E293B;
 }
@@ -331,4 +331,33 @@ p, span, div, a, button, input, textarea, select {
 
 .border-custom-accent {
     border-color: var(--accent-color) !important;
+} 
+
+/* Hover personalizado para botón Cerrar Sesión en el nav */
+.navbar-nav .btn-logout:hover {
+    color: #fff !important;
+    border: 1.5px solid #fff !important;
+    background: transparent !important;
+}
+
+/* Asegura que el texto dentro del botón también sea blanco */
+.navbar-nav .btn-logout:hover p {
+    color: #fff !important;
+} 
+
+/* Hover personalizado para botón Mi Perfil en el nav */
+.navbar-nav .btn-profile:hover {
+    color: #fff !important;
+    border: 1.5px solid #fff !important;
+    background: transparent !important;
+}
+
+/* Asegura que el texto dentro del botón también sea blanco */
+.navbar-nav .btn-profile:hover p {
+    color: #fff !important;
+} 
+
+/* Hover personalizado para el botón 'Ver cursos' en el hero (btn-outline-light) */
+.btn-outline-light:hover, .btn-outline-light:focus {
+    color: #111 !important;
 } 

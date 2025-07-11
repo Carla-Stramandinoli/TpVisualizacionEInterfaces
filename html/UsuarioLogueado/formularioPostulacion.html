@@ -74,7 +74,7 @@
             color: white;
         }
         .step.completed .step-number {
-            background: #28a745;
+            background: var(--accent-color);
             color: white;
         }
         .step-title {
@@ -731,11 +731,11 @@
             const bar = document.querySelector('.step-bar');
             if (bar) {
                 if (currentStep === 1) {
-                    bar.style.background = 'linear-gradient(to right, #28a745 0%, #e9ecef 0%, #e9ecef 100%)';
+                    bar.style.background = 'linear-gradient(to right, var(--accent-color) 0%, #e9ecef 0%, #e9ecef 100%)';
                 } else if (currentStep === 2) {
-                    bar.style.background = 'linear-gradient(to right, #28a745 0%, #28a745 50%, #e9ecef 50%, #e9ecef 100%)';
+                    bar.style.background = 'linear-gradient(to right, var(--accent-color) 0%, var(--accent-color) 50%, #e9ecef 50%, #e9ecef 100%)';
                 } else if (currentStep === 3) {
-                    bar.style.background = 'linear-gradient(to right, #28a745 0%, #28a745 100%)';
+                    bar.style.background = 'linear-gradient(to right, var(--accent-color) 0%, var(--accent-color) 100%)';
                 }
             }
         }
