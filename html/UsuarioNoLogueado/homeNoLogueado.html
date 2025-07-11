@@ -21,10 +21,26 @@
         }
         /* cambiar colores para que se vea mas lindo */
         .custom-card-estudiante {
-            background: #7fcbd6;
+            background: #386386;
 
         } .custom-card-proyectos {
-            background: #b8c8ea;
+            background: #123272;
+        }
+
+        /* Centrar y unificar tamaño de las cards colaborativas y de inserción laboral */
+        .custom-card-proyectos,
+        .custom-card-estudiante {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 260px;
+            height: 100%;
+            text-align: center;
+        }
+        .collaboration-section .custom-card-proyectos,
+        .employment-section .custom-card-estudiante {
+            height: 100%;
         }
 
 
@@ -36,37 +52,43 @@
 
     <!-- Header -->
     <header class="custom-header">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <h1 class="h3 mb-0"><i class="bi bi-lightbulb"></i> TalentLab</h1>
+        <div class="container ">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-6 d-none d-lg-block">
+                   <h1 class="h3 mb-0"><i class="bi bi-lightbulb"></i> TalentLab</h1>
                 </div>
                 <div class="col-md-6">
                     <nav class="navbar navbar-expand-lg navbar-dark">
-                        <div class="navbar-nav ms-auto">
-                            <a class="nav-link active d-flex align-items-center gap-2 text-nowrap"
-                                href="../UsuarioNoLogueado/homeNoLogueado.html"><i class="bi bi-house-door"></i>
-                                <p class="m-0">Inicio</p>
-                            </a>
-                            <a class="nav-link d-flex align-items-center gap-2 text-nowrap"
-                                href="../CursosComponente/cursos.html"><i class="bi bi-book"></i>
-                                <p class="m-0">Cursos</p>
-                            </a>
-                            <a class="nav-link d-flex align-items-center gap-2 text-nowrap"
-                                href="../ProyectosComponente/proyectos.html"><i class="bi bi-rocket"></i>
-                                <p class="m-0">Proyectos</p>
-                            </a>
-                            <a class="nav-link d-flex align-items-center gap-2 text-nowrap"
-                                href="../UsuarioNoLogueado/ranking.html"><i class="bi bi-trophy"></i>
-                                <p class="m-0">Ranking</p>
-                            </a>
-                            <a class="nav-link btn-login text-nowrap d-flex align-items-center gap-2"
-                                href="../UsuarioNoLogueado/iniciarSesion.html"><i class="bi bi-box-arrow-in-right"></i>
-                                <p class="m-0">Iniciar Sesión</p>
-                            </a>
-                            <a class="nav-link btn-register text-nowrap d-flex align-items-center gap-2"
-                                href="../UsuarioNoLogueado/registrarse.html"><i class="bi bi-person-plus"></i><p class="m-0">Registrarse</p>
-                            </a>
+                        <a class="navbar-brand d-lg-none" href="#"><i class="bi bi-lightbulb"></i> TalentLab</a>
+                        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNoLogueadoHome" aria-controls="navbarNoLogueadoHome" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNoLogueadoHome">
+                            <div class="navbar-nav ms-auto">
+                                <a class="nav-link active d-flex align-items-center gap-2 text-nowrap"
+                                    href="../UsuarioNoLogueado/homeNoLogueado.html"><i class="bi bi-house-door"></i>
+                                    <p class="m-0">Inicio</p>
+                                </a>
+                                <a class="nav-link d-flex align-items-center gap-2 text-nowrap"
+                                    href="../CursosComponente/cursos.html"><i class="bi bi-book"></i>
+                                    <p class="m-0">Cursos</p>
+                                </a>
+                                <a class="nav-link d-flex align-items-center gap-2 text-nowrap"
+                                    href="../ProyectosComponente/proyectos.html"><i class="bi bi-rocket"></i>
+                                    <p class="m-0">Proyectos</p>
+                                </a>
+                                <a class="nav-link d-flex align-items-center gap-2 text-nowrap"
+                                    href="../UsuarioNoLogueado/ranking.html"><i class="bi bi-trophy"></i>
+                                    <p class="m-0">Ranking</p>
+                                </a>
+                                <a class="nav-link btn-login text-nowrap d-flex align-items-center gap-2"
+                                    href="../UsuarioNoLogueado/iniciarSesion.html"><i class="bi bi-box-arrow-in-right"></i>
+                                    <p class="m-0">Iniciar Sesión</p>
+                                </a>
+                                <a class="nav-link btn-register text-nowrap d-flex align-items-center gap-2"
+                                    href="../UsuarioNoLogueado/registrarse.html"><i class="bi bi-person-plus"></i><p class="m-0">Registrarse</p>
+                                </a>
+                            </div>
                         </div>
                     </nav>
                 </div>
@@ -96,6 +118,7 @@
     </section>
 
     <!-- Sección Colaborativa -->
+
     <section class="collaboration-section">
         <div class="container">
             <div class="row">
@@ -103,35 +126,35 @@
                     <h3 class="text-center mb-5"><i class="bi bi-briefcase"></i> Trabajá en equipo desde el primer día
                     </h3>
                     <div class="row g-4 mb-4 justify-content-center">
-                        <div class="col-md-4">
-                            <div class="custom-card-proyectos text-center">
+                        <div class="col-md-4 d-flex">
+                            <div class="custom-card-proyectos w-100">
                                 <div class="mb-2">
                                     <i class="bi bi-people display-4 mb-2"></i>
                                 </div>
                                 <div class="fw-bold fs-5 mb-2">Equipos multidisciplinarios</div>
-                                <div class="text-secondary" style="font-size: 0.95em;">
+                                <div class="text-secondary" style="font-size: 0.95em; color: #c0ccdd !important;">
                                     <p>Colaborá con profesionales en equipos reales.</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="custom-card-proyectos text-center">
+                        <div class="col-md-4 d-flex">
+                            <div class="custom-card-proyectos w-100">
                                 <div class="mb-2">
                                     <i class="bi bi-bullseye display-4 mb-2"></i>
                                 </div>
                                 <div class="fw-bold fs-5 mb-2">Proyectos con impacto</div>
-                                <div class="text-secondary" style="font-size: 0.95em;">
+                                <div class="text-secondary" style="font-size: 0.95em; color: #c0ccdd !important;">
                                     <p>Trabajá en soluciones que realmente importan.</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="custom-card-proyectos text-center">
+                        <div class="col-md-4 d-flex">
+                            <div class="custom-card-proyectos w-100">
                                 <div class="mb-2">
                                     <i class="bi bi-arrow-repeat display-4 mb-2"></i>
                                 </div>
                                 <div class="fw-bold fs-5 mb-2">Metodologías ágiles</div>
-                                <div class="text-secondary" style="font-size: 0.95em;">
+                                <div class="text-secondary" style="font-size: 0.95em; color: #c0ccdd !important;">
                                     <p>Aprendé a trabajar con Scrum, sprints y herramientas profesionales.</p>
                                 </div>
                             </div>
@@ -149,35 +172,35 @@
                     <h3 class="text-center mb-5"><i class="bi bi-briefcase"></i> De estudiante a empleado: sin
                         intermediarios</h3>
                     <div class="row g-4 mb-4 justify-content-center">
-                        <div class="col-md-4">
-                            <div class="custom-card-estudiante text-center border">
+                        <div class="col-md-4 d-flex">
+                            <div class="custom-card-estudiante w-100 border">
                                 <div class="mb-2">
                                     <i class="bi bi-bar-chart display-4 mb-2"></i>
                                 </div>
                                 <div class="fw-bold fs-5 mb-2">Portfolio validado</div>
-                                <div class="text-secondary" style="font-size: 0.95em;">
+                                <div class="text-secondary" style="font-size: 0.95em; color: #c0ccdd !important;">
                                     Tu trabajo queda registrado y visible para empresas.
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="custom-card-estudiante text-center">
+                        <div class="col-md-4 d-flex">
+                            <div class="custom-card-estudiante w-100">
                                 <div class="mb-2">
                                     <i class="bi bi-bullseye display-4 mb-2"></i>
                                 </div>
                                 <div class="fw-bold fs-4 mb-2">Conexión directa</div>
-                                <div class="text-secondary" style="font-size: 0.95em;">
+                                <div class="text-secondary" style="font-size: 0.95em; color: #c0ccdd !important;">
                                     Conectá con empresas y proyectos directamente.
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="custom-card-estudiante text-center">
+                        <div class="col-md-4 d-flex">
+                            <div class="custom-card-estudiante w-100">
                                 <div class="mb-2">
                                     <i class="bi bi-lightning display-4 mb-2"></i>
                                 </div>
                                 <div class="fw-bold fs-5 mb-2">Proceso acelerado</div>
-                                <div class="text-secondary" style="font-size: 0.95em;">
+                                <div class="text-secondary" style="font-size: 0.95em; color: #c0ccdd !important;">
                                     Tu perfil se destaca y las empresas te contactan.
                                 </div>
                             </div>
@@ -289,21 +312,21 @@
                 <div class="col-12">
                     <h3 class="text-center mb-4">Resultados que hablan por sí solos</h3>
                     <div class="stats-grid">
-                        <div class="stat-item">
-                            <div class="stat-number">85%</div>
-                            <p>Tasa de inserción laboral</p>
+                        <div class="stat-item align-content-center">
+                            <div class="stat-number" style="color: #33f584;" >85%</div>
+                            <p style="color: #c0ccdd;">Tasa de inserción laboral</p>
                         </div>
-                        <div class="stat-item">
-                            <div class="stat-number">3 meses</div>
-                            <p>Tiempo promedio para conseguir trabajo</p>
+                        <div class="stat-item align-content-center">
+                            <div class="stat-number" style="color: #33f584;">3 meses</div>
+                            <p style="color: #c0ccdd;">Tiempo promedio para conseguir trabajo</p>
                         </div>
-                        <div class="stat-item">
-                            <div class="stat-number">150+</div>
-                            <p>Empresas buscan talento aquí</p>
+                        <div class="stat-item align-content-center">
+                            <div class="stat-number" style="color: #33f584;">150+</div>
+                            <p style="color: #c0ccdd;">Empresas buscan talento aquí</p>
                         </div>
-                        <div class="stat-item">
-                            <div class="stat-number">$650k</div>
-                            <p>Salario promedio inicial</p>
+                        <div class="stat-item align-content-center">
+                            <div class="stat-number" style="color: #33f584;">$650k</div>
+                            <p style="color: #c0ccdd;">Salario promedio inicial</p>
                         </div>
                     </div>
                 </div>
@@ -318,39 +341,51 @@
                 <div class="col-12">
                     <h3 class="mb-4"><i class="bi bi-book"></i> Capacitaciones para destacar en tu área</h3>
                     <div class="row g-4">
-                        <div class="col-lg-4 col-md-6">
-                            <div class="card custom-card h-100">
-                                <div class="card-header"><i class="bi bi-code-slash"></i> React + Node.js</div>
-                                <div class="card-body">
-                                    <p><strong>Nivel:</strong> Intermedio | <strong>Duración:</strong> 6 semanas</p>
-                                    <p>Stack completo para desarrollo web. <strong>Las empresas más demandadas buscan
+                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                            <div class="card custom-card h-100 w-100 d-flex flex-column justify-content-between">
+                                <div>
+                                    <div class="card-header"><i class="bi bi-code-slash"></i> React + Node.js</div>
+                                    <div class="card-body">
+                                        <p><strong>Nivel:</strong> Intermedio | <strong>Duración:</strong> 6 semanas</p>
+                                        <p>Stack completo para desarrollo web. <strong>Las empresas más demandadas buscan
                                             este perfil.</strong></p>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-transparent border-0 mt-auto">
                                     <div class="badge bg-info mt-2">
                                         <i class="bi bi-fire"></i> Alta demanda laboral
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="card custom-card h-100">
-                                <div class="card-header"><i class="bi bi-palette"></i> UX/UI Design</div>
-                                <div class="card-body">
-                                    <p><strong>Nivel:</strong> Básico | <strong>Duración:</strong> 4 semanas</p>
-                                    <p>Diseño centrado en el usuario. <strong>Área con mayor crecimiento en
+                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                            <div class="card custom-card h-100 w-100 d-flex flex-column justify-content-between">
+                                <div>
+                                    <div class="card-header"><i class="bi bi-palette"></i> UX/UI Design</div>
+                                    <div class="card-body">
+                                        <p><strong>Nivel:</strong> Básico | <strong>Duración:</strong> 4 semanas</p>
+                                        <p>Diseño centrado en el usuario. <strong>Área con mayor crecimiento en
                                             contrataciones.</strong></p>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-transparent border-0 mt-auto">
                                     <div class="badge bg-success mt-2">
                                         <i class="bi bi-graph-up-arrow"></i> Crecimiento del 40%
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="card custom-card h-100">
-                                <div class="card-header"><i class="bi bi-megaphone"></i> Marketing Digital</div>
-                                <div class="card-body">
-                                    <p><strong>Nivel:</strong> Intermedio | <strong>Duración:</strong> 5 semanas</p>
-                                    <p>Estrategias digitales efectivas. <strong>Skill esencial para startups y
+                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                            <div class="card custom-card h-100 w-100 d-flex flex-column justify-content-between">
+                                <div>
+                                    <div class="card-header"><i class="bi bi-megaphone"></i> Marketing Digital</div>
+                                    <div class="card-body">
+                                        <p><strong>Nivel:</strong> Intermedio | <strong>Duración:</strong> 5 semanas</p>
+                                        <p>Estrategias digitales efectivas. <strong>Skill esencial para startups y
                                             PyMEs.</strong></p>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-transparent border-0 mt-auto">
                                     <div class="badge bg-warning text-dark mt-2">
                                         <i class="bi bi-briefcase"></i> Esencial para PyMEs
                                     </div>
@@ -370,34 +405,57 @@
                 <div class="col-12">
                     <h3 class="text-center mb-4">Historias de éxito</h3>
                     <div class="row g-4">
-                        <div class="col-lg-4 col-md-6">
-                            <div class="card h-100 border-start border-success border-4">
-                                <div class="card-body">
-                                    <p class="fst-italic">"Entré como estudiante a un proyecto de una startup. Tres
-                                        meses después me contrataron como desarrollador full-time. Mi sueldo se
-                                        duplicó."</p>
-                                    <p class="mb-1"><strong>- Ana García, Full Stack Developer</strong></p>
-                                    <small class="text-muted">Contratada por TechStartup SA</small>
+                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                            <div class="card h-100 border-start border-success border-4 w-100">
+                                <div class="card-body d-flex flex-column justify-content-between h-100">
+                                    <div>
+                                        <p class="fst-italic">"Entré como estudiante a un proyecto de una startup. Tres meses después me contrataron como desarrollador full-time. Mi sueldo se duplicó."</p>
+                                    </div>
+                                    <div class="mt-3">
+                                        <div class="d-flex align-items-center">
+                                            <strong class="mb-0 d-flex align-items-center">
+                                                <img src="/imagenes/perfil1.jpg" alt="Foto de Ana García" class="rounded-circle me-2" style="width: 40px; height: 40px; object-fit: cover;">
+                                                Ana García, Full Stack Developer
+                                            </strong>
+                                        </div>
+                                        <small class="text-muted">Contratada por TechStartup SA</small>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="card h-100 border-start border-primary border-4">
-                                <div class="card-body">
-                                    <p class="fst-italic">"Colaboré con una PyME en un proyecto de e-commerce. No solo
-                                        me contrataron, sino que ahora lidero el equipo de diseño."</p>
-                                    <p class="mb-1"><strong>- Carlos López, UX/UI Lead</strong></p>
-                                    <small class="text-muted">Lead Designer en ComercioDigital SA</small>
+                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                            <div class="card h-100 border-start border-primary border-4 w-100">
+                                <div class="card-body d-flex flex-column justify-content-between h-100">
+                                    <div>
+                                        <p class="fst-italic">"Colaboré con una PyME en un proyecto de e-commerce. No solo me contrataron, sino que ahora lidero el equipo de diseño."</p>
+                                    </div>
+                                    <div class="mt-3">
+                                        <div class="d-flex align-items-center">
+                                            <strong class="mb-0 d-flex align-items-center">
+                                                <img src="/imagenes/perfil2.jpg" alt="Foto de Carlos López" class="rounded-circle me-2" style="width: 40px; height: 40px; object-fit: cover;">
+                                                Carlos López, UX/UI Lead
+                                            </strong>
+                                        </div>
+                                        <small class="text-muted">Lead Designer en ComercioDigital SA</small>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="card h-100 border-start border-warning border-4">
-                                <div class="card-body">
-                                    <p class="fst-italic">"Mi trabajo en proyectos de ONGs me abrió las puertas de una
-                                        consultora internacional. Ahora trabajo remoto para Europa."</p>
-                                    <p class="mb-1"><strong>- María Rodríguez, Project Manager</strong></p>
-                                    <small class="text-muted">Senior PM en EuroConsulting</small>
+                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                            <div class="card h-100 border-start border-warning border-4 w-100">
+                                <div class="card-body d-flex flex-column justify-content-between h-100">
+                                    <div>
+                                        <p class="fst-italic">"Mi trabajo en proyectos de ONGs me abrió las puertas de una consultora internacional. Ahora trabajo remoto para Europa."</p>
+                                    </div>
+                                    <div class="mt-3">
+                                        <div class="d-flex align-items-center">
+                                            <strong class="mb-0 d-flex align-items-center">
+                                                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Foto de María Rodríguez" class="rounded-circle me-2" style="width: 40px; height: 40px; object-fit: cover;">
+                                                María Rodríguez, Project Manager
+                                            </strong>
+                                        </div>
+                                        <small class="text-muted">Senior PM en EuroConsulting</small>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -406,6 +464,7 @@
             </div>
         </div>
     </section>
+
 
     <!-- Footer -->
     <footer class="footer">
