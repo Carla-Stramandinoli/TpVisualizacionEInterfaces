@@ -6,6 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ranking - TalentLab</title>
     <link rel="stylesheet" href="../../css/bootstrap-custom.css">
+    <style>
+        .badge-icon {
+            font-size: 16px;
+            margin-right: 5px;
+            color: #333;
+        }
+
+        .insignias-reference {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .insignia-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .insignia-item:last-child {
+            margin-bottom: 0;
+        }
+    </style>
 </head>
 
 <body>
@@ -15,23 +41,41 @@
     <header class="custom-header">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-6 d-none d-lg-block">
+                <div class="col-md-4 d-none d-lg-block">
                     <h1 class="h3 mb-0"><i class="bi bi-lightbulb"></i> TalentLab</h1>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-8">
                     <nav class="navbar navbar-expand-lg navbar-dark">
                         <a class="navbar-brand d-lg-none" href="#"><i class="bi bi-lightbulb"></i> TalentLab</a>
-                        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarLogueadoRank" aria-controls="navbarLogueadoRank" aria-expanded="false" aria-label="Toggle navigation">
+                        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarPerfilUsuario" aria-controls="navbarPerfilUsuario" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
-                        <div class="collapse navbar-collapse" id="navbarLogueadoRank">
-                            <div class="navbar-nav ms-auto">
-                                <a class="nav-link d-flex align-items-center gap-2 text-nowrap" href="homeLogueado.html"><i class="bi bi-house-door"></i> Inicio</a>
-                                <a class="nav-link d-flex align-items-center gap-2 text-nowrap" href="../CursosComponente/cursosLogueado.html"><i class="bi bi-book"></i> Cursos</a>
-                                <a class="nav-link d-flex align-items-center gap-2 text-nowrap" href="../ProyectosComponente/proyectosLogueado.html"><i class="bi bi-rocket"></i> Proyectos</a>
-                                <a class="nav-link active  d-flex align-items-center gap-2 text-nowrap" href="ranking.html"><i class="bi bi-trophy"></i> Ranking</a>
-                                <a class="nav-link btn-profile  d-flex align-items-center gap-2 text-nowrap" href="perfilUsuario.html"><i class="bi bi-person-circle"></i> Mi Perfil</a>
-                                <a class="nav-link btn-logout  d-flex align-items-center gap-2 text-nowrap" href="../UsuarioNoLogueado/homeNoLogueado.html"><i class="bi bi-box-arrow-left"></i> Cerrar Sesión</a>
+                        <div class="collapse navbar-collapse" id="navbarPerfilUsuario">
+                            <div class="navbar-nav ms-auto ps-3 mt-4 mt-lg-0">
+                                <a class="nav-link d-flex align-items-center gap-2 text-nowrap"
+                                    href="./homeLogueado.html"><i class="bi bi-house-door"></i>
+                                    <p class="m-0">Inicio</p>
+                                </a>
+                                <a class="nav-link d-flex align-items-center gap-2 text-nowrap"
+                                    href="./cursosLogueado.html"><i class="bi bi-book"></i>
+                                    <p class="m-0">Cursos</p>
+                                </a>
+                                <a class="nav-link d-flex align-items-center gap-2 text-nowrap"
+                                    href="./proyectosLogueado.html"><i class="bi bi-rocket"></i>
+                                    <p class="m-0">Proyectos</p>
+                                </a>
+                                <a class="nav-link active d-flex align-items-center gap-2 text-nowrap" href="./ranking.html"><i
+                                        class="bi bi-trophy"></i>
+                                    <p class="m-0">Ranking</p>
+                                </a>
+                                <a class="nav-link btn-profile d-flex align-items-center gap-2 text-nowrap"
+                                    href="./perfilUsuario.html"><i class="bi bi-person-circle"></i>
+                                    <p class="m-0">Mi Perfil</p>
+                                </a>
+                                <a class="nav-link btn-logout d-flex align-items-center gap-2 text-nowrap"
+                                    href="../UsuarioNoLogueado/homeNoLogueado.html"><i class="bi bi-box-arrow-left"></i>
+                                    <p class="m-0 w-100">Cerrar Sesión</p>
+                                </a>
                             </div>
                         </div>
                     </nav>
@@ -41,7 +85,7 @@
     </header>
 
     <!-- Título y filtros -->
-    <section class="py-4">
+    <section class="py-3">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -53,13 +97,13 @@
     </section>
 
     <!-- Filtros -->
-    <section class="py-3">
+    <section class="py-2">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="card custom-card">
                         <div class="card-body">
-                            <div class="row g-3">
+                            <div class="row g-3 align-items-end">
                                 <div class="col-md-4">
                                     <label class="form-label"><strong>Filtrar por área:</strong></label>
                                     <select class="form-select">
@@ -80,6 +124,9 @@
                                         <option>Este año</option>
                                     </select>
                                 </div>
+                                <div class="col-md-4">
+                                    <button class="btn btn-primary w-100">Filtrar</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -97,31 +144,37 @@
                         <div class="card-body">
                             <h3 class="text-center mb-4">Top 3 Usuarios</h3>
                             <div class="row text-center">
-                                <!-- Primer usuario -->
                                 <div class="col-md-4 d-flex flex-column align-items-center mb-4 mb-md-0">
-                                    <div class="d-flex flex-row flex-md-column align-items-center justify-content-center gap-3">
-                                        <div class="rounded-circle bg-warning d-flex align-items-center justify-content-center" style="width: 80px; height: 80px; font-size: 24px; background-color: #f3d00d !important;">P1</div>
-                                        <img src="/TpVisualizacionEInterfaces/imagenes/perfil1.jpg" alt="Foto de Ana García" class="rounded-circle" style="width: 60px; height: 60px; object-fit: cover;">
+                                    <div
+                                        class="d-flex flex-row flex-md-column align-items-center justify-content-center gap-3">
+                                            <i class="bi bi-award-fill fs-1" style="color: #C0C0C0;"></i>
+                                        <img src="../../imagenes/perfil1.jpg" alt="Foto de Ana García"
+                                            class="rounded-circle"
+                                            style="width: 60px; height: 60px; object-fit: cover;">
                                     </div>
                                     <h4 class="mt-3">Ana García</h4>
                                     <p>2,450 puntos</p>
                                     <p class="text-muted small">Desarrollo Web</p>
                                 </div>
-                                <!-- Segundo usuario -->
                                 <div class="col-md-4 d-flex flex-column align-items-center mb-4 mb-md-0">
-                                    <div class="d-flex flex-row flex-md-column align-items-center justify-content-center gap-3">
-                                        <div class="rounded-circle bg-secondary d-flex align-items-center justify-content-center" style="width: 80px; height: 80px; font-size: 24px; background: #a9adaa !important;">P2</div>
-                                        <img src="/TpVisualizacionEInterfaces/imagenes/perfil2.jpg" alt="Foto de Carlos López" class="rounded-circle" style="width: 60px; height: 60px; object-fit: cover;">
+                                    <div
+                                        class="d-flex flex-row flex-md-column align-items-center justify-content-center gap-3">
+                                            <i class="bi bi-award-fill fs-1" style="color: #FFD700;"></i>
+                                        <img src="../../imagenes/perfil2.jpg" alt="Foto de Carlos López"
+                                            class="rounded-circle"
+                                            style="width: 60px; height: 60px; object-fit: cover;">
                                     </div>
                                     <h4 class="mt-3">Carlos López</h4>
-                                    <p>2,380 puntos</p>
+                                    <p>2,580 puntos</p>
                                     <p class="text-muted small">Diseño UX/UI</p>
                                 </div>
-                                <!-- Tercer usuario -->
                                 <div class="col-md-4 d-flex flex-column align-items-center">
-                                    <div class="d-flex flex-row flex-md-column align-items-center justify-content-center gap-3">
-                                        <div class="rounded-circle" style="background: #f09b46; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; font-size: 24px;">P3</div>
-                                        <img src="/TpVisualizacionEInterfaces/imagenes/perfil3.jpg" alt="Foto de María Rodríguez" class="rounded-circle" style="width: 60px; height: 60px; object-fit: cover;">
+                                    <div
+                                        class="d-flex flex-row flex-md-column align-items-center justify-content-center gap-3">
+                                            <i class="bi bi-award-fill fs-1" style="color: #CD7F32;"></i>
+                                        <img src="../../imagenes/perfil3.jpg" alt="Foto de María Rodríguez"
+                                            class="rounded-circle"
+                                            style="width: 60px; height: 60px; object-fit: cover;">
                                     </div>
                                     <h4 class="mt-3">María Rodríguez</h4>
                                     <p>2,150 puntos</p>
@@ -160,39 +213,55 @@
                                             <td><strong>1</strong></td>
                                             <td>
                                                 <div class="d-flex align-items-center gap-3">
-                                                    <img src="/TpVisualizacionEInterfaces/imagenes/perfil1.jpg" alt="Foto de Ana García" class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover;">
-                                                    <div>
-                                                        <strong>Ana García</strong><br>
-                                                        <small class="text-muted">Desarrollo Web</small>
+                                                    <a href="../UsuarioNoLogueado/perfilUsuarioVer.html">
+                                                    <img src="../../imagenes/perfil2.jpg" alt="Foto de Ana García"
+                                                        class="rounded-circle"
+                                                        style="width: 40px; height: 40px; object-fit: cover;">
+                                                        </a>
+                                                        <div>
+                                                            <strong>Carlos López</strong><br>
+                                                            <small class="text-muted">Diseño UX/UI</small>
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                </td>
+                                                <td>7</td>
+                                                <td>10</td>
+                                                <td><strong>2,580</strong></td>
+                                            <td>
+                                                <i class="bi bi-rocket badge-icon" title="Líder de Proyectos"></i>
+                                                <i class="bi bi-star-fill badge-icon" title="Excelencia"></i>
+                                                <i class="bi bi-lightning-charge badge-icon" title="Innovador"></i>
                                             </td>
-                                            <td>8</td>
-                                            <td>12</td>
-                                            <td><strong>2,450</strong></td>
-                                            <td><i class="bi bi-award"></i> <i class="bi bi-trophy"></i> <i class="bi bi-star-fill"></i></td>
                                         </tr>
                                         <tr class="table-light">
                                             <td><strong>2</strong></td>
                                             <td>
                                                 <div class="d-flex align-items-center gap-3">
-                                                    <img src="/TpVisualizacionEInterfaces/imagenes/perfil2.jpg" alt="Foto de Carlos López" class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover;">
-                                                    <div>
-                                                        <strong>Carlos López</strong><br>
-                                                        <small class="text-muted">Diseño UX/UI</small>
+                                                    <img src="../../imagenes/perfil1.jpg" alt="Foto de Carlos López"
+                                                        class="rounded-circle"
+                                                        style="width: 40px; height: 40px; object-fit: cover;">
+                                                        <div>
+                                                            <strong>Ana García</strong><br>
+                                                            <small class="text-muted">Desarrollo Web</small>
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                </td>
+                                                <td>8</td>
+                                                <td>12</td>
+                                                <td><strong>2,450</strong></td>
+                                            <td>
+                                                <i class="bi bi-rocket badge-icon" title="Líder de Proyectos"></i>
+                                                <i class="bi bi-star-fill badge-icon" title="Excelencia"></i>
+                                                <i class="bi bi-lightning-charge badge-icon" title="Innovador"></i>
                                             </td>
-                                            <td>7</td>
-                                            <td>10</td>
-                                            <td><strong>2,380</strong></td>
-                                            <td><i class="bi bi-award"></i> <i class="bi bi-palette"></i> <i class="bi bi-star-fill"></i></td>
                                         </tr>
                                         <tr>
                                             <td><strong>3</strong></td>
                                             <td>
                                                 <div class="d-flex align-items-center gap-3">
-                                                    <img src="/TpVisualizacionEInterfaces/imagenes/perfil3.jpg" alt="Foto de María Rodríguez" class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover;">
+                                                    <img src="../../imagenes/perfil3.jpg" alt="Foto de María Rodríguez"
+                                                        class="rounded-circle"
+                                                        style="width: 40px; height: 40px; object-fit: cover;">
                                                     <div>
                                                         <strong>María Rodríguez</strong><br>
                                                         <small class="text-muted">Data Science</small>
@@ -202,13 +271,18 @@
                                             <td>6</td>
                                             <td>8</td>
                                             <td><strong>2,150</strong></td>
-                                            <td><i class="bi bi-award"></i> <i class="bi bi-bar-chart-line"></i> <i class="bi bi-star-fill"></i></td>
+                                            <td>
+                                                <i class="bi bi-star-fill badge-icon" title="Excelencia"></i>
+                                                <i class="bi bi-lightning-charge badge-icon" title="Innovador"></i>
+                                            </td>
                                         </tr>
                                         <tr class="table-light">
                                             <td>4</td>
                                             <td>
                                                 <div class="d-flex align-items-center gap-3">
-                                                    <img src="/TpVisualizacionEInterfaces/imagenes/perfil4.jpg" alt="Foto de Luis Martínez" class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover;">
+                                                    <img src="../../imagenes/perfil4.jpg" alt="Foto de Luis Martínez"
+                                                        class="rounded-circle"
+                                                        style="width: 40px; height: 40px; object-fit: cover;">
                                                     <div>
                                                         <strong>Luis Martínez</strong><br>
                                                         <small class="text-muted">Marketing Digital</small>
@@ -218,13 +292,17 @@
                                             <td>5</td>
                                             <td>9</td>
                                             <td><strong>1,980</strong></td>
-                                            <td><i class="bi bi-bar-chart-line"></i> <i class="bi bi-star-fill"></i></td>
+                                            <td>
+                                                <i class="bi bi-star-fill badge-icon" title="Excelencia"></i>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>5</td>
                                             <td>
                                                 <div class="d-flex align-items-center gap-3">
-                                                    <img src="/TpVisualizacionEInterfaces/imagenes/perfil5.jpg" alt="Foto de Sofía González" class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover;">
+                                                    <img src="../../imagenes/perfil5.jpg" alt="Foto de Sofía González"
+                                                        class="rounded-circle"
+                                                        style="width: 40px; height: 40px; object-fit: cover;">
                                                     <div>
                                                         <strong>Sofía González</strong><br>
                                                         <small class="text-muted">Gestión de Proyectos</small>
@@ -234,17 +312,21 @@
                                             <td>4</td>
                                             <td>7</td>
                                             <td><strong>1,750</strong></td>
-                                            <td><i class="bi bi-clipboard-data"></i> <i class="bi bi-star-fill"></i></td>
+                                            <td>
+                                                <i class="bi bi-star-fill badge-icon" title="Excelencia"></i>
+                                            </td>
                                         </tr>
                                         <tr class="table-info">
                                             <td>...</td>
                                             <td colspan="5" class="text-center"><em>Tu posición actual</em></td>
                                         </tr>
                                         <tr class="table-info">
-                                            <td><strong>24</strong></td>
+                                            <td><strong>12</strong></td>
                                             <td>
                                                 <div class="d-flex align-items-center gap-3">
-                                                    <img src="/TpVisualizacionEInterfaces/imagenes/JuanPerezPerfil.png" alt="Foto de Juan Pérez" class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover;">
+                                                    <img src="../../imagenes/JuanPerezPerfil.png"
+                                                        alt="Foto de Juan Pérez" class="rounded-circle"
+                                                        style="width: 40px; height: 40px; object-fit: cover;">
                                                     <div>
                                                         <strong>Juan Pérez (Tú)</strong><br>
                                                         <small class="text-muted">Desarrollo Web</small>
@@ -254,7 +336,9 @@
                                             <td>3</td>
                                             <td>2</td>
                                             <td><strong>850</strong></td>
-                                            <td class="bi bi-star-fill"></td>
+                                            <td>
+                                                <i class="bi bi-star-fill badge-icon" title="Excelencia"></i>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -266,36 +350,77 @@
         </div>
     </section>
 
-  <!-- Contenedor de cómo se calcula el puntaje -->
-  <div class="card mb-4">
-        <div class="card-body">
-            <div class="text-center mb-3">
-                <strong>¿Cómo se calcula el puntaje?</strong>
-            </div>
-            <div class="row text-center justify-content-center">
-                <div class="col-12 col-md-6 col-lg-3 mb-3">
-                    <span style="font-weight:bold; color:#198754;"><i class="bi bi-book"></i> Cursos completados</span><br>
-                    <span>100-300 puntos por curso</span><br>
-                    <small class="text-muted">(según nivel)</small>
+
+    <!-- Contenedor de cómo se calcula el puntaje -->
+    <div class="container">
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="text-center mb-3">
+                    <strong>¿Cómo se calcula el puntaje?</strong>
                 </div>
-                <div class="col-12 col-md-6 col-lg-3 mb-3">
-                    <span style="font-weight:bold; color:#0d6efd;"><i class="bi bi-rocket"></i> Proyectos finalizados</span><br>
-                    <span>200-500 puntos por proyecto</span><br>
-                    <small class="text-muted">(según complejidad)</small>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 mb-3">
-                    <span style="font-weight:bold; color:#ffc107;"><i class="bi bi-star-fill"></i> Evaluaciones</span><br>
-                    <span>50-150 puntos</span><br>
-                    <small class="text-muted">(según calificación recibida)</small>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3 mb-3">
-                    <span style="font-weight:bold; color:#ff9800;"><i class="bi bi-trophy"></i> Bonificaciones</span><br>
-                    <span>100+ puntos</span><br>
-                    <small class="text-muted">(liderazgo, innovación)</small>
+                <div class="row text-center justify-content-center">
+                    <div class="col-12 col-md-6 col-lg-3 mb-3">
+                        <span style="font-weight:bold; color:#198754;"><i class="bi bi-book"></i> Cursos
+                            completados</span><br>
+                        <span>100-300 puntos por curso</span><br>
+                        <small class="text-muted">(según nivel)</small>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3 mb-3">
+                        <span style="font-weight:bold; color:#0d6efd;"><i class="bi bi-rocket"></i> Proyectos
+                            finalizados</span><br>
+                        <span>200-500 puntos por proyecto</span><br>
+                        <small class="text-muted">(según complejidad)</small>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3 mb-3">
+                        <span style="font-weight:bold; color:#ffc107;"><i class="bi bi-star-fill"></i>
+                            Evaluaciones</span><br>
+                        <span>50-150 puntos</span><br>
+                        <small class="text-muted">(según calificación recibida)</small>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3 mb-3">
+                        <span style="font-weight:bold; color:#ff9800;"><i class="bi bi-trophy"></i>
+                            Bonificaciones</span><br>
+                        <span>100+ puntos</span><br>
+                        <small class="text-muted">(liderazgo, innovación)</small>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Referencia de Insignias -->
+    <div class="container">
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="text-center mb-3">
+                    <h6 class="mb-2 text-center"><i class="bi bi-info-circle"></i> Guía de Insignias</h6>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="insignia-item text-center">
+                                <i class="bi bi-mortarboard badge-icon" title="Maestro del Aprendizaje"></i>
+                                <span><strong>Maestro del Aprendizaje:</strong> 15+ cursos completados</span>
+                            </div>
+                            <div class="insignia-item text-center">
+                                <i class="bi bi-rocket badge-icon" title="Líder de Proyectos"></i>
+                                <span><strong>Líder de Proyectos:</strong> 10+ proyectos completados</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="insignia-item text-center">
+                                <i class="bi bi-star-fill badge-icon" title="Excelencia"></i>
+                                <span><strong>Excelencia:</strong> Calificaciones promedio superiores a 9.0</span>
+                            </div>
+                            <div class="insignia-item text-center">
+                                <i class="bi bi-lightning-charge badge-icon" title="Innovador"></i>
+                                <span><strong>Innovador:</strong> Contribuciones destacadas y liderazgo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!-- Footer -->
     <footer class="footer">
