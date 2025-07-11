@@ -51,6 +51,31 @@
                 right: 0;
             }
         }
+        /* --- Hero Section con imagen de fondo y opacidad igual a home no logueado --- */
+        .hero-section {
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: #021337; /* color de fondo base */
+            overflow: hidden;
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('../../imagenes/fondohero.jpg') center center/cover no-repeat;
+            opacity: 0.12;
+            z-index: 1;
+        }
+        .hero-section > * {
+            position: relative;
+            z-index: 2;
+        }
+        .hero-section h2, .hero-section p, .hero-section .btn {
+            color: #fff;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+        }
     </style>
 </head>
 <body>
@@ -79,12 +104,14 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero-section py-5 text-center">
-        <h2 class="display-5 mb-3">Aprendé haciendo: proyectos reales, impacto real</h2>
-        <p class="lead mb-4">Conectá tu conocimiento con experiencias prácticas</p>
-        <div class="d-flex justify-content-center gap-3 flex-wrap mb-4">
-            <a href="../ProyectosComponente/proyectosLogueado.html" class="btn btn-accent btn-lg">Explorar proyectos</a>
-            <a href="../CursosComponente/cursosLogueado.html" class="btn btn-outline-light btn-lg">Ver cursos</a>
+    <section class="hero-section">
+        <div class="hero-content-wrapper" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; width: 100%;">
+            <h2 class="display-5 mb-3 text-center">Aprendé haciendo: proyectos reales, impacto real</h2>
+            <p class="lead mb-4 text-center">Conectá tu conocimiento con experiencias prácticas</p>
+            <div class="d-flex flex-row gap-3 align-items-center mb-4">
+                <a href="../ProyectosComponente/proyectosLogueado.html" class="btn btn-accent btn-lg">Explorar proyectos</a>
+                <a href="../CursosComponente/cursosLogueado.html" class="btn btn-outline-light btn-lg">Ver cursos</a>
+            </div>
         </div>
     </section>
 
