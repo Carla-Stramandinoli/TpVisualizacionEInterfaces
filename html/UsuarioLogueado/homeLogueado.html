@@ -5,27 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - TalentLab</title>
     <link rel="stylesheet" href="../../css/bootstrap-custom.css">
+    <style>
+        #proyectosCarousel {
+            position: relative;
+        }
+
+        .carousel-control-custom {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #0B2D59;
+            opacity: 0.5;
+            font-size: 2.2rem;
+            z-index: 2;
+            transition: opacity 0.2s;
+            padding: 0;
+            margin: 0;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-control-custom:hover {
+            opacity: 0.9;
+            color: #0B2D59;
+        }
+
+        .carousel-control-prev-custom {
+            left: -2.5rem;
+        }
+
+        .carousel-control-next-custom {
+            right: -2.5rem;
+        }
+
+        @media (max-width: 991px) {
+            .carousel-control-prev-custom {
+                left: 0;
+            }
+
+            .carousel-control-next-custom {
+                right: 0;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
     <header class="custom-header">
         <div class="container">
-            <div class="row align-items-center m-0">
-                <div class="col-md-6">
-                    <h1 class="h3 mb-0"><i class="bi bi-lightbulb"></i> TalentLab</h1>
-                </div>
-                <div class="col-md-6">
-                    <nav class="navbar navbar-expand-lg navbar-dark">
-                        <div class="navbar-nav ms-auto">
-                            <a class="nav-link active d-flex align-items-center gap-2 text-nowrap" href="homeLogueado.html"><i class="bi bi-house-door"></i><p class="m-0">Inicio</p></a>
-                            <a class="nav-link d-flex align-items-center gap-2 text-nowrap" href="../CursosComponente/cursosLogueado.html"><i class="bi bi-book"></i><p class="m-0">Cursos</p></a>
-                            <a class="nav-link d-flex align-items-center gap-2 text-nowrap" href="../ProyectosComponente/proyectosLogueado.html"><i class="bi bi-rocket"></i><p class="m-0">Proyectos</p></a>
-                            <a class="nav-link d-flex align-items-center gap-2 text-nowrap" href="ranking.html"><i class="bi bi-trophy"></i><p class="m-0">Ranking</p></a>
-                            <a class="nav-link btn-profile d-flex align-items-center gap-2 text-nowrap" href="perfilUsuario.html"><i class="bi bi-person-circle"></i><p class="m-0">Mi Perfil</p></a>
+            <div class="col-md-12 py-2">
+                <nav class="navbar navbar-expand-lg navbar-dark">
+                    <a class="navbar-brand d-lg-none" href="#"><i class="bi bi-lightbulb"></i> TalentLab</a>
+                    <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarLogueadoHome" aria-controls="navbarLogueadoHome" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarLogueadoHome">
+                        <div class="navbar-nav ms-auto ps-3 mt-4 mt-lg-0">
+                            <a class="nav-link active d-flex align-items-center gap-2 text-nowrap" href="./homeLogueado.html"><i class="bi bi-house-door"></i><p class="m-0">Inicio</p></a>
+                            <a class="nav-link d-flex align-items-center gap-2 text-nowrap" href="./cursosLogueado.html"><i class="bi bi-book"></i><p class="m-0">Cursos</p></a>
+                            <a class="nav-link d-flex align-items-center gap-2 text-nowrap" href="./proyectosLogueado.html"><i class="bi bi-rocket"></i><p class="m-0">Proyectos</p></a>
+                            <a class="nav-link d-flex align-items-center gap-2 text-nowrap" href="./ranking.html"><i class="bi bi-trophy"></i><p class="m-0">Ranking</p></a>
+                            <a class="nav-link btn-profile d-flex align-items-center gap-2 text-nowrap" href="./perfilUsuario.html"><i class="bi bi-person-circle"></i><p class="m-0">Mi Perfil</p></a>
                             <a class="nav-link btn-logout d-flex align-items-center gap-2 text-nowrap" href="../UsuarioNoLogueado/homeNoLogueado.html"><i class="bi bi-box-arrow-left"></i><p class="m-0 w-100">Cerrar Sesión</p></a>
                         </div>
-                    </nav>
-                </div>
+                    </div>
+                </nav>
             </div>
         </div>
     </header>
@@ -35,8 +83,8 @@
         <h2 class="display-5 mb-3">Aprendé haciendo: proyectos reales, impacto real</h2>
         <p class="lead mb-4">Conectá tu conocimiento con experiencias prácticas</p>
         <div class="d-flex justify-content-center gap-3 flex-wrap mb-4">
-            <a href="../ProyectosComponente/proyectosLogueado.html" class="btn btn-accent btn-lg">Explorar proyectos</a>
-            <a href="../CursosComponente/cursosLogueado.html" class="btn btn-outline-light btn-lg">Ver cursos</a>
+            <a href="./proyectosLogueado.html" class="btn btn-accent btn-lg">Explorar proyectos</a>
+            <a href="./cursosLogueado.html" class="btn btn-outline-light btn-lg">Ver cursos</a>
         </div>
     </section>
 
@@ -69,38 +117,208 @@
         </div>
     </section>
 
-    <!-- Proyectos destacados -->
-    <section class="py-5">
+     <!-- Listado de proyectos en carrusel -->
+     <section class="py-4">
         <div class="container">
             <h3 class="mb-4">Proyectos destacados</h3>
-            <div class="row g-4 justify-content-center">
-                <div class="col-md-6 col-lg-4">
-                    <div class="card custom-card h-100">
-                        <div class="card-header"><i class="bi bi-mortarboard"></i> App Educativa</div>
-                        <div class="card-body">
-                            <p><strong>ONG EduTech</strong></p>
-                            <p class="mb-1">Tecnología - Desarrollo</p>
-                            <p>Necesitamos desarrolladores para crear una app educativa...</p>
+            <div id="proyectosCarousel" class="carousel slide my-auto" data-bs-ride="false">
+                <button class="carousel-control-custom carousel-control-prev-custom" type="button" data-bs-target="#proyectosCarousel" data-bs-slide="prev" aria-label="Anterior">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 8L12 16L20 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <button class="carousel-control-custom carousel-control-next-custom" type="button" data-bs-target="#proyectosCarousel" data-bs-slide="next" aria-label="Siguiente">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 8L20 16L12 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row g-4">
+                            <!-- Proyecto 1 -->
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card custom-card h-100 d-flex flex-column proyecto-card">
+                                    <div class="card-header"><i class="bi bi-mortarboard"></i> ONG EduTech</div>
+                                    <div class="card-body d-flex flex-column">
+                                        <h4>Plataforma de Aprendizaje Infantil</h4>
+                                        <p>Desarrollar una app web educativa para niños de 6-12 años con juegos interactivos...</p>
+                                        <div class="mb-3">
+                                            <strong>Skills requeridas:</strong> React, Node.js, MongoDB, UX/UI
+                                        </div>
+                                        <div class="mt-auto">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="badge bg-info">3/5 participantes</span>
+                                                <span class="badge bg-success">ABIERTO</span>
+                                            </div>
+                                            <a href="../ProyectosComponente/proyectoDetalle.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Proyecto 2 -->
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card custom-card h-100 d-flex flex-column proyecto-card">
+                                    <div class="card-header"><i class="bi bi-geo-alt"></i> Map4All</div>
+                                    <div class="card-body d-flex flex-column">
+                                        <h4>Mapa de Accesibilidad Urbana</h4>
+                                        <p>Crea una app colaborativa para mapear rampas, baños accesibles y servicios inclusivos en la ciudad.</p>
+                                        <div class="mb-3">
+                                            <strong>Skills requeridas:</strong> React Native, Mapbox, Node.js, QA
+                                        </div>
+                                        <div class="mt-auto">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="badge bg-info">3/7 participantes</span>
+                                                <span class="badge bg-success">ABIERTO</span>
+                                            </div>
+                                            <a href="../ProyectosComponente/proyectoDetalle.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Proyecto 3 -->
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card custom-card h-100 d-flex flex-column proyecto-card">
+                                    <div class="card-header"><i class="bi bi-droplet"></i> AguaSegura ONG</div>
+                                    <div class="card-body d-flex flex-column">
+                                        <h4>Monitoreo de Calidad de Agua</h4>
+                                        <p>Desarrollá sensores y una plataforma para reportar y visualizar la calidad del agua en zonas rurales.</p>
+                                        <div class="mb-3">
+                                            <strong>Skills requeridas:</strong> Arduino, Python, IoT, Power BI
+                                        </div>
+                                        <div class="mt-auto">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="badge bg-info">2/6 participantes</span>
+                                                <span class="badge bg-success">ABIERTO</span>
+                                            </div>
+                                            <a href="../ProyectosComponente/proyectoDetalle.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row g-4">
+                            <!-- Proyecto 4 -->
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card custom-card h-100 d-flex flex-column proyecto-card">
+                                    <div class="card-header"><i class="bi bi-tree"></i> Fundación EcoVida</div>
+                                    <div class="card-body d-flex flex-column">
+                                        <h4>Huerta Urbana Inteligente</h4>
+                                        <p>Desarrollar sensores IoT para monitorear y optimizar huertas urbanas comunitarias.</p>
+                                        <div class="mb-3">
+                                            <strong>Skills requeridas:</strong> Arduino, Python, IoT, UX/UI
+                                        </div>
+                                        <div class="mt-auto">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="badge bg-info">1/5 participantes</span>
+                                                <span class="badge bg-success">ABIERTO</span>
+                                            </div>
+                                            <a href="../ProyectosComponente/proyectoDetalle.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Proyecto 5 -->
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card custom-card h-100 d-flex flex-column proyecto-card">
+                                    <div class="card-header"><i class="bi bi-flower2"></i> PyME AgroTech</div>
+                                    <div class="card-body d-flex flex-column">
+                                        <h4>Gestión de Cultivos</h4>
+                                        <p>Plataforma para registrar y analizar datos de cultivos en tiempo real.</p>
+                                        <div class="mb-3">
+                                            <strong>Skills requeridas:</strong> Java, Spring, SQL, QA
+                                        </div>
+                                        <div class="mt-auto">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="badge bg-info">4/8 participantes</span>
+                                                <span class="badge bg-success">ABIERTO</span>
+                                            </div>
+                                            <a href="../ProyectosComponente/proyectoDetalle.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Proyecto 6 -->
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card custom-card h-100 d-flex flex-column proyecto-card">
+                                    <div class="card-header"><i class="bi bi-heart-pulse"></i> ONG SaludAR</div>
+                                    <div class="card-body d-flex flex-column">
+                                        <h4>Red de Donantes</h4>
+                                        <p>App para conectar donantes de sangre con hospitales y pacientes en tiempo real.</p>
+                                        <div class="mb-3">
+                                            <strong>Skills requeridas:</strong> Flutter, Firebase, UX/UI
+                                        </div>
+                                        <div class="mt-auto">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="badge bg-info">2/6 participantes</span>
+                                                <span class="badge bg-success">ABIERTO</span>
+                                            </div>
+                                            <a href="proyectoDetalle.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
+                                        </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card custom-card h-100">
-                        <div class="card-header"><i class="bi bi-people"></i> Campaña Social</div>
-                        <div class="card-body">
-                            <p><strong>Fundación Verde</strong></p>
-                            <p class="mb-1">Diseño - Marketing</p>
-                            <p>Diseñá una campaña de concientización ambiental...</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row g-4">
+                            <!-- Proyecto 7 -->
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card custom-card h-100 d-flex flex-column proyecto-card">
+                                    <div class="card-header"><i class="bi bi-cash-coin"></i> Startup FinanTech</div>
+                                    <div class="card-body d-flex flex-column">
+                                        <h4>Educación Financiera Joven</h4>
+                                        <p>Desarrollar una app para enseñar finanzas personales a jóvenes con juegos y retos.</p>
+                                        <div class="mb-3">
+                                            <strong>Skills requeridas:</strong> React Native, Node.js, UX/UI
+                                        </div>
+                                        <div class="mt-auto">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="badge bg-info">3/5 participantes</span>
+                                                <span class="badge bg-success">ABIERTO</span>
+                                            </div>
+                                            <a href="../ProyectosComponente/proyectoDetalle.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Proyecto 8 -->
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card custom-card h-100 d-flex flex-column proyecto-card">
+                                    <div class="card-header"><i class="bi bi-music-note-beamed"></i> ONG Cultura+</div>
+                                    <div class="card-body d-flex flex-column">
+                                        <h4>Plataforma de Voluntariado</h4>
+                                        <p>Web para conectar voluntarios con eventos culturales y sociales en su ciudad.</p>
+                                        <div class="mb-3">
+                                            <strong>Skills requeridas:</strong> Vue.js, Firebase, Marketing
+                                        </div>
+                                        <div class="mt-auto">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="badge bg-info">5/10 participantes</span>
+                                                <span class="badge bg-success">ABIERTO</span>
+                                            </div>
+                                            <a href="../ProyectosComponente/proyectoDetalle.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Proyecto 9 -->
+                            <div class="col-lg-4 col-md-6">
+                                <div class="card custom-card h-100 d-flex flex-column proyecto-card">
+                                    <div class="card-header"><i class="bi bi-building"></i> PyME GreenBuild</div>
+                                    <div class="card-body d-flex flex-column">
+                                        <h4>Gestión de Residuos</h4>
+                                        <p>Desarrollar un sistema para optimizar la recolección y reciclaje de residuos urbanos.</p>
+                                        <div class="mb-3">
+                                            <strong>Skills requeridas:</strong> Angular, .NET, SQL, QA
+                                        </div>
+                                        <div class="mt-auto">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="badge bg-info">6/12 participantes</span>
+                                                <span class="badge bg-success">ABIERTO</span>
+                                            </div>
+                                            <a href="../ProyectosComponente/proyectoDetalle.html" class="btn btn-secondary w-100 mt-3">Ver proyecto</a>
+                                        </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card custom-card h-100">
-                        <div class="card-header"><i class="bi bi-cart"></i> E-commerce PyME</div>
-                        <div class="card-body">
-                            <p><strong>Tienda Local SA</strong></p>
-                            <p class="mb-1">Tecnología - UX/UI</p>
-                            <p>Ayudá a una PyME local a digitalizar su negocio...</p>
                         </div>
                     </div>
                 </div>
@@ -108,38 +326,176 @@
         </div>
     </section>
 
-    <!-- Cursos destacados -->
-    <section class="py-5 bg-light">
+    <!-- Cursos Destacados -->
+    <section class="py-4">
         <div class="container">
             <h3 class="mb-4">Cursos destacados</h3>
-            <div class="row g-4 justify-content-center">
-                <div class="col-md-6 col-lg-4">
+            <div id="proyectosCarousel" class="carousel slide my-auto" data-bs-ride="false">
+                <button class="carousel-control-custom carousel-control-prev-custom" type="button"
+                    data-bs-target="#proyectosCarousel" data-bs-slide="prev" aria-label="Anterior">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 8L12 16L20 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <button class="carousel-control-custom carousel-control-next-custom" type="button"
+                    data-bs-target="#proyectosCarousel" data-bs-slide="next" aria-label="Siguiente">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 8L20 16L12 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row g-4">
+                            <!-- Curso 1 -->
+                            <div class="col-lg-4 col-md-4">
                     <div class="card custom-card h-100">
-                        <div class="card-header"><i class="bi bi-code-slash"></i> React Básico</div>
+                                    <div class="card-header"><i class="bi bi-filetype-js"></i> JavaScript Avanzado</div>
                         <div class="card-body">
-                            <p><strong>Nivel:</strong> Básico</p>
-                            <p><strong>Duración:</strong> 4 semanas</p>
-                            <p>Aprende los fundamentos de React para desarrollo web...</p>
+                                        <p><strong>Categoría:</strong> Tecnología</p>
+                                        <p><strong>Nivel:</strong> Avanzado | <strong>Duración:</strong> 6 semanas</p>
+                                        <p>Domina conceptos avanzados de JavaScript: closures, prototipos, async/await,
+                                            y patrones modernos de desarrollo web.</p>
+                                        <div class="mb-3">
+                                            <strong>Herramientas:</strong> Visual Studio Code, Node.js y npm, Git y GitHub
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="badge bg-warning text-dark">Avanzado</span>
+                                            <span class="badge bg-secondary">6 semanas</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center mt-2">
+                                            <span class="badge bg-success">DISPONIBLE</span>
+                                        </div>
+                                        <a
+                                                style="text-decoration: none; color: white"
+                                                href="../CursosComponente/cursoDetalle.html">
+                                                <button class="btn btn-secondary w-100 mt-3">Ver curso</button>
+                                            </a>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Curso 2 -->
+                            <div class="col-lg-4 col-md-4">
+                                <div class="card custom-card h-100 d-flex flex-column">
+                                    <div class="card-header"><i class="bi bi-brush"></i> Creativa Studio</div>
+                                    <div class="card-body d-flex flex-column">
+                                        <h4>Diseño Gráfico Digital</h4>
+                                        <p>Aprendé a crear piezas visuales impactantes para redes sociales, branding y publicidad digital.</p>
+                                        <div class="mb-3">
+                                            <strong>Herramientas:</strong> Photoshop, Illustrator, Canva, Inkscape
+                                        </div>
+                                        <div class="mt-auto">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="badge bg-success">Principiante</span>
+                                                <span class="badge bg-secondary">5 semanas</span>
+                                            </div>
+                                            <div class="d-flex justify-content-between align-items-center mt-2">
+                                                <span class="badge bg-success">DISPONIBLE</span>
+                                            </div>
+                                            <button class="btn btn-secondary w-100 mt-3">Ver curso</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Curso 3 -->
+                            <div class="col-lg-4 col-md-4">
+                                <div class="card custom-card h-100 d-flex flex-column">
+                                    <div class="card-header"><i class="bi bi-bar-chart"></i> DataLab Academy</div>
+                                    <div class="card-body d-flex flex-column">
+                                        <h4>Análisis de Datos Empresariales</h4>
+                                        <p>Descubrí cómo transformar datos en decisiones estratégicas usando herramientas modernas de análisis.</p>
+                                        <div class="mb-3">
+                                            <strong>Tecnologías:</strong> Excel, Power BI, Tableau, SQL
+                                        </div>
+                                        <div class="mt-auto">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="badge bg-primary">Intermedio</span>
+                                                <span class="badge bg-secondary">8 semanas</span>
+                                            </div>
+                                            <div class="d-flex justify-content-between align-items-center mt-2">
+                                                <span class="badge bg-success">DISPONIBLE</span>
+                                            </div>
+                                            <button class="btn btn-secondary w-100 mt-3">Ver curso</button>
+                                        </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card custom-card h-100">
-                        <div class="card-header"><i class="bi bi-palette"></i> Diseño UX/UI</div>
-                        <div class="card-body">
-                            <p><strong>Nivel:</strong> Intermedio</p>
-                            <p><strong>Duración:</strong> 6 semanas</p>
-                            <p>Domina los principios del diseño centrado en el usuario...</p>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card custom-card h-100">
-                        <div class="card-header"><i class="bi bi-kanban"></i> Gestión de Proyectos</div>
-                        <div class="card-body">
-                            <p><strong>Nivel:</strong> Avanzado</p>
-                            <p><strong>Duración:</strong> 8 semanas</p>
-                            <p>Lidera equipos y gestiona proyectos exitosos...</p>
+                    <div class="carousel-item">
+                        <div class="row g-4">
+                            <!-- Curso 4 -->
+                            <div class="col-lg-4 col-md-4">
+                                <div class="card custom-card h-100 d-flex flex-column">
+                                    <div class="card-header"><i class="bi bi-globe"></i> WebGlobal School</div>
+                                    <div class="card-body d-flex flex-column">
+                                        <h4>Desarrollo Web Full Stack</h4>
+                                        <p>Convertite en desarrollador web creando aplicaciones completas con las tecnologías más demandadas.</p>
+                                        <div class="mb-3">
+                                            <strong>Servicios:</strong> HTML, CSS, JavaScript, Node.js, MongoDB
+                                        </div>
+                                        <div class="mt-auto">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="badge bg-warning text-dark">Avanzado</span>
+                                                <span class="badge bg-secondary">12 semanas</span>
+                                            </div>
+                                            <div class="d-flex justify-content-between align-items-center mt-2">
+                                                <span class="badge bg-success">DISPONIBLE</span>
+                                            </div>
+                                            <button class="btn btn-secondary w-100 mt-3">Ver curso</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Curso 5 -->
+                            <div class="col-lg-4 col-md-4">
+                                <div class="card custom-card h-100 d-flex flex-column">
+                                    <div class="card-header"><i class="bi bi-cpu"></i> TechAI Center</div>
+                                    <div class="card-body d-flex flex-column">
+                                        <h4>Introducción a la Inteligencia Artificial</h4>
+                                        <p>Explorá los conceptos clave de la IA y el machine learning con ejercicios prácticos y casos reales.</p>
+                                        <div class="mb-3">
+                                            <strong>Tecnologías:</strong> Python, Scikit-learn, Jupyter, Google Colab
+                                        </div>
+                                        <div class="mt-auto">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="badge bg-primary">Intermedio</span>
+                                                <span class="badge bg-secondary">10 semanas</span>
+                                            </div>
+                                            <div class="d-flex justify-content-between align-items-center mt-2">
+                                                <span class="badge bg-warning text-dark">PRÓXIMAMENTE</span>
+                                            </div>
+                                            <button class="btn btn-secondary w-100 mt-3" disabled>Ver curso</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Curso 6 -->
+                            <div class="col-lg-4 col-md-4">
+                                <div class="card custom-card h-100 d-flex flex-column">
+                                    <div class="card-header"><i class="bi bi-shield-lock"></i> SecureIT Academy</div>
+                                    <div class="card-body d-flex flex-column">
+                                        <h4>Seguridad Informática y Redes</h4>
+                                        <p>Aprendé a proteger sistemas, redes y datos frente a amenazas y vulnerabilidades actuales.</p>
+                                        <div class="mb-3">
+                                            <strong>Herramientas:</strong> Wireshark, Cisco Packet Tracer, Nmap, Firewalls
+                                        </div>
+                                        <div class="mt-auto">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span class="badge bg-warning text-dark">Avanzado</span>
+                                                <span class="badge bg-secondary">9 semanas</span>
+                                            </div>
+                                            <div class="d-flex justify-content-between align-items-center mt-2">
+                                                <span class="badge bg-success">DISPONIBLE</span>
+                                            </div>
+                                            <button class="btn btn-secondary w-100 mt-3">Ver curso</button>
+                                        </div>
+                        </div>
+                    </div>
                         </div>
                     </div>
                 </div>
@@ -178,4 +534,4 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html> 
+</html>
