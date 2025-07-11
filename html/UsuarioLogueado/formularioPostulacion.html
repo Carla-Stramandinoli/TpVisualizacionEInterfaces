@@ -13,6 +13,14 @@
         .bg-light {
             background: var(--background-color) !important;
         }
+        .custom-step-header {
+            background: #0B2D59;
+            color: #fff;
+            padding: 1.2rem 1rem;
+            border-radius: 12px 12px 0 0;
+            text-align: center;
+            margin-bottom: 0;
+        }
         .step-indicator {
             display: flex;
             justify-content: center;
@@ -160,6 +168,63 @@
         .skill-icon {
             color: #0B2D59;
         }
+        .custom-step-header-extend {
+            border-radius: 12px 12px 0 0 !important;
+            background: #0B2D59;
+            overflow: hidden;
+        }
+        .custom-card {
+            border-radius: 12px !important;
+            background: #fff !important;
+        }
+        @media (max-width: 768px) {
+            .step-indicator {
+                max-width: 320px;
+            }
+            .step {
+                max-width: 110px;
+                min-width: 90px;
+                width: 100%;
+                margin-right: 1rem;
+            }
+            .step:last-child {
+                margin-right: 0;
+            }
+            .step-title {
+                font-size: 0.75rem;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                padding: 0 2px;
+            }
+            .step-number {
+                font-size: 1rem;
+                width: 32px;
+                height: 32px;
+            }
+            .step-bar {
+                left: 10%;
+                width: 80%;
+            }
+        }
+        @media (min-width: 993px) and (max-width: 1200px) {
+            .step-indicator {
+                width: 100%;
+                max-width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+                padding: 0 1.5rem;
+                box-sizing: border-box;
+            }
+            .step {
+                flex: 1 1 0;
+                max-width: none;
+                min-width: 0;
+                margin: 0 0.5rem;
+                padding: 0.5rem 0.1rem 0.4rem 0.1rem;
+                box-sizing: border-box;
+            }
+        }
     </style>
 </head>
 
@@ -216,6 +281,9 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="card custom-card shadow-lg">
+                        <div class="custom-step-header">
+                            <h3 class="mb-0">Postulación</h3>
+                        </div>
                         <div class="card-body p-4">
                             <!-- Barra de progreso -->
                             <div class="progress-bar-custom">
@@ -227,15 +295,24 @@
                                 <div class="step-bar"></div>
                                 <div class="step active" data-step="1">
                                     <div class="step-number">1</div>
-                                    <div class="step-title small">Rol y Habilidades</div>
+                                    <div class="step-title small">
+  <span class="d-none d-md-inline">Rol y Habilidades</span>
+  <span class="d-inline d-md-none">Rol y<br>Habilidades</span>
+</div>
                                 </div>
                                 <div class="step" data-step="2">
                                     <div class="step-number">2</div>
-                                    <div class="step-title small">Motivación</div>
+                                    <div class="step-title small">
+  <span class="d-none d-md-inline">Motivación</span>
+  <span class="d-inline d-md-none">Motivación<br><br></span>
+</div>
                                 </div>
                                 <div class="step" data-step="3">
                                     <div class="step-number">3</div>
-                                    <div class="step-title small">Contacto</div>
+                                    <div class="step-title small">
+  <span class="d-none d-md-inline">Contacto</span>
+  <span class="d-inline d-md-none">Contacto<br><br></span>
+</div>
                                 </div>
                             </div>
 
@@ -254,6 +331,7 @@
                                                 <option value="designer">UX/UI Designer</option>
                                                 <option value="qa">QA Tester</option>
                                             </select>
+                                            <div class="invalid-feedback" style="display:none">Este campo es obligatorio</div>
                                         </div>
                                         <div class="col-12">
                                             <label class="form-label">Selecciona las tecnologías que dominas *</label>
@@ -323,6 +401,7 @@
 </span>
                                                 </div>
                                             </div>
+                                            <div id="techFeedback" class="invalid-feedback" style="display:none"></div>
                                         </div>
                                         <div class="col-12">
                                             <label class="form-label">Disponibilidad horaria semanal *</label>
@@ -333,6 +412,7 @@
                                                 <option value="15-20">15-20 horas</option>
                                                 <option value="20+">Más de 20 horas</option>
                                             </select>
+                                            <div class="invalid-feedback" style="display:none">Este campo es obligatorio</div>
                                         </div>
                                     </div>
                                 </div>
@@ -344,10 +424,12 @@
                                         <div class="col-12">
                                             <label class="form-label">¿Por qué querés participar en este proyecto? *</label>
                                             <textarea class="form-control" rows="5" placeholder="Contanos qué te motiva a participar en este proyecto educativo..." required></textarea>
+                                            <div class="invalid-feedback" style="display:none">Este campo es obligatorio</div>
                                         </div>
                                         <div class="col-12">
                                             <label class="form-label">¿Qué podés aportar al equipo? *</label>
                                             <textarea class="form-control" rows="4" placeholder="Describe qué habilidades o experiencia podés contribuir..." required></textarea>
+                                            <div class="invalid-feedback" style="display:none">Este campo es obligatorio</div>
                                         </div>
                                     </div>
                                 </div>
@@ -363,6 +445,7 @@
                                                 <label class="input-group-text" for="nombreInput">
                                                     <i class="bi bi-pencil"></i>
                                                 </label>
+                                                <div class="invalid-feedback" style="display:none">Este campo es obligatorio</div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -372,6 +455,7 @@
                                                 <label class="input-group-text" for="apellidoInput">
                                                     <i class="bi bi-pencil"></i>
                                                 </label>
+                                                <div class="invalid-feedback" style="display:none">Este campo es obligatorio</div>
                                             </div>
                                         </div>
                                         <div class="col-12">
@@ -381,6 +465,7 @@
                                                 <label class="input-group-text" for="emailInput">
                                                     <i class="bi bi-pencil"></i>
                                                 </label>
+                                                <div class="invalid-feedback" style="display:none">Este campo es obligatorio</div>
                                             </div>
                                         </div>
                                         <div class="col-12">
@@ -389,6 +474,7 @@
                                                 <label class="form-check-label" for="terms1">
                                                     Acepto participar en equipo y cumplir con los plazos establecidos *
                                                 </label>
+                                                <div class="invalid-feedback" style="display:none">Debes aceptar para continuar</div>
                                             </div>
                                         </div>
                                         <div class="col-12">
@@ -397,6 +483,7 @@
                                                 <label class="form-check-label" for="terms2">
                                                     Acepto que mi participación sea evaluada al finalizar el proyecto *
                                                 </label>
+                                                <div class="invalid-feedback" style="display:none">Debes aceptar para continuar</div>
                                             </div>
                                         </div>
                                     </div>
@@ -468,37 +555,70 @@
         function validateStep(step) {
             const currentStepElement = document.querySelector(`.step-content[data-step="${step}"]`);
             if (!currentStepElement) return true;
-            
+
             const requiredFields = currentStepElement.querySelectorAll('[required]');
             let isValid = true;
-            
-            // Check select fields
+
+            // Limpiar mensajes previos
             requiredFields.forEach(field => {
                 field.classList.remove('is-invalid');
+                const feedback = field.parentElement.querySelector('.invalid-feedback');
+                if (feedback) feedback.style.display = 'none';
+            });
+            // Limpiar mensaje de tecnologías
+            const techFeedback = document.getElementById('techFeedback');
+            if (techFeedback) techFeedback.style.display = 'none';
+
+            // Validar campos
+            requiredFields.forEach(field => {
                 if (field.tagName === 'SELECT' && !field.value) {
                     field.classList.add('is-invalid');
+                    const feedback = field.parentElement.querySelector('.invalid-feedback');
+                    if (feedback) {
+                        feedback.textContent = 'Este campo es obligatorio';
+                        feedback.style.display = 'block';
+                    }
                     isValid = false;
                 } else if (field.tagName === 'TEXTAREA' && !field.value.trim()) {
                     field.classList.add('is-invalid');
+                    const feedback = field.parentElement.querySelector('.invalid-feedback');
+                    if (feedback) {
+                        feedback.textContent = 'Este campo es obligatorio';
+                        feedback.style.display = 'block';
+                    }
                     isValid = false;
                 } else if (field.tagName === 'INPUT' && field.type === 'checkbox' && !field.checked) {
                     field.classList.add('is-invalid');
+                    const feedback = field.parentElement.querySelector('.invalid-feedback');
+                    if (feedback) {
+                        feedback.textContent = 'Debes aceptar para continuar';
+                        feedback.style.display = 'block';
+                    }
                     isValid = false;
                 } else if (field.tagName === 'INPUT' && (field.type === 'text' || field.type === 'email') && !field.value.trim()) {
                     field.classList.add('is-invalid');
+                    const feedback = field.parentElement.querySelector('.invalid-feedback');
+                    if (feedback) {
+                        feedback.textContent = 'Este campo es obligatorio';
+                        feedback.style.display = 'block';
+                    }
                     isValid = false;
                 }
             });
-            
-            // Check if at least one skill is selected in step 1
+
+            // Validar tecnologías en paso 1
             if (step === 1) {
                 const selectedSkills = document.querySelectorAll('.skill-tag.selected');
                 if (selectedSkills.length === 0) {
-                    alert('Por favor selecciona al menos una tecnología que domines');
+                    const techFeedback = document.getElementById('techFeedback');
+                    if (techFeedback) {
+                        techFeedback.textContent = 'Por favor selecciona al menos una tecnología que domines';
+                        techFeedback.style.display = 'block';
+                    }
                     isValid = false;
                 }
             }
-            
+
             return isValid;
         }
         
@@ -569,6 +689,12 @@
                     // Hide form and show success message
                     document.getElementById('postulationForm').style.display = 'none';
                     document.querySelector('.step-indicator').style.display = 'none';
+                    const bar = document.querySelector('.step-bar');
+                    if (bar) { bar.style.display = 'none'; }
+                    const header = document.querySelector('.custom-step-header-extend');
+                    if (header) { header.style.display = 'none'; }
+                    const progressBar = document.querySelector('.progress-bar-custom');
+                    if (progressBar) { progressBar.style.display = 'none'; }
                     document.getElementById('successMessage').style.display = 'block';
                     
                     // Scroll to success message
